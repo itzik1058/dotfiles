@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+get_volume() { pactl get-sink-volume @DEFAULT_SINK@ | awk -W posix '/^Volume: / {gsub("%,?", ""); print $5; exit}'; }
+get_sink_mute() { pactl get-sink-mute @DEFAULT_SINK@; }
+get_source_mute() { pactl get-source-mute @DEFAULT_SOURCE@; }
+
+prev_volume=$(get_volume)
+prev_sink_mute=$(get_sink_mute)
+prev_source_mute=$(get_source_mute)
+pactl subscribe | grep --line-buffered -e "sink" -e "source" |
+while read; do
+	volume=$(get_volume)
+	if [[ $volume != "$prev_volume" ]]; then
+        echo "volume change"
+        notify-send " " -a "Volume" -u low -h string:synchronous:volume -h int:value:$volume -i 'audio-volume-high-symbolic'
+		prev_volume=$volume
+	fi
+    sink_mute=$(get_sink_mute)
+    if [[ $sink_mute != "$prev_sink_mute" ]]; then
+        echo "sink mute change"
+        if [[ $sink_mute = "Mute: yes" ]]; then
+            notify-send " " -a "Volume" -u low -h string:synchronous:volume -i 'audio-volume-muted-symbolic'
+        else
+            notify-send " " -a "Volume" -u low -h string:synchronous:volume -i 'audio-volume-high-symbolic'
+        fi
+        prev_sink_mute=$sink_mute
+    fi
+    source_mute=$(get_source_mute)
+    if [[ $source_mute != "$prev_source_mute" ]]; then
+        echo "source mute change"
+        if [[ $source_mute = "Mute: yes" ]]; then
+            notify-send " " -a "Volume" -u low -h string:synchronous:volume -i 'microphone-sensitivity-muted-symbolic'
+        else
+            notify-send " " -a "Volume" -u low -h string:synchronous:volume -i 'microphone-sensitivity-high-symbolic'
+        fi
+        prev_source_mute=$source_mute
+    fi
+    echo "$volume $sink_mute $source_mute"
+done

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+battery() { acpi | head -n 1 | cut -d ':' -f2 | cut -d ',' -f$1 | cut -c 2-; }
+battery_status() { battery 1; }
+battery_charge() { battery 2; }
+
+prev_status=$(battery_status)
+acpi_listen | grep --line-buffered -e "ac_adapter" |
+while read; do
+    status=$(battery_status)
+    if [[ $status != "$prev_status" ]]; then
+        charge=$(awk -v n="$(battery_charge)" 'BEGIN{print int((n+5)/10) * 10}')
+        echo "$status $charge"
+        if [[ $status = "Charged" || $status = "Not charging" ]]; then
+            notify-send "$status" -a "Battery" -u low -h string:synchronous:battery -i 'battery-level-100-charged-symbolic'
+        elif [[ $status = "Charging" ]]; then
+            notify-send "$status" -a "Battery" -u low -h string:synchronous:battery -i "battery-level-$charge-charging-symbolic"
+        elif [[ $status = "Discharging" ]]; then
+            notify-send "$status" -a "Battery" -u low -h string:synchronous:battery -i "battery-level-$charge-symbolic"
+        fi
+    fi
+    prev_status=$status
+done

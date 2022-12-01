@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+brightness=$(xbacklight)
+notify-send " " -a "Brightness" -u low -h string:synchronous:brightness -h int:value:"${brightness%.*}"

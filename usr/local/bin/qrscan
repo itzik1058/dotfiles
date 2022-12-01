@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+tmpfile=$(mktemp)
+maim -oBsulc 0.1,0.1,0.1,0.6 > "$tmpfile"
+scanresult=$(zbarimg --quiet --raw "$tmpfile" | tr -d '\n')
+
+if [ -z "$scanresult" ]; then
+    notify-send "QR Scan" "Scan failed"
+    echo "Scan failed"
+else
+    echo "$scanresult" | xclip -selection c -filter
+    convert "$tmpfile" -resize 75x75 "$tmpfile"
+    notify-send -i "$tmpfile" "QR Scan" "$scanresult\n(copied to clipboard)"
+    echo "$scanresult"
+fi
+rm "$tmpfile"
