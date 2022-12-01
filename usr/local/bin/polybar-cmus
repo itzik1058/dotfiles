@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+info=$(cmus-remote -Q)
+property() { echo $(echo "$info" | grep "^$1\b" | awk '{print $2}'); }
+variable() { echo $(echo "$info" | grep "^set \b$1\b" | awk '{print $3}'); }
+status=$(property status)
+position=$(property position)
+duration=$(property duration)
+repeat=$(variable repeat)
+repeat_current=$(variable repeat_current)
+shuffle=$(variable shuffle)
+
+position_time=$(echo $position | awk '{printf "%02d:%02d", $1/60, $1%60}')
+duration_time=$(echo $duration | awk '{printf "%02d:%02d", $1/60, $1%60}')
+
+if [[ $status = "playing" ]]; then
+    printf "%s/%s 契" $position_time $duration_time
+elif [[ $status = "paused" ]]; then
+    printf "%s/%s " $position_time $duration_time
+elif [[ $status = "stopped" ]]; then
+    printf "N/A"
+fi
+
+if [[ $repeat_current = "true" ]]; then
+    printf " 綾"
+elif [[ $repeat = "true" ]]; then
+    printf " 凌"
+else
+    printf " 稜"
+fi
+
+if [[ $shuffle = "tracks" ]]; then
+    printf " 咽 T"
+elif [[ $shuffle = "albums" ]]; then
+    printf " 咽 A"
+fi

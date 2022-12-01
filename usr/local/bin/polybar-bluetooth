@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [[ $(bluetoothctl show | grep -o "Powered: yes" | wc -c) != 0 ]]; then
+    device=$(echo quit | bluetoothctl | tail -n 1 | grep -oE "\[([^[]+)\]")
+    if [[ $device = "[bluetooth]" ]]; then
+        printf ""
+    else
+        printf " ${device:1:-1}"
+    fi
+else
+    printf ' '
+fi
