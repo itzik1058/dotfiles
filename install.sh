@@ -78,7 +78,7 @@ git clone https://github.com/ujjwal96/xwinwrap.git && cd xwinwrap && make && sud
 # sed -i 's;/usr/bin/google-chrome-stable;/usr/bin/google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode;g' ~/.local/share/applications/google-chrome.desktop
 
 # move configuration files
-cp -l .zshrc ~/.zshrc
+cp -lf .zshrc ~/.zshrc
 cp -al .config/* ~/.config/
 
 # move bin
