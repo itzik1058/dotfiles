@@ -20,7 +20,8 @@ pkg_fonts=(
 )
 
 pkg_util=(
-    zsh                         # shell
+    # zsh                       # shell
+    fish                        # shell
     alacritty                   # terminal
     xss-lock                    # screen auto lock
     ffmpeg                      # media conversion
@@ -68,17 +69,19 @@ yay -Syu ${pkg_util[@]} ${pkg_fonts[@]} ${pkg_desktop[@]} ${pkg_apps[@]}
 systemctl enable ${services[@]}
 systemctl start ${services[@]}
 
-# ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-sudo chsh -s /bin/zsh
-# xwinwrap
+# # ohmyzsh
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# sudo chsh -s /bin/zsh
+sudo chsh -s /bin/fish
+
+# xwinwrap (for animated background)
 git clone https://github.com/ujjwal96/xwinwrap.git && cd xwinwrap && make && sudo make install && make clean && cd .. && rm -rf xwinwrap
 
 # cp /usr/share/applications/google-chrome.desktop ~/.local/share/applications/google-chrome.desktop
 # sed -i 's;/usr/bin/google-chrome-stable;/usr/bin/google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode;g' ~/.local/share/applications/google-chrome.desktop
 
 # move configuration files
-cp -lf .zshrc ~/.zshrc
+# cp -lf .zshrc ~/.zshrc
 cp -al .config/* ~/.config/
 
 # move bin
