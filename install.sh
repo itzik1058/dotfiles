@@ -41,6 +41,8 @@ pkg_apps=(
     mpv                         # video
     nitrogen                    # image viewer
     code                        # ide
+    code-marketplace            # (AUR) vscode extensions
+    code-features               # (AUR) vscode extensions dependencies
     thunar ranger               # file browser
     google-chrome               # web browser
     bitwarden                   # password manager
