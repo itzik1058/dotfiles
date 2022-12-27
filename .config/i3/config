@@ -9,6 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+
+set $terminal   alacritty
+set $browser    google-chrome-stable
+
 include bindings.conf
 include style.conf
 include autostart.conf
