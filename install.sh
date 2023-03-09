@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-cd $(dirname $(realpath $0))
+cd $(dirname $(realpath $0)) || exit
 
 pkg_desktop=(
-    i3-gaps                     # window manager
-    i3lock                      # lock screen
+    i3-wm                       # window manager
     rofi                        # menus
     polybar                     # status bars
     libnotify                   # notification events
@@ -14,8 +13,12 @@ pkg_desktop=(
 )
 
 pkg_fonts=(
-    ttf-fira-code
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
     ttf-font-awesome
+    ttf-fira-code
     # nerd-fonts-complete
 )
 
@@ -23,7 +26,7 @@ pkg_util=(
     # zsh                       # shell
     fish                        # shell
     alacritty                   # terminal
-    xss-lock                    # screen auto lock
+    # xss-lock                  # screen auto lock
     ffmpeg                      # media conversion
     bluez bluez-utils           # bluetooth
     acpi                        # battery status
@@ -37,6 +40,8 @@ pkg_util=(
 )
 
 pkg_apps=(
+    network-manager-applet      # network manager
+    blueman                     # bluetooth manager
     cmus                        # audio
     mpv                         # video
     nitrogen                    # image viewer
@@ -84,14 +89,15 @@ git clone https://github.com/ujjwal96/xwinwrap.git && cd xwinwrap && make && sud
 
 # move configuration files
 # cp -lf .zshrc ~/.zshrc
+cp -lf .xinitrc ~/.xinitrc
 cp -al .config/* ~/.config/
 
 # move bin
 sudo ln -f usr/local/bin/* /usr/local/bin/
 
 # move fonts
-mkdir -p ~/.local/share/fonts && sudo cp -al .local/share/fonts/* ~/.local/share/fonts/
-fc-cache -v
+# mkdir -p ~/.local/share/fonts && sudo cp -al .local/share/fonts/* ~/.local/share/fonts/
+# fc-cache -v
 
 # move backgrounds
 sudo mkdir -p /usr/local/share/backgrounds && sudo cp -al usr/local/share/backgrounds/* /usr/local/share/backgrounds/
