@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2068,SC2046,SC2086
 
 cd $(dirname $(realpath $0)) || exit
 
@@ -22,10 +23,10 @@ pkg_fonts=(
 )
 
 pkg_util=(
-    # zsh                       # (extra)       shell
+    # zsh                         # (extra)       shell
     fish                        # (community)   shell
     alacritty                   # (community)   terminal
-    # xss-lock                  # (community)   screen auto lock
+    # xss-lock                    # (community)   screen auto lock
     ffmpeg                      # (extra)       media conversion
     bluez bluez-utils           # (extra)       bluetooth
     acpi                        # (community)   battery status
@@ -59,7 +60,7 @@ pkg_apps=(
     neofetch                    # (community)   system information
     onefetch                    # (community)   git repository information
     cmatrix                     # (community)   terminal animation
-    cbonsai                     # (aur)         terminal animation
+    # cbonsai                     # (aur)         terminal animation
 )
 
 services=(
@@ -88,20 +89,8 @@ git clone https://github.com/ujjwal96/xwinwrap.git && cd xwinwrap && make && sud
 # cp /usr/share/applications/google-chrome.desktop ~/.local/share/applications/google-chrome.desktop
 # sed -i 's;/usr/bin/google-chrome-stable;/usr/bin/google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode;g' ~/.local/share/applications/google-chrome.desktop
 
-# move configuration files
-# cp -lf .zshrc ~/.zshrc
-cp -lf .xinitrc ~/.xinitrc
-cp -al .config/* ~/.config/
-
-# move bin
-sudo ln -f usr/local/bin/* /usr/local/bin/
-
-# move fonts
-# mkdir -p ~/.local/share/fonts && sudo cp -al .local/share/fonts/* ~/.local/share/fonts/
-# fc-cache -v
-
-# move backgrounds
-sudo mkdir -p /usr/local/share/backgrounds && sudo cp -al usr/local/share/backgrounds/* /usr/local/share/backgrounds/
+# link user files
+cp -al home/ $HOME/
 
 # set background
-nitrogen --set-zoom-fill /usr/local/share/backgrounds/brush-strokes-d.jpg
+nitrogen --set-zoom-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
