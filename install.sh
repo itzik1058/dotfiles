@@ -3,62 +3,63 @@
 cd $(dirname $(realpath $0)) || exit
 
 pkg_desktop=(
-    i3-wm                       # window manager
-    rofi                        # menus
-    polybar                     # status bars
-    libnotify                   # notification events
-    dunst                       # notification daemon
-    picom                       # window compositor
-    networkmanager-dmenu-git    # network menu
+    i3-wm                       # (community)   window manager
+    rofi                        # (community)   menus
+    polybar                     # (community)   status bars
+    libnotify                   # (extra)       notification events
+    dunst                       # (community)   notification daemon
+    picom                       # (community)   window compositor
+    networkmanager-dmenu-git    # (aur)         network menu
 )
 
 pkg_fonts=(
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-    ttf-font-awesome
-    ttf-fira-code
-    # nerd-fonts-complete
+    noto-fonts                  # (extra)       google font family
+    noto-fonts-cjk              # (extra)       chinese/japanese/korean
+    noto-fonts-emoji            # (extra)       emoji
+    noto-fonts-extra            # (extra)       additional variants
+    ttf-font-awesome            # (community)   icon library
+    ttf-fira-code               # (community)   programming font
 )
 
 pkg_util=(
-    # zsh                       # shell
-    fish                        # shell
-    alacritty                   # terminal
-    # xss-lock                  # screen auto lock
-    ffmpeg                      # media conversion
-    bluez bluez-utils           # bluetooth
-    acpi                        # battery status
-    xdotool                     # key/mouse/window fake activity
-    maim                        # screen capture
-    xclip                       # clipboard
-    rofi-greenclip              # clipboard manager
-    gifsicle                    # gif
-    ntfs-3g                     # ntfs usb
-    iotop                       # io information
+    # zsh                       # (extra)       shell
+    fish                        # (community)   shell
+    alacritty                   # (community)   terminal
+    # xss-lock                  # (community)   screen auto lock
+    ffmpeg                      # (extra)       media conversion
+    bluez bluez-utils           # (extra)       bluetooth
+    acpi                        # (community)   battery status
+    xdotool                     # (community)   key/mouse/window fake activity
+    maim                        # (community)   screen capture
+    xclip                       # (extra)       clipboard
+    rofi-greenclip              # (aur)         clipboard manager
+    gifsicle                    # (community)   gif
+    ntfs-3g                     # (extra)       ntfs partition support
+    iotop                       # (community)   io information
 )
 
 pkg_apps=(
-    network-manager-applet      # network manager
-    blueman                     # bluetooth manager
-    cmus                        # audio
-    mpv                         # video
-    nitrogen                    # image viewer
-    code                        # ide
-    code-marketplace            # (AUR) vscode extensions
-    code-features               # (AUR) vscode extensions dependencies
-    thunar ranger               # file browser
-    google-chrome               # web browser
-    bitwarden                   # password manager
-    github-desktop-bin          # github desktop
-    task-warrior-tui            # task list
-    steam                       # games
-    discord                     # chat
-    qbittorrent                 # torrent
-    neofetch                    # system information
-    onefetch                    # git repository information
-    cmatrix cbonsai             # cmd animation
+    network-manager-applet      # (extra)       network manager
+    blueman                     # (community)   bluetooth manager
+    cmus                        # (community)   audio
+    mpv                         # (community)   video
+    nitrogen                    # (extra)       image viewer
+    code                        # (community)   ide
+    code-marketplace            # (aur)         vscode extensions
+    code-features               # (aur)         vscode extensions dependencies
+    thunar                      # (extra)       file browser
+    ranger                      # (community)   file browser cli
+    google-chrome               # (aur)         web browser
+    bitwarden                   # (community)   password manager
+    github-desktop-bin          # (aur)         github desktop
+    taskwarrior-tui             # (community)   task list
+    steam                       # (multilib)    games
+    discord                     # (community)   chat
+    qbittorrent                 # (community)   torrent
+    neofetch                    # (community)   system information
+    onefetch                    # (community)   git repository information
+    cmatrix                     # (community)   terminal animation
+    cbonsai                     # (aur)         terminal animation
 )
 
 services=(
