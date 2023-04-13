@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+kermit -t Calendar -e ikhal

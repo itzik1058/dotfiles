@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 
+set $shell      fish
 set $terminal   alacritty
 set $browser    google-chrome-stable
 

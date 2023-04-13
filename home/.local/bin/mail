@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+kermit -t Mail -e neomutt
