@@ -52,6 +52,7 @@ pkg_util=(
     fzf                         # (community)   cli fuzzy finder (for ytfzf)
     # socat                       # (extra)       stream relay (for ytfzf with thumbnails in mpv)
     ueberzug                    # (community)   display image in terminal (for ytfzf)
+    # isync                       # (community)   sync mail
 )
 
 pkg_apps=(
@@ -81,6 +82,7 @@ pkg_apps=(
     neomutt                     # (community)   email
     lynx                        # (extra)       text web browser for neomutt
     ytfzf                       # (community)   youtube in terminal
+    translate-shell             # (community)   translate cli
 )
 
 services=(
