@@ -126,4 +126,4 @@ git clone https://github.com/ujjwal96/xwinwrap.git && cd xwinwrap && make && sud
 cp -afl home/.* $HOME/
 
 # set background
-nitrogen --set-zoom-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
+nitrogen --save --set-zoom-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
