@@ -97,7 +97,7 @@ localectl set-x11-keymap us,il grp:alt_shift_toggle caps:ctrl_modifier
 sudo chsh -s /bin/fish
 
 # link user files
-cp -afl home/ $HOME/
+cp -afl home/.*[^.] $HOME/
 
 # set background
 nitrogen --save --set-zoom-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
