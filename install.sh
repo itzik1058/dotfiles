@@ -123,7 +123,7 @@ git clone https://github.com/ujjwal96/xwinwrap.git && cd xwinwrap && make && sud
 # sed -i 's;/usr/bin/google-chrome-stable;/usr/bin/google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode;g' ~/.local/share/applications/google-chrome.desktop
 
 # link user files
-cp -al home/.* $HOME/
+cp -afl home/.* $HOME/
 
 # set background
 nitrogen --set-zoom-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
