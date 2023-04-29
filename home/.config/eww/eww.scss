@@ -1,0 +1,50 @@
+* {
+    all: unset;
+}
+
+$background: #1A1B26;
+$foreground: #A9B1D6;
+
+$black: #24283B;
+$gray: #565F89;
+$red: #F7768E;
+$green: #73DACA;
+$yellow: #E0AF68;
+$blue: #7AA2F7;
+$magenta: #BB9AF7;
+$cyan: #7DCFFF;
+$white: $foreground;
+
+window {
+    background-color: $background;
+}
+
+box .status {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(#000000, 0.3);
+    background-color: rgba(#ffffff, 0.1);
+    padding: 0px 5px 0px 5px;
+}
+
+.icon {
+    font-family: Material Design Icons;
+}
+
+.battery-label {
+    font-family: JetBrains Mono;
+    font-size: small;
+}
+
+scale trough {
+    all: unset;
+    background-color: $background;
+    border-radius: 5px;
+    min-height: 7px;
+    min-width: 80px;
+}
+
+.scale-control trough highlight {
+    background-color: $foreground;
+    border-radius: 5px;
+}

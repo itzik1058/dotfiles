@@ -1,0 +1,8 @@
+(deflisten status_battery "scripts/battery.py")
+
+(defwidget battery []
+  (label
+    :class "icon"
+    :text {status_battery["icon"]}
+  )
+)

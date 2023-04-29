@@ -4,18 +4,18 @@
 cd $(dirname $(realpath $0)) || exit
 
 pkg=(
-    acpi                            # (community)   battery status
     acpid                           # (community)   acpi event daemon
     alacritty                       # (community)   terminal
     blueman                         # (community)   bluetooth manager
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
+    cdw                             # (aur)         optical disk drive cli
     code                            # (community)   ide
     code-features                   # (aur)         vscode extensions dependencies
     code-marketplace                # (aur)         vscode extensions
     discord                         # (community)   chat
     dunst                           # (community)   notification daemon
-    eww                             # (aur)         widget system
+    eww-git                         # (aur)         widget system
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
     fish                            # (community)   shell
@@ -47,21 +47,25 @@ pkg=(
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
     polybar                         # (community)   status bars
     python-pipx                     # (community)   python isolated packages
+    python-watchdog                 # (community)   python api for inotify
     ranger                          # (community)   file browser cli
     rofi                            # (community)   menus
     seahorse                        # (extra)       gnome keyring manager
     steam                           # (multilib)    games
     taskwarrior-tui                 # (community)   task list
     translate-shell                 # (community)   translate cli
-    ttf-font-awesome                # (community)   icon library
-    ttf-fira-code                   # (community)   programming font
-    ttf-jetbrains-mono              # (community)   console font
+    ttf-font-awesome                # (community)   font awesome
+    ttf-fira-code                   # (community)   fira font
+    # ttf-iosevka-nerd                # (community)   iosevka font (patched with nerd fonts)
+    ttf-jetbrains-mono              # (community)   jetbrains font
+    ttf-material-design-icons       # (aur)         material design icons font
     unzip                           # (extra)       unzip utility
     usbutils                        # (core)        usb tools
     usb_modeswitch                  # (community)   usb activation
     wireplumber                     # (extra)       pipewire client
     xclip                           # (extra)       clipboard
     xdotool                         # (community)   key/mouse/window fake activity
+    xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
     zip                             # (extra)       zip utility
 )
 
@@ -77,7 +81,14 @@ services=(
 )
 
 # install yay
-sudo pacman -S git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd .. && rm -rf yay
+(
+    sudo pacman -S git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay || exit
+    makepkg -si
+    cd ..
+    rm -rf yay
+)
 
 yay -Syu ${pkg[@]}
 

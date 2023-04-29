@@ -1,0 +1,33 @@
+(deflisten status_brightness "scripts/brightness.py listen")
+
+(defvar brightness_scale_visible false)
+(defwidget brightness []
+  (eventbox
+    :onhover "${EWW_CMD} update brightness_scale_visible=true"
+    :onhoverlost "${EWW_CMD} update brightness_scale_visible=false"
+    (box
+      :orientation "h"
+      :space-evenly false
+      (revealer
+        :transition "slideleft"
+        :reveal brightness_scale_visible
+        (box
+          :orientation "h"
+          :space-evenly false
+          (scale
+            :class "scale-control"
+            :value {status_brightness["brightness"]}
+            :onchange "scripts/brightness.py set {}"
+            :max 101
+            :min 0
+          )
+          (box :width 10 :orientation "h")
+        )
+      )
+      (label
+        :class "icon"
+        :text {status_brightness["icon"]}
+      )
+    )
+  )
+)
