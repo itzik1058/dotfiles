@@ -1,4 +1,4 @@
-(deflisten status_brightness "scripts/brightness.py listen")
+(deflisten brightness "scripts/brightness.py listen")
 
 (defvar brightness_scale_visible false)
 (defwidget brightness []
@@ -16,7 +16,7 @@
           :space-evenly false
           (scale
             :class "scale-control"
-            :value {status_brightness["brightness"]}
+            :value {brightness["brightness"]}
             :onchange "scripts/brightness.py set {}"
             :max 101
             :min 0
@@ -26,7 +26,7 @@
       )
       (label
         :class "icon"
-        :text {status_brightness["icon"]}
+        :text {brightness["icon"]}
       )
     )
   )

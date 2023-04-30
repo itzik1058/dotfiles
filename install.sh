@@ -13,6 +13,7 @@ pkg=(
     code                            # (community)   ide
     code-features                   # (aur)         vscode extensions dependencies
     code-marketplace                # (aur)         vscode extensions
+    dbus-python                     # (extra)       python bindings for dbus
     discord                         # (community)   chat
     dunst                           # (community)   notification daemon
     eww-git                         # (aur)         widget system
@@ -46,6 +47,7 @@ pkg=(
     pipewire-jack                   # (extra)       jack support for pipewire
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
     polybar                         # (community)   status bars
+    python-gobject                  # (extra)       python bindings for glib/gobject
     python-pipx                     # (community)   python isolated packages
     python-watchdog                 # (community)   python api for inotify
     ranger                          # (community)   file browser cli

@@ -1,0 +1,9 @@
+(defpoll datetime :interval "1s" "date '+%b %d %H:%M %p'")
+
+(defvar calendar_open false)
+(defwidget datetime []
+  (button
+    :onclick "${EWW_CMD} ${!calendar_open ? 'open' : 'close'} calendar && ${EWW_CMD} update calendar_open=${!calendar_open}"
+    "${datetime}"
+  )
+)

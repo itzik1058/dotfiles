@@ -4,28 +4,53 @@
 (include "windows/statusbar/datetime.yuck")
 (include "windows/statusbar/network.yuck")
 
-(defwidget status_right []
+(defwidget left []
+  (box
+    :class "status"
+    :halign "start"
+    :spacing 2
+    :orientation "h"
+    :space-evenly false
+    (label :text "left")
+  )
+)
+
+(defwidget center []
+  (box
+    :class "status"
+    :halign "center"
+    :spacing 2
+    :orientation "h"
+    :space-evenly false
+    (datetime)
+  )
+)
+
+(defwidget right []
   (box
     :class "status"
     :halign "end"
     :spacing 2
     :orientation "h"
     :space-evenly false
-    (status_network)
-    (status_audio)
     (brightness)
+    (network)
+    ; (audio_source)
+    (audio_sink)
     (battery)
   )
 )
 
 (defwindow statusbar
   :monitor 0
-  :geometry (geometry :x "0%" :y "0%" :width "100%" :height "3%")
+  :geometry (geometry :x "0%" :y "0%" :width "100%" :height "3%" :anchor "top center")
   :stacking "fg"
   :wm-ignore false
   :reserve (struts :side "top" :distance "4%")
   :windowtype "dock"
   (box
-    (status_right)
+    (left)
+    (center)
+    (right)
   )
 )

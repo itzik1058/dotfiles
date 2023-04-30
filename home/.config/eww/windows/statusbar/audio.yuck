@@ -1,5 +1,5 @@
-(deflisten status_audio_sink "scripts/audio.py @DEFAULT_AUDIO_SINK@ listen sink")
-(deflisten status_audio_source "scripts/audio.py @DEFAULT_AUDIO_SOURCE@ listen source")
+(deflisten audio_sink "scripts/audio.py @DEFAULT_AUDIO_SINK@ listen sink")
+(deflisten audio_source "scripts/audio.py @DEFAULT_AUDIO_SOURCE@ listen source")
 
 (defvar audio_sink_scale_visible false)
 (defwidget audio_sink []
@@ -18,7 +18,7 @@
           :space-evenly false
           (scale
             :class "scale-control"
-            :value {status_audio_sink["volume"]}
+            :value {audio_sink["volume"]}
             :onchange "scripts/audio.py @DEFAULT_AUDIO_SINK@ set {}"
             :max 101
             :min 0
@@ -28,7 +28,7 @@
       )
       (label
         :class "icon"
-        :text {status_audio_sink["icon"]}
+        :text {audio_sink["icon"]}
       )
     )
   )
@@ -51,7 +51,7 @@
           :space-evenly false
           (scale
             :class "scale-control"
-            :value {status_audio_source["volume"]}
+            :value {audio_source["volume"]}
             :onchange "scripts/audio.py @DEFAULT_AUDIO_SOURCE@ set {}"
             :max 101
             :min 0
@@ -61,17 +61,8 @@
       )
       (label
         :class "icon"
-        :text '${status_audio_source["icon"]}'
+        :text '${audio_source["icon"]}'
       )
     )
-  )
-)
-
-(defwidget status_audio []
-  (box
-    :orientation "h"
-    :space-evenly false
-    (audio_source)
-    (audio_sink)
   )
 )

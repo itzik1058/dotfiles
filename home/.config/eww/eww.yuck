@@ -1,1 +1,2 @@
 (include "windows/statusbar/window.yuck")
+(include "windows/calendar/window.yuck")

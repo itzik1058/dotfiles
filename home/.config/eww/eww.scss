@@ -19,21 +19,15 @@ window {
     background-color: $background;
 }
 
-box .status {
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px rgba(#000000, 0.3);
+.status {
+    border-radius: 15px;
     background-color: rgba(#ffffff, 0.1);
-    padding: 0px 5px 0px 5px;
+    padding: 1px 10px 1px 10px;
+    margin: 2px;
 }
 
 .icon {
     font-family: Material Design Icons;
-}
-
-.battery-label {
-    font-family: JetBrains Mono;
-    font-size: small;
 }
 
 scale trough {
@@ -44,7 +38,7 @@ scale trough {
     min-width: 80px;
 }
 
-.scale-control trough highlight {
+scale trough highlight {
     background-color: $foreground;
     border-radius: 5px;
 }

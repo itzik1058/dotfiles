@@ -1,0 +1,8 @@
+(defwindow calendar
+  :monitor 0
+  :geometry (geometry :x "0%" :y "2%" :width "40%" :height "30%" :anchor "top center")
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "normal"
+  (calendar :class "calendar")
+)

@@ -1,23 +1,23 @@
-(defpoll status_network         :interval "5s" "scripts/network.py")
+(deflisten network "scripts/network.py")
 
-(defwidget network [type]
+(defwidget connection [type]
   (revealer
     :transition "slideleft"
-    :reveal {status_network[type] != "null"}
+    :reveal {network[type] != "null"}
     (label
       :class "icon"
-      :text {status_network[type]["icon"]}
+      :text {network[type]["icon"]}
     )
   )
 )
 
-(defwidget status_network []
+(defwidget network []
   (box
     :spacing 2
     :orientation "h"
     :space-evenly false
-    (network :type "gsm")
-    (network :type "wifi")
-    (network :type "ethernet")
+    (connection :type "gsm")
+    (connection :type "wifi")
+    (connection :type "ethernet")
   )
 )

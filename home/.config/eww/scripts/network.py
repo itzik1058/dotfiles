@@ -1,32 +1,27 @@
 #!/usr/bin/env python3
 
-# TODO airplane mode
-
-from argparse import ArgumentParser
 from json import dumps
 from subprocess import run
+from typing import Any
+
+# dbus-python
+from dbus import SystemBus
+from dbus.mainloop.glib import DBusGMainLoop
+
+# python-gobject
+from gi.repository import GLib
 
 header = ["device", "type", "state", "connection"]
-icon_network = {
+icon = {
     "ethernet": "󰈁",
     "wifi": "󰖩",
     "gsm": "󰣺",
 }
 
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument(
-        "-t",
-        type=str,
-        choices=icon_network,
-        help="device type",
-        dest="type",
-    )
-    args = parser.parse_args()
 
+def format_networks() -> dict[str, str]:
     sp = run(["nmcli", "-t", "device"], capture_output=True)
-    if sp.returncode:
-        exit(sp.returncode)
+    sp.check_returncode()
     connections = [
         dict(zip(header, connection.split(":")))
         for connection in sp.stdout.decode().splitlines()
@@ -35,15 +30,31 @@ if __name__ == "__main__":
     for c in connections:
         if c["state"] != "connected":
             continue
-        if c["type"] not in icon_network:
-            continue
         networks[c["type"]] = {
             "connection": c["connection"],
             "device": c["device"],
-            "icon": icon_network[c["type"]],
+            "icon": icon[c["type"]],
         }
-        if c["type"] == args.type:
-            print(icon_network[args.type], c["connection"])
-            break
-    if not args.type:
-        print(dumps(networks))
+    return networks
+
+
+def on_event(name: Any, properties: Any, _: Any) -> None:
+    if "Ip4Connectivity" not in properties:
+        return
+    print(dumps(format_networks()))
+
+
+if __name__ == "__main__":
+    DBusGMainLoop(set_as_default=True)
+
+    SystemBus().add_signal_receiver(
+        handler_function=on_event,
+        signal_name="PropertiesChanged",
+        dbus_interface="org.freedesktop.DBus.Properties",
+        bus_name="org.freedesktop.NetworkManager",
+        arg0="org.freedesktop.NetworkManager.Device",
+    )
+
+    print(dumps(format_networks()))
+
+    GLib.MainLoop().run()
