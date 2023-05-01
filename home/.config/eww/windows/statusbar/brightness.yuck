@@ -5,15 +5,9 @@
   (eventbox
     :onhover "${EWW_CMD} update brightness_scale_visible=true"
     :onhoverlost "${EWW_CMD} update brightness_scale_visible=false"
-    (box
-      :orientation "h"
-      :space-evenly false
-      (revealer
-        :transition "slideleft"
-        :reveal brightness_scale_visible
-        (box
-          :orientation "h"
-          :space-evenly false
+    (box :orientation "h" :space-evenly false
+      (revealer :transition "slideleft" :reveal brightness_scale_visible
+        (box :orientation "h" :space-evenly false
           (scale
             :class "scale-control"
             :value {brightness["brightness"]}
@@ -24,10 +18,7 @@
           (box :width 10 :orientation "h")
         )
       )
-      (label
-        :class "icon"
-        :text {brightness["icon"]}
-      )
+      (label :text {brightness["icon"]})
     )
   )
 )

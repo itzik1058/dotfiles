@@ -24,6 +24,7 @@ pkg=(
     github-desktop-bin              # (aur)         github desktop
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
     i3-wm                           # (community)   window manager
+    inter-font                      # (community)   font for user interfaces
     kermit                          # (aur)         terminal with bidi support
     khal                            # (community)   calendar
     libnotify                       # (extra)       notification events

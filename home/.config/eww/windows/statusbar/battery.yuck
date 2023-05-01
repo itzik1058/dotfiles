@@ -1,8 +1,5 @@
 (deflisten battery "scripts/battery.py")
 
 (defwidget battery []
-  (label
-    :class "icon"
-    :text {battery["icon"]}
-  )
+  (label :text {battery["icon"]})
 )

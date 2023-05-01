@@ -3,7 +3,7 @@
 (defvar calendar_open false)
 (defwidget datetime []
   (button
-    :onclick "${EWW_CMD} ${!calendar_open ? 'open' : 'close'} calendar && ${EWW_CMD} update calendar_open=${!calendar_open}"
+    ; :onclick "${EWW_CMD} ${!calendar_open ? 'open' : 'close'} calendar && ${EWW_CMD} update calendar_open=${!calendar_open}"
     "${datetime}"
   )
 )

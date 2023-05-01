@@ -1,2 +1,2 @@
-(include "windows/statusbar/window.yuck")
-(include "windows/calendar/window.yuck")
+(include "windows/statusbar/statusbar.yuck")
+(include "windows/calendar/calendar.yuck")

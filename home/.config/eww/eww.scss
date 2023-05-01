@@ -1,44 +1,28 @@
+$bg: #1e1e2e;
+$bg-alt: #313244;
+$bg-alt-alt: #45475a;
+$fg: #cdd6f4;
+$red: #f38ba8;
+$green: #a6e3a1;
+$yellow: #f9e2af;
+$blue: #89b4fa;
+$purple: #cba6f7;
+$cyan: #74c7ec;
+$gray: #585b70;
+$gray-alt: #6c7086;
+$fg-alt: #bac2de;
+$red-alt: #ed8796;
+$green-alt: #a6da95;
+$yellow-alt: #eed49f;
+$orange: #ef9f76;
+$orange-alt: #f5a97f;
+$blue-alt: #8aadf4;
+$purple-alt: #c6a0f6;
+$cyan-alt: #91d7e3;
+
+@import "windows/calendar/calendar.scss";
+@import "windows/statusbar/statusbar.scss";
 * {
-    all: unset;
-}
-
-$background: #1A1B26;
-$foreground: #A9B1D6;
-
-$black: #24283B;
-$gray: #565F89;
-$red: #F7768E;
-$green: #73DACA;
-$yellow: #E0AF68;
-$blue: #7AA2F7;
-$magenta: #BB9AF7;
-$cyan: #7DCFFF;
-$white: $foreground;
-
-window {
-    background-color: $background;
-}
-
-.status {
-    border-radius: 15px;
-    background-color: rgba(#ffffff, 0.1);
-    padding: 1px 10px 1px 10px;
-    margin: 2px;
-}
-
-.icon {
-    font-family: Material Design Icons;
-}
-
-scale trough {
-    all: unset;
-    background-color: $background;
-    border-radius: 5px;
-    min-height: 7px;
-    min-width: 80px;
-}
-
-scale trough highlight {
-    background-color: $foreground;
-    border-radius: 5px;
+    // inter-font ttf-material-design-icons
+    font-family: "Inter", "Material Design Icons";
 }

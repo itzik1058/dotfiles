@@ -1,0 +1,27 @@
+* {
+    all: unset;
+}
+
+window {
+    background-color: $bg;
+}
+
+.status {
+    border-radius: 15px;
+    background-color: rgba($fg, 0.1);
+    padding: 1px 10px 1px 10px;
+    margin: 2px;
+}
+
+scale trough {
+    all: unset;
+    background-color: $bg;
+    border-radius: 5px;
+    min-height: 7px;
+    min-width: 80px;
+}
+
+scale trough highlight {
+    background-color: $fg;
+    border-radius: 5px;
+}

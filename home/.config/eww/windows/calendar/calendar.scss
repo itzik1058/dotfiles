@@ -1,0 +1,24 @@
+.calendar {
+    padding: 1em .75em 0em;
+}
+
+calendar {
+    font-weight: bold;
+    &:selected {
+        color: $blue;
+    }
+    &:indeterminate {
+        color: $gray;
+    }
+}
+
+calendar.button {
+    color: $red;
+}
+
+calendar.highlight {
+	color: $green;
+	font-weight: bold;
+	padding: 20px;
+	margin: 20px;
+}

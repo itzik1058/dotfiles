@@ -7,15 +7,9 @@
     :onhover "${EWW_CMD} update audio_sink_scale_visible=true"
     :onhoverlost "${EWW_CMD} update audio_sink_scale_visible=false"
     :onclick "scripts/audio.py @DEFAULT_AUDIO_SINK@ mute"
-    (box
-      :orientation "h"
-      :space-evenly false
-      (revealer
-        :transition "slideleft"
-        :reveal audio_sink_scale_visible
-        (box
-          :orientation "h"
-          :space-evenly false
+    (box :orientation "h" :space-evenly false
+      (revealer :transition "slideleft" :reveal audio_sink_scale_visible
+        (box :orientation "h" :space-evenly false
           (scale
             :class "scale-control"
             :value {audio_sink["volume"]}
@@ -26,10 +20,7 @@
           (box :width 10 :orientation "h")
         )
       )
-      (label
-        :class "icon"
-        :text {audio_sink["icon"]}
-      )
+      (label :text {audio_sink["icon"]})
     )
   )
 )
@@ -40,15 +31,9 @@
     :onhover "${EWW_CMD} update audio_source_scale_visible=true"
     :onhoverlost "${EWW_CMD} update audio_source_scale_visible=false"
     :onclick "scripts/audio.py @DEFAULT_AUDIO_SOURCE@ mute"
-    (box
-      :orientation "h"
-      :space-evenly false
-      (revealer
-        :transition "slideleft"
-        :reveal audio_source_scale_visible
-        (box
-          :orientation "h"
-          :space-evenly false
+    (box :orientation "h" :space-evenly false
+      (revealer :transition "slideleft" :reveal audio_source_scale_visible
+        (box :orientation "h" :space-evenly false
           (scale
             :class "scale-control"
             :value {audio_source["volume"]}
@@ -59,10 +44,7 @@
           (box :width 10 :orientation "h")
         )
       )
-      (label
-        :class "icon"
-        :text '${audio_source["icon"]}'
-      )
+      (label :text '${audio_source["icon"]}')
     )
   )
 )
