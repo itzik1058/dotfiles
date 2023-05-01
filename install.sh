@@ -6,6 +6,7 @@ cd $(dirname $(realpath $0)) || exit
 pkg=(
     acpid                           # (community)   acpi event daemon
     alacritty                       # (community)   terminal
+    betterlockscreen                # (aur)         i3 lock screen
     blueman                         # (community)   bluetooth manager
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
@@ -24,6 +25,7 @@ pkg=(
     github-desktop-bin              # (aur)         github desktop
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
     i3-wm                           # (community)   window manager
+    i3lock-color                    # (aur)         i3 lock screen (used by betterlockscreen)
     inter-font                      # (community)   font for user interfaces
     kermit                          # (aur)         terminal with bidi support
     khal                            # (community)   calendar
@@ -66,6 +68,7 @@ pkg=(
     usbutils                        # (core)        usb tools
     usb_modeswitch                  # (community)   usb activation
     wireplumber                     # (extra)       pipewire client
+    xidlehook                       # (aur)         autolock
     xclip                           # (extra)       clipboard
     xdotool                         # (community)   key/mouse/window fake activity
     xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
@@ -81,6 +84,7 @@ services=(
     NetworkManager.service      # network
     acpid.service               # battery
     bluetooth.service           # bluetooth
+    lightdm.service             # display manager
 )
 
 # install yay
