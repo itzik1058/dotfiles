@@ -18,6 +18,7 @@ pkg=(
     discord                         # (community)   chat
     dunst                           # (community)   notification daemon
     eww-git                         # (aur)         widget system
+    feh                             # (extra)       image viewer
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
     fish                            # (community)   shell
@@ -37,7 +38,6 @@ pkg=(
     neovim                          # (community)   text editor
     networkmanager                  # (extra)       network connection manager
     network-manager-applet          # (extra)       network manager tray applet
-    nitrogen                        # (extra)       image viewer
     noto-fonts                      # (extra)       google font family
     noto-fonts-cjk                  # (extra)       chinese/japanese/korean
     noto-fonts-emoji                # (extra)       emoji
@@ -80,11 +80,12 @@ pkg_py=(
 )
 
 services=(
-    ModemManager.service        # modem/mobile network
-    NetworkManager.service      # network
-    acpid.service               # battery
-    bluetooth.service           # bluetooth
-    lightdm.service             # display manager
+    ModemManager.service                # modem/mobile network
+    NetworkManager.service              # network
+    acpid.service                       # battery
+    bluetooth.service                   # bluetooth
+    lightdm.service                     # display manager
+    "betterlockscreen@$USER.service"    # betterlockscreen
 )
 
 # install yay
@@ -118,4 +119,6 @@ sudo chsh -s /bin/fish
 cp -aflv home/.*[^.] $HOME/
 
 # set background
-nitrogen --save --set-zoom-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
+feh --bg-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
+# set lock screen background
+betterlockscreen -u ~/.local/share/backgrounds/brush-strokes-l.jpg
