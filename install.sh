@@ -76,7 +76,7 @@ pkg=(
 )
 
 pkg_py=(
-    vdirsyncer                  # (community)   caldav/carddav sync
+    vdirsyncer                      # (community)   caldav/carddav sync
 )
 
 services=(
@@ -84,7 +84,6 @@ services=(
     NetworkManager.service              # network
     acpid.service                       # battery
     bluetooth.service                   # bluetooth
-    lightdm.service                     # display manager
     "betterlockscreen@$USER.service"    # betterlockscreen
 )
 
