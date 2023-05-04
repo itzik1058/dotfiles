@@ -20,6 +20,7 @@ icon = {
 
 
 def format_networks() -> dict[str, str]:
+    # TODO get wifi strength with nmcli -f IN-USE,SIGNAL,SSID -t d wifi
     sp = run(["nmcli", "-t", "device"], capture_output=True)
     sp.check_returncode()
     connections = [

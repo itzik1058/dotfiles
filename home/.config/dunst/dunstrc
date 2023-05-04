@@ -27,13 +27,13 @@ follow = mouse
 width = 300
 
 # The maximum height of a single notification, excluding the frame.
-height = 300
+# height = 300
 
 # Position the notification in the top right corner
 origin = bottom-right
 
 # Offset from the origin
-offset = 5x30
+offset = 30x30
 
 # Scale factor. It is auto-detected if value is 0.
 scale = 0
@@ -74,7 +74,7 @@ transparency = 1
 # notifications.
 # Set to 0 to disable.
 # If gap_size is greater than 0, this setting will be ignored.
-separator_height = 1
+separator_height = 6
 
 # Padding between text and separator.
 padding = 16
@@ -83,10 +83,10 @@ text_icon_padding = 0
 
 # Defines width in pixels of frame around the notification window.
 # Set to 0 to disable.
-frame_width = 0
+frame_width = 2
 
 # Defines color of the frame around the notification window.
-frame_color = "#111111"
+frame_color = "#89B4FA"
 
 # Size of gap to display between notifications - requires a compositor.
 # If value is greater than 0, separator_height will be ignored and a border
@@ -100,10 +100,10 @@ gap_size = 3
 #  * foreground: use the same color as the foreground;
 #  * frame: use the same color as the frame;
 #  * anything else will be interpreted as a X color.
-separator_color = "#272f57"
+separator_color = frame
 
 # Sort messages by urgency.
-sort = yes
+sort = no
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -114,7 +114,7 @@ idle_threshold = 0
 
 ### Text ###
 
-font = Fira Code 11
+font = JetBrains Mono 11
 
 # The spacing between lines.  If the height is smaller than the
 # font height, it will get raised to the font height.
@@ -179,13 +179,13 @@ ellipsize = middle
 ignore_newline = no
 
 # Stack together notifications with the same content
-stack_duplicates = true
+stack_duplicates = false
 
 # Hide the count of stacked notifications with the same content
 hide_duplicate_count = false
 
 # Display indicators for URLs (U) and actions (A).
-show_indicators = no
+show_indicators = yes
 
 ### Icons ###
 
@@ -210,7 +210,7 @@ min_icon_size = 32
 max_icon_size = 64
 
 # Paths to default icons (only neccesary when not using recursive icon lookup)
-icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+icon_path = /usr/share/icons/Adwaita/64x64/status/:/usr/share/icons/Adwaita/64x64/devices/
 
 ### History ###
 
@@ -243,7 +243,7 @@ class = Dunst
 # corners.
 # The radius will be automatically lowered if it exceeds half of the
 # notification height to avoid clipping text and/or icons.
-corner_radius = 0
+corner_radius = 16
 
 # Ignore the dbus closeNotification message.
 # Useful to enforce the timeout set by dunst configuration. Without this
@@ -304,21 +304,25 @@ per_monitor_dpi = false
 
 
 [urgency_low]
-frame_color = "#3B7C87"
-foreground = "#3B7C87"
-background = "#191311"
-timeout = 5
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+highlight = "#70a5eb"
+frame_color = "#242931"
+timeout = 8
 
 [urgency_normal]
-frame_color = "#5B8234"
-foreground = "#5B8234"
-background = "#191311"
+# TODO sound script =
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+highlight = "#70a5eb"
 timeout = 10
 
 [urgency_critical]
-frame_color = "#B7472A"
-foreground = "#B7472A"
-background = "#191311"
+# TODO sound script =
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
+highlight = "#e05f65"
 timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to
@@ -444,3 +448,23 @@ timeout = 0
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
+[backlight]
+appname = "Backlight"
+highlight = "#f1cf8a"
+set_stack_tag = "backlight"
+
+[music]
+appname = "Music"
+
+[volume]
+summary = "Volume*"
+highlight = "#70a5eb"
+set_stack_tag = "volume"
+
+[battery]
+appname = "Power Warning"
+
+[volume-muted]
+summary = "Volume muted"
+highlight = "#e05f65"

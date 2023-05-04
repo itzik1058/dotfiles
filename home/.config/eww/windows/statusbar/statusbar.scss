@@ -6,13 +6,6 @@ window {
     background-color: $bg;
 }
 
-.status {
-    border-radius: 15px;
-    background-color: rgba($fg, 0.1);
-    padding: 1px 10px 1px 10px;
-    margin: 2px;
-}
-
 scale trough {
     all: unset;
     background-color: $bg;
@@ -24,4 +17,18 @@ scale trough {
 scale trough highlight {
     background-color: $fg;
     border-radius: 5px;
+}
+
+.status:hover {
+    border-radius: 10px;
+    background-color: rgba($fg, 0.1);
+}
+
+.status-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.status-outer {
+    margin: 3px;
 }

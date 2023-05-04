@@ -1,4 +1,4 @@
-(defpoll datetime :interval "1s" "date '+%b %d %H:%M %p'")
+(defpoll datetime :interval "1s" "date '+%e %b %H:%M'")
 
 (defvar calendar_open false)
 (defwidget datetime []

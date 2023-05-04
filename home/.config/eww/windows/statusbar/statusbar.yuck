@@ -5,24 +5,31 @@
 (include "windows/statusbar/network.yuck")
 
 (defwidget left []
-  (box :class "status" :halign "start" :spacing 2 :orientation "h" :space-evenly false
-    (label :text "left")
-  )
+  ; (box :class "status" :halign "start" :spacing 2 :orientation "h" :space-evenly false
+    ;   (label :text "left")
+  ; )
+  (label)
 )
 
 (defwidget center []
-  (box :class "status" :halign "center" :spacing 2 :orientation "h" :space-evenly false
-    (datetime)
-  )
+  (datetime)
 )
 
 (defwidget right []
-  (box :class "status" :halign "end" :spacing 2 :orientation "h" :space-evenly false
-    (brightness)
-    (network)
-    ; (audio_source)
-    (audio_sink)
-    (battery)
+  (box :halign "end" :spacing 2 :space-evenly false
+    ; (systray)
+    (box :class "status-outer"
+      (eventbox
+        :class "status"
+        (box :class "status-inner" :spacing 2 :orientation "h" :space-evenly false
+          (brightness)
+          (network)
+          ; (audio_source)
+          (audio_sink)
+          (battery)
+        )
+      )
+    )
   )
 )
 
