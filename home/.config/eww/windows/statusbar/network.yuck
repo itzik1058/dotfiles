@@ -1,8 +1,18 @@
 (deflisten network "scripts/network.py")
 
+(defvar connection_name_visible "")
 (defwidget connection [type]
   (revealer :transition "slideleft" :reveal {network[type] != "null"}
-    (label :text {network[type]["icon"]})
+    (eventbox
+      :onhover "${EWW_CMD} update connection_name_visible=${type}"
+      :onhoverlost "${EWW_CMD} update connection_name_visible="
+      (box :orientation "h" :spacing 2 :space-evenly false
+        (revealer :transition "slideright" :reveal {connection_name_visible == type}
+          (label :text {network[type]["connection"]})
+        )
+        (label :text {network[type]["icon"]})
+      )
+    )
   )
 )
 

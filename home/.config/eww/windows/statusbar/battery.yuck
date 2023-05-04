@@ -1,5 +1,8 @@
 (deflisten battery "scripts/battery.py")
 
 (defwidget battery []
-  (label :text {battery["icon"]})
+  (label
+    :tooltip "${battery['capacity']}%"
+    :text {battery["icon"]}
+  )
 )

@@ -20,7 +20,10 @@
           (box :width 10 :orientation "h")
         )
       )
-      (label :text {audio_sink["icon"]})
+      (label
+        :tooltip "${audio_sink['volume']}%"
+        :text {audio_sink["icon"]}
+      )
     )
   )
 )
@@ -44,7 +47,10 @@
           (box :width 10 :orientation "h")
         )
       )
-      (label :text '${audio_source["icon"]}')
+      (label
+        :tooltip "${audio_source['volume']}%"
+        :text '${audio_source["icon"]}'
+      )
     )
   )
 )
