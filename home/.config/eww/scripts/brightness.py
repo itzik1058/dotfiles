@@ -21,7 +21,7 @@ def format_brightness(brightness: int, max_brightness: int) -> dict[str, Any]:
     return {"brightness": brightness_pct, "icon": icon}
 
 
-def listen():
+def listen() -> None:
     backlight = next(path_backlight.iterdir())
     path_brightness = backlight / "brightness"
     path_max_brightness = backlight / "max_brightness"

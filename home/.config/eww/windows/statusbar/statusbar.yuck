@@ -1,3 +1,4 @@
+(include "windows/statusbar/workspace.yuck")
 (include "windows/statusbar/audio.yuck")
 (include "windows/statusbar/battery.yuck")
 (include "windows/statusbar/brightness.yuck")
@@ -8,7 +9,7 @@
   ; (box :class "status" :halign "start" :spacing 2 :orientation "h" :space-evenly false
     ;   (label :text "left")
   ; )
-  (label)
+  (workspaces)
 )
 
 (defwidget center []

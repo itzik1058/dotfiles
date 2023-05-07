@@ -1,0 +1,14 @@
+(defvar icon_workspace_normal "")
+(defvar icon_workspace_focus "")
+(defvar icon_workspace_urgent "")
+(defpoll workspaces :interval "300ms" "i3-msg -t get_workspaces")
+
+(defwidget workspaces []
+  (box :class "status-inner" :spacing 10 :space-evenly false
+    (for workspace in workspaces
+      (label
+        :text {workspace["urgent"] ? icon_workspace_urgent : workspace["focused"] ? icon_workspace_focus : icon_workspace_normal}
+      )
+    )
+  )
+)

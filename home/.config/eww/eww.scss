@@ -27,3 +27,8 @@ $cyan-alt: #91d7e3;
     // inter-font ttf-material-design-icons
     font-family: "Inter", "Material Design Icons";
 }
+
+tooltip {
+    background-color: $bg;
+    border: 2px solid $bg-alt-alt;
+}
