@@ -25,6 +25,7 @@ pkg=(
     font-manager                    # (community)   font viewer/manager
     github-desktop-bin              # (aur)         github desktop
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
+    highlight                       # (community)   code highlighting (for ranger)
     i3-wm                           # (community)   window manager
     i3lock-color                    # (aur)         i3 lock screen (used by betterlockscreen)
     inter-font                      # (community)   font for user interfaces
@@ -51,6 +52,7 @@ pkg=(
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
     polybar                         # (community)   status bars
     python-gobject                  # (extra)       python bindings for glib/gobject
+    python-pip                      # (extra)       python package manager
     python-pipx                     # (community)   python isolated packages
     python-watchdog                 # (community)   python api for inotify
     ranger                          # (community)   file browser cli
