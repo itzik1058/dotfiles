@@ -35,6 +35,7 @@ pkg=(
     maim                            # (community)   screen capture
     mobile-broadband-provider-info  # (extra)       mobile broadband APN config presets
     modemmanager                    # (extra)       mobile broadband modem management
+    mpv                             # (community)   media player
     neofetch                        # (community)   system information
     neovim                          # (community)   text editor
     networkmanager                  # (extra)       network connection manager
@@ -58,6 +59,7 @@ pkg=(
     ranger                          # (community)   file browser cli
     rofi                            # (community)   menus
     seahorse                        # (extra)       gnome keyring manager
+    speedtest-cli                   # (community)   network speed test
     steam                           # (multilib)    games
     taskwarrior-tui                 # (community)   task list
     translate-shell                 # (community)   translate cli
@@ -66,6 +68,7 @@ pkg=(
     # ttf-iosevka-nerd                # (community)   iosevka font (patched with nerd fonts)
     ttf-jetbrains-mono              # (community)   jetbrains font
     ttf-material-design-icons       # (aur)         material design icons font
+    ueberzug                        # (community)   display image in cli
     unzip                           # (extra)       unzip utility
     usbutils                        # (core)        usb tools
     usb_modeswitch                  # (community)   usb activation
