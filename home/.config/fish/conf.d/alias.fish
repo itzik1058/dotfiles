@@ -1,5 +1,4 @@
-alias vi="nvim"
-alias vim="nvim"
+alias nv="nvim"
 alias t="taskwarrior-tui"
 alias mail="kermit -t Mail -e neomutt"
 alias calendar="kermit -t Calendar -e ikhal"

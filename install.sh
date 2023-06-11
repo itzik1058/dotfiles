@@ -44,6 +44,7 @@ pkg=(
     noto-fonts-cjk                  # (extra)       chinese/japanese/korean
     noto-fonts-emoji                # (extra)       emoji
     noto-fonts-extra                # (extra)       additional variants
+    npm                             # (extra)       package manager for javascript
     ntfs-3g                         # (extra)       ntfs partition support
     opensiddur-hebrew-fonts         # (aur)         open source hebrew font pack
     picom                           # (extra)       window compositor
@@ -69,6 +70,7 @@ pkg=(
     ttf-fira-code                   # (extra)       fira font
     # ttf-iosevka-nerd                # (extra)       iosevka font (patched with nerd fonts)
     ttf-jetbrains-mono              # (extra)       jetbrains font
+    ttf-jetbrains-mono-nerd         # (extra)       jetbrains nerd font
     ttf-material-design-icons       # (aur)         material design icons font
     ueberzug                        # (extra)       display image in cli
     unzip                           # (extra)       unzip utility
