@@ -4,40 +4,40 @@
 cd $(dirname $(realpath $0)) || exit
 
 pkg=(
-    acpid                           # (community)   acpi event daemon
-    alacritty                       # (community)   terminal
+    acpid                           # (extra)       acpi event daemon
+    alacritty                       # (extra)       terminal
     betterlockscreen                # (aur)         i3 lock screen
-    blueman                         # (community)   bluetooth manager
+    blueman                         # (extra)       bluetooth manager
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
     cdw                             # (aur)         optical disk drive cli
-    code                            # (community)   ide
+    code                            # (extra)       ide
     code-features                   # (aur)         vscode extensions dependencies
     code-marketplace                # (aur)         vscode extensions
     dbus-python                     # (extra)       python bindings for dbus
-    discord                         # (community)   chat
-    dunst                           # (community)   notification daemon
+    discord                         # (extra)       chat
+    dunst                           # (extra)       notification daemon
     eww-git                         # (aur)         widget system
     feh                             # (extra)       image viewer
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
-    fish                            # (community)   shell
-    font-manager                    # (community)   font viewer/manager
+    fish                            # (extra)       shell
+    font-manager                    # (extra)       font viewer/manager
     github-desktop-bin              # (aur)         github desktop
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
-    highlight                       # (community)   code highlighting (for ranger)
-    i3-wm                           # (community)   window manager
+    highlight                       # (extra)       code highlighting (for ranger)
+    i3-wm                           # (extra)       window manager
     i3lock-color                    # (aur)         i3 lock screen (used by betterlockscreen)
-    inter-font                      # (community)   font for user interfaces
+    inter-font                      # (extra)       font for user interfaces
     kermit                          # (aur)         terminal with bidi support
-    khal                            # (community)   calendar
+    khal                            # (extra)       calendar
     libnotify                       # (extra)       notification events
-    maim                            # (community)   screen capture
+    maim                            # (extra)       screen capture
     mobile-broadband-provider-info  # (extra)       mobile broadband APN config presets
     modemmanager                    # (extra)       mobile broadband modem management
-    mpv                             # (community)   media player
-    neofetch                        # (community)   system information
-    neovim                          # (community)   text editor
+    mpv                             # (extra)       media player
+    neofetch                        # (extra)       system information
+    neovim                          # (extra)       text editor
     networkmanager                  # (extra)       network connection manager
     network-manager-applet          # (extra)       network manager tray applet
     noto-fonts                      # (extra)       google font family
@@ -46,42 +46,44 @@ pkg=(
     noto-fonts-extra                # (extra)       additional variants
     ntfs-3g                         # (extra)       ntfs partition support
     opensiddur-hebrew-fonts         # (aur)         open source hebrew font pack
-    picom                           # (community)   window compositor
+    picom                           # (extra)       window compositor
     pipewire                        # (extra)       audio/video processor
     pipewire-alsa                   # (extra)       alsa replacement for pipewire
     pipewire-jack                   # (extra)       jack support for pipewire
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
-    polybar                         # (community)   status bars
+    polybar                         # (extra)       status bars
+    pyright                         # (extra)       python LSP (for nvim)
     python-gobject                  # (extra)       python bindings for glib/gobject
     python-pip                      # (extra)       python package manager
-    python-pipx                     # (community)   python isolated packages
-    python-watchdog                 # (community)   python api for inotify
-    ranger                          # (community)   file browser cli
-    rofi                            # (community)   menus
+    python-pipx                     # (extra)       python isolated packages
+    python-watchdog                 # (extra)       python api for inotify
+    ranger                          # (extra)       file browser cli
+    rofi                            # (extra)       menus
+    ruff                            # (extra)       python linter
     seahorse                        # (extra)       gnome keyring manager
-    speedtest-cli                   # (community)   network speed test
+    speedtest-cli                   # (extra)       network speed test
     steam                           # (multilib)    games
-    taskwarrior-tui                 # (community)   task list
-    translate-shell                 # (community)   translate cli
-    ttf-font-awesome                # (community)   font awesome
-    ttf-fira-code                   # (community)   fira font
-    # ttf-iosevka-nerd                # (community)   iosevka font (patched with nerd fonts)
-    ttf-jetbrains-mono              # (community)   jetbrains font
+    taskwarrior-tui                 # (extra)       task list
+    translate-shell                 # (extra)       translate cli
+    ttf-font-awesome                # (extra)       font awesome
+    ttf-fira-code                   # (extra)       fira font
+    # ttf-iosevka-nerd                # (extra)       iosevka font (patched with nerd fonts)
+    ttf-jetbrains-mono              # (extra)       jetbrains font
     ttf-material-design-icons       # (aur)         material design icons font
-    ueberzug                        # (community)   display image in cli
+    ueberzug                        # (extra)       display image in cli
     unzip                           # (extra)       unzip utility
     usbutils                        # (core)        usb tools
-    usb_modeswitch                  # (community)   usb activation
+    usb_modeswitch                  # (extra)       usb activation
     wireplumber                     # (extra)       pipewire client
     xidlehook                       # (aur)         autolock
     xclip                           # (extra)       clipboard
-    xdotool                         # (community)   key/mouse/window fake activity
+    xdotool                         # (extra)       key/mouse/window fake activity
     xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
     zip                             # (extra)       zip utility
 )
 
 pkg_py=(
-    vdirsyncer                      # (community)   caldav/carddav sync
+    vdirsyncer                      # (extra)       caldav/carddav sync
 )
 
 services=(
