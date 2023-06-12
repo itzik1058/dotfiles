@@ -123,6 +123,10 @@ localectl set-x11-keymap us,il grp:alt_shift_toggle caps:ctrl_modifier
 
 sudo chsh -s /bin/fish
 
+# install NvChad
+mv -v ~/.config/nvim ~/.config/nvim-backup
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+
 # link user files
 cp -aflv home/.*[^.] $HOME/
 
