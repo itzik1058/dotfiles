@@ -1,5 +1,12 @@
 local plugins = {
   {
+    "luk400/vim-jukit",
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       auto_install = true,
