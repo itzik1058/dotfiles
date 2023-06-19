@@ -14,6 +14,7 @@ pkg=(
     code                            # (extra)       ide
     code-features                   # (aur)         vscode extensions dependencies
     code-marketplace                # (aur)         vscode extensions
+    cups                            # (extra)       open printing daemon package
     dbus-python                     # (extra)       python bindings for dbus
     discord                         # (extra)       chat
     dunst                           # (extra)       notification daemon
@@ -23,7 +24,6 @@ pkg=(
     firefox                         # (extra)       web browser
     fish                            # (extra)       shell
     font-manager                    # (extra)       font viewer/manager
-    github-desktop-bin              # (aur)         github desktop
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
     highlight                       # (extra)       code highlighting (for ranger)
     i3-wm                           # (extra)       window manager
