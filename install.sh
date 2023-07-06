@@ -134,3 +134,10 @@ cp -aflv home/.*[^.] $HOME/
 feh --bg-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
 # set lock screen background
 betterlockscreen -u ~/.local/share/backgrounds/brush-strokes-l.jpg
+
+# show grub matter theme suggestion
+echo "suggestion: grub matter theme"
+echo "\tgit clone https://github.com/mateosss/matter.git"
+echo "\tinstall inkscape (extra)"
+echo "\tsudo python matter.py"
+echo "\tin case of resolution mismatch edit /etc/default/grub GRUB_GFXMODE"
