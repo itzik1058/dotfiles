@@ -10,8 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 
-set $shell      fish
-set $terminal   alacritty
+set $shell      zsh
+set $terminal   kitty
 set $browser    google-chrome-stable
 
 include bindings.conf
