@@ -126,7 +126,7 @@ done
 # use setxkbmap for more options
 localectl set-x11-keymap us,il grp:alt_shift_toggle caps:ctrl_modifier
 
-sudo chsh -s /bin/zsh
+chsh -s /bin/zsh
 
 # install NvChad
 mv -v ~/.config/nvim ~/.config/nvim-backup
