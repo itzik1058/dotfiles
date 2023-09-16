@@ -5,7 +5,7 @@ cd $(dirname $(realpath $0)) || exit
 
 pkg=(
     acpid                           # (extra)       acpi event daemon
-    alacritty                       # (extra)       terminal
+    # alacritty                       # (extra)       terminal
     betterlockscreen                # (aur)         i3 lock screen
     blueman                         # (extra)       bluetooth manager
     bluez                           # (extra)       bluetooth
@@ -30,6 +30,7 @@ pkg=(
     inter-font                      # (extra)       font for user interfaces
     kermit                          # (aur)         terminal with bidi support
     khal                            # (extra)       calendar
+    kitty                           # (extra)       terminal
     libnotify                       # (extra)       notification events
     maim                            # (extra)       screen capture
     mobile-broadband-provider-info  # (extra)       mobile broadband APN config presets
