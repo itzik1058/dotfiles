@@ -22,7 +22,6 @@ pkg=(
     feh                             # (extra)       image viewer
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
-    fish                            # (extra)       shell
     font-manager                    # (extra)       font viewer/manager
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
     highlight                       # (extra)       code highlighting (for ranger)
@@ -53,6 +52,7 @@ pkg=(
     pipewire-jack                   # (extra)       jack support for pipewire
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
     polybar                         # (extra)       status bars
+    powerline-fonts                 # (extra)       fonts for zsh-theme-powerlevel10k
     pyright                         # (extra)       python LSP (for nvim)
     python-gobject                  # (extra)       python bindings for glib/gobject
     python-pip                      # (extra)       python package manager
@@ -82,6 +82,10 @@ pkg=(
     xdotool                         # (extra)       key/mouse/window fake activity
     xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
     zip                             # (extra)       zip utility
+    zsh                             # (extra)       shell
+    zsh-autosuggestions             # (extra)       suggestions for zsh
+    zsh-syntax-highlighting         # (extra)       syntax highlighting for zsh
+    zsh-theme-powerlevel10k         # (extra)       zsh theme
 )
 
 pkg_py=(
@@ -121,7 +125,7 @@ done
 # use setxkbmap for more options
 localectl set-x11-keymap us,il grp:alt_shift_toggle caps:ctrl_modifier
 
-sudo chsh -s /bin/fish
+sudo chsh -s /bin/zsh
 
 # install NvChad
 mv -v ~/.config/nvim ~/.config/nvim-backup
