@@ -73,6 +73,7 @@ pkg=(
     ttf-jetbrains-mono              # (extra)       jetbrains font
     ttf-jetbrains-mono-nerd         # (extra)       jetbrains nerd font
     ttf-material-design-icons       # (aur)         material design icons font
+    udiskie                         # (extra)       disk automount
     ueberzug                        # (extra)       display image in cli
     unzip                           # (extra)       unzip utility
     usbutils                        # (core)        usb tools
