@@ -7,7 +7,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_RUNTIME_DIR="$HOME/.xdg"
 
 # Aliases
-alias nv="nvim"
+alias v="nvim"
+alias r="ranger"
 alias t="taskwarrior-tui"
 alias mail="kermit -t Mail -e neomutt"
 alias calendar="kermit -t Calendar -e ikhal"
@@ -58,6 +59,8 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
