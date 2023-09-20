@@ -8,6 +8,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Aliases
 alias v="nvim"
 alias r="ranger"
+alias mnt="udiskie-mount"
+alias umnt="udiskie-umount"
 alias t="taskwarrior-tui"
 alias mail="kermit -t Mail -e neomutt"
 alias calendar="kermit -t Calendar -e ikhal"
