@@ -139,9 +139,9 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 cp -aflv home/.*[^.] $HOME/
 
 # set background
-feh --bg-fill ~/.local/share/backgrounds/brush-strokes-d.jpg
+feh --bg-fill ~/.local/share/backgrounds/wallhaven-q2pxml.png
 # set lock screen background
-betterlockscreen -u ~/.local/share/backgrounds/brush-strokes-l.jpg
+betterlockscreen -u ~/.local/share/backgrounds/wallhaven-q2pxml.png
 
 # show grub matter theme suggestion
 echo "suggestion: grub matter theme"
