@@ -83,6 +83,8 @@ pkg=(
     xclip                           # (extra)       clipboard
     xdotool                         # (extra)       key/mouse/window fake activity
     xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
+    zathura                         # (extra)       document viewer
+    zathura-pdf-mupdf               # (extra)       zathura plugin for pdf
     zip                             # (extra)       zip utility
     zsh                             # (extra)       shell
     zsh-autosuggestions             # (extra)       suggestions for zsh
