@@ -9,39 +9,40 @@ return {
     local lspconfig = require("lspconfig")
 
     local on_attach = function(_, buffer)
-      vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { buffer = buffer, desc = '[F]ormat buffer' })
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = buffer, desc = '[R]e[n]ame' })
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = buffer, desc = '[C]ode [A]ction' })
+      local telescope_builtin = require('telescope.builtin')
 
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = buffer, desc = '[G]oto [D]efinition' })
-      vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references,
-        { buffer = buffer, desc = '[G]oto [R]eferences' })
-      vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations,
-        { buffer = buffer, desc = '[G]oto [I]mplementation' })
-      vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { buffer = buffer, desc = 'Type [D]efinition' })
-      vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols,
-        { buffer = buffer, desc = '[D]ocument [S]ymbols' })
-      vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-        { buffer = buffer, desc = '[W]orkspace [S]ymbols' })
+      vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, { buffer = buffer, desc = 'LSP: Format buffer' })
+      vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { buffer = buffer, desc = 'LSP: Rename' })
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = buffer, desc = 'LSP: Code Action' })
+
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = buffer, desc = 'LSP: Goto Definition' })
+      vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, { buffer = buffer, desc = 'LSP: Goto References' })
+      vim.keymap.set('n', 'gI', telescope_builtin.lsp_implementations,
+        { buffer = buffer, desc = 'LSP: Goto Implementation' })
+      vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { buffer = buffer, desc = 'LSP: Type Definition' })
+      vim.keymap.set('n', '<leader>ds', telescope_builtin.lsp_document_symbols,
+        { buffer = buffer, desc = 'LSP: Document Symbols' })
+      vim.keymap.set('n', '<leader>ws', telescope_builtin.lsp_dynamic_workspace_symbols,
+        { buffer = buffer, desc = 'LSP: Workspace Symbols' })
 
       -- See `:help K` for why this keymap
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = buffer, desc = 'Hover Documentation' })
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = buffer, desc = 'Signature Documentation' })
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = buffer, desc = 'LSP: Hover Documentation' })
+      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = buffer, desc = 'LSP: Signature Documentation' })
 
       -- Lesser used LSP functionality
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = buffer, desc = '[G]oto [D]eclaration' })
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = buffer, desc = 'LSP: Goto Declaration' })
       vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder,
-        { buffer = buffer, desc = '[W]orkspace [A]dd Folder' })
+        { buffer = buffer, desc = 'LSP: Workspace Add Folder' })
       vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
-        { buffer = buffer, desc = '[W]orkspace [R]emove Folder' })
+        { buffer = buffer, desc = 'LSP: Workspace Remove Folder' })
       vim.keymap.set('n', '<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end, { buffer = buffer, desc = '[W]orkspace [L]ist Folders' })
+      end, { buffer = buffer, desc = 'LSP: Workspace List Folders' })
 
       -- Create a command `:Format` local to the LSP buffer
       vim.api.nvim_buf_create_user_command(buffer, 'Format', function(_)
         vim.lsp.buf.format()
-      end, { desc = 'Format current buffer with LSP' })
+      end, { desc = 'LSP: Format current buffer with LSP' })
     end
 
     lspconfig.lua_ls.setup({

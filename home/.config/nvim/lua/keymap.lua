@@ -2,16 +2,10 @@
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 -- empty mode is same as using <cmd> :map
 -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
-vim.keymap.set('n', 'j', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
-vim.keymap.set('n', 'k', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
-vim.keymap.set('n', '<Up>', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
-vim.keymap.set('n', '<Down>', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
-
-vim.keymap.set('v', '<Up>', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
-vim.keymap.set('v', '<Down>', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
-
-vim.keymap.set('x', 'j', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
-vim.keymap.set('x', 'k', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
+vim.keymap.set({ 'n', 'x' }, 'j', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
+vim.keymap.set({ 'n', 'x' }, 'k', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
+vim.keymap.set({ 'n', 'v' }, '<Up>', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
+vim.keymap.set({ 'n', 'v' }, '<Down>', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
 
 -- go to beginning and end of line
 vim.keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Beginning of line' })
@@ -33,7 +27,7 @@ vim.keymap.set('n', 'C-k', '<C-w>k', { desc = 'Window up' })
 vim.keymap.set('n', 'C-l', '<C-w>l', { desc = 'Window right' })
 
 -- file
--- vim.keymap.set('n', '<leader>w', '<cmd> w <CR>', { desc = 'Write buffer' })
+vim.keymap.set('n', '<leader>w', '<cmd> w <CR>', { desc = 'Write buffer' })
 -- vim.keymap.set('n', '<leader>x', '<cmd> x <CR>', { desc = 'Write buffer and close' })
 
 -- indent
