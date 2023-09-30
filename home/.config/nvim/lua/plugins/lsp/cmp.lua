@@ -15,6 +15,9 @@ return {
   config = function()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
+
+    require('luasnip.loaders.from_vscode').lazy_load()
+
     cmp.setup({
       snippet = {
         expand = function(args)
