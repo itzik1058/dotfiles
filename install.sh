@@ -23,6 +23,7 @@ pkg=(
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
     font-manager                    # (extra)       font viewer/manager
+    fzf                             # (extra)       fuzzy finder
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
     highlight                       # (extra)       code highlighting (for ranger)
     i3-wm                           # (extra)       window manager
