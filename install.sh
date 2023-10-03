@@ -135,6 +135,17 @@ chsh -s /bin/zsh
 # link user files
 cp -aflv home/.*[^.] $HOME/
 
+# install xwinwrap for live background
+(
+    git clone https://github.com/ujjwal96/xwinwrap.git
+    cd xwinwrap || exit
+    make
+    sudo make install
+    make clean
+    cd ..
+    rm -rf xwinwrap
+)
+
 # set background
 feh --bg-fill ~/.local/share/backgrounds/wallhaven-q2pxml.png
 # set lock screen background
