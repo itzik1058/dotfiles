@@ -126,9 +126,8 @@ do
 done
 
 # X11 Keymap
-# us/il layouts, toggle layout with alt+shift, map caps lock to ctrl
-# use setxkbmap for more options
-localectl set-x11-keymap us,il grp:alt_shift_toggle caps:ctrl_modifier
+# us/il layouts, toggle layout with alt+shift, map caps lock to ctrl and shift+capslock to caps lock
+localectl --no-convert set-x11-keymap us,il pc104 qwerty grp:alt_shift_toggle,caps:escape_shifted_capslock
 
 chsh -s /bin/zsh
 
