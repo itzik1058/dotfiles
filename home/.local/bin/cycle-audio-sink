@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+from subprocess import PIPE, run
+
+sinks = []
+for sink in run('pactl list short sinks', stdout=PIPE, shell=True).stdout.decode().splitlines():
+    sinks.append(sink.split('\t')[1])
+default_sink = run('pactl get-default-sink', stdout=PIPE, shell=True).stdout.decode().strip()
+next_sink = sinks[(sinks.index(default_sink) + 1) % len(sinks)]
+print(f'changing default sink {default_sink} -> {next_sink}')
+run(f'pactl set-default-sink {next_sink}', shell=True)

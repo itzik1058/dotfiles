@@ -23,6 +23,7 @@ pkg=(
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
     font-manager                    # (extra)       font viewer/manager
+    fzf                             # (extra)       fuzzy finder
     gnome-keyring                   # (extra)       org.freedesktop.secrets keyring daemon
     highlight                       # (extra)       code highlighting (for ranger)
     i3-wm                           # (extra)       window manager
@@ -125,18 +126,24 @@ do
 done
 
 # X11 Keymap
-# us/il layouts, toggle layout with alt+shift, map caps lock to ctrl
-# use setxkbmap for more options
-localectl set-x11-keymap us,il grp:alt_shift_toggle caps:ctrl_modifier
+# us/il layouts, toggle layout with alt+shift, map caps lock to ctrl and shift+capslock to caps lock
+localectl --no-convert set-x11-keymap us,il pc104 qwerty grp:alt_shift_toggle,caps:escape_shifted_capslock
 
 chsh -s /bin/zsh
 
-# install NvChad
-mv -v ~/.config/nvim ~/.config/nvim-backup
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-
 # link user files
 cp -aflv home/.*[^.] $HOME/
+
+# install xwinwrap for live background
+(
+    git clone https://github.com/ujjwal96/xwinwrap.git
+    cd xwinwrap || exit
+    make
+    sudo make install
+    make clean
+    cd ..
+    rm -rf xwinwrap
+)
 
 # set background
 feh --bg-fill ~/.local/share/backgrounds/wallhaven-q2pxml.png
