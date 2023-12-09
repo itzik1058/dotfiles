@@ -7,6 +7,15 @@ vim.keymap.set({ 'n', 'x' }, 'k', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'"
 vim.keymap.set({ 'n', 'v' }, '<Up>', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
 vim.keymap.set({ 'n', 'v' }, '<Down>', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
 
+-- paste (register _)
+vim.keymap.set('x', '<leader>p', '\"_dP', { desc = 'Paste (register _)' })
+-- delete (register _)
+vim.keymap.set({'n', 'v'}, '<leader>d', '\"_d', { desc = 'Delete (register _)' })
+vim.keymap.set('n', '<leader>D', '\"+D', {desc = 'Delete (register _)' })
+-- copy to clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '\"+y', { desc = 'Yank to clipboard' })
+vim.keymap.set('n', '<leader>Y', '\"+Y', {desc = 'Yank to clipboard' })
+
 vim.keymap.set({'n', 'x', 'o'}, 'H', '^', { desc = 'Beginning of line' })
 vim.keymap.set({'n', 'x', 'o'}, 'L', '$', { desc = 'End of line' })
 

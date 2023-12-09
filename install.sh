@@ -19,6 +19,7 @@ pkg=(
     discord                         # (extra)       chat
     dunst                           # (extra)       notification daemon
     eww-git                         # (aur)         widget system
+    fd                              # (extra)       alternative to find
     feh                             # (extra)       image viewer
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
@@ -62,6 +63,7 @@ pkg=(
     python-pipx                     # (extra)       python isolated packages
     python-watchdog                 # (extra)       python api for inotify
     ranger                          # (extra)       file browser cli
+    ripgrep                         # (extra)       recursive regex grep
     rofi                            # (extra)       menus
     ruff                            # (extra)       python linter
     seahorse                        # (extra)       gnome keyring manager
