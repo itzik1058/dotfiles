@@ -7,9 +7,8 @@ vim.keymap.set({ 'n', 'x' }, 'k', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'"
 vim.keymap.set({ 'n', 'v' }, '<Up>', "v:count || mode(1)[0:1] == 'no' ? 'k' : 'gk'", { expr = true, desc = 'Move up' })
 vim.keymap.set({ 'n', 'v' }, '<Down>', "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, desc = 'Move down' })
 
--- go to beginning and end of line
-vim.keymap.set('i', '<C-b>', '<ESC>^i', { desc = 'Beginning of line' })
-vim.keymap.set('i', '<C-e>', '<End>', { desc = 'End of line' })
+vim.keymap.set({'n', 'x', 'o'}, 'H', '^', { desc = 'Beginning of line' })
+vim.keymap.set({'n', 'x', 'o'}, 'L', '$', { desc = 'End of line' })
 
 -- navigate in insert mode
 vim.keymap.set('i', '<C-h>', '<Left>', { desc = 'Move left' })
@@ -19,12 +18,6 @@ vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'Move right' })
 
 -- clear highlights
 vim.keymap.set('n', '<Esc>', ':noh <CR>', { desc = 'Clear highlights' })
-
--- window navigation
-vim.keymap.set('n', 'C-h', '<C-w>h', { desc = 'Window left' })
-vim.keymap.set('n', 'C-j', '<C-w>j', { desc = 'Window down' })
-vim.keymap.set('n', 'C-k', '<C-w>k', { desc = 'Window up' })
-vim.keymap.set('n', 'C-l', '<C-w>l', { desc = 'Window right' })
 
 -- file
 vim.keymap.set('n', '<leader>w', '<cmd> w <CR>', { desc = 'Write buffer' })
@@ -39,3 +32,10 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- practice
+vim.keymap.set({'n', 'i'}, '<Left>', '<Nop>')
+vim.keymap.set({'n', 'i'}, '<Down>', '<Nop>')
+vim.keymap.set({'n', 'i'}, '<Up>', '<Nop>')
+vim.keymap.set({'n', 'i'}, '<Right>', '<Nop>')
+

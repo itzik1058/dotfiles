@@ -32,9 +32,9 @@ return {
     -- use native fzf
     pcall(require('telescope').load_extension, 'fzf')
 
-    vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Search files' })
-    vim.keymap.set('n', '<leader>tb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
-    vim.keymap.set('n', '<leader>th', require('telescope.builtin').help_tags, { desc = 'Search help tags' })
-    vim.keymap.set('n', '<leader>td', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
+    vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Search files' })
+    vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
+    vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Search help tags' })
+    vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
   end
 }

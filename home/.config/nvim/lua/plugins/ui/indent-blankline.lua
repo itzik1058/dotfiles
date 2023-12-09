@@ -4,9 +4,6 @@ return {
   -- Enable `lukas-reineke/indent-blankline.nvim`
   -- See `:help indent_blankline.txt`
   config = function()
-    require('ibl').setup({
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    })
+    require('ibl').setup()
   end
 }

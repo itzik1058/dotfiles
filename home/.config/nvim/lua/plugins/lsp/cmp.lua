@@ -6,11 +6,17 @@ return {
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
 
-    -- Adds LSP completion capabilities
-    'hrsh7th/cmp-nvim-lsp',
+    -- Plugins
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
 
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
+
+    -- Autopairs
+    'windwp/nvim-autopairs',
   },
   config = function()
     local cmp = require('cmp')
@@ -55,8 +61,11 @@ return {
         end, { 'i', 's' }),
       },
       sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
       },
     })
   end

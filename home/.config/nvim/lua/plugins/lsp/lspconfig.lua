@@ -54,5 +54,7 @@ return {
         },
       }
     })
+    lspconfig.tsserver.setup({})
+    lspconfig.pyright.setup({})
   end
 }
