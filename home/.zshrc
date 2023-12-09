@@ -10,15 +10,10 @@ alias v="nvim"
 alias r="ranger"
 alias mnt="udiskie-mount"
 alias umnt="udiskie-umount"
-alias t="taskwarrior-tui"
-alias mail="kermit -t Mail -e neomutt"
-alias calendar="kermit -t Calendar -e ikhal"
-alias hdmi="xrandr --output HDMI1 --auto --right-of $(xrandr | grep -w connected | head -n 1 | cut -d ' ' -f 1)"
-alias hdmi-off="xrandr --output HDMI1 --off"
 
 # Start X at login
 if [[ -z "$DISPLAY" ]] && [[ $(tty) = /dev/tty1 ]]; then
-  startx
+  Hyprland
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
