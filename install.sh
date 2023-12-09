@@ -20,6 +20,8 @@ pkg=(
     fzf                             # (extra)       fuzzy finder
     fzf-tab-git                     # (aur)         fzf search suggestions for zsh
     highlight                       # (extra)       code highlighting (for ranger)
+    hyprland                        # (extra)       wayland compositor
+    hyprpaper                       # (extra)       wayland wallpaper
     kitty                           # (extra)       terminal
     libnotify                       # (extra)       notification events
     mobile-broadband-provider-info  # (extra)       mobile broadband APN config presets
@@ -36,10 +38,12 @@ pkg=(
     noto-fonts-extra                # (extra)       additional variants
     npm                             # (extra)       package manager for javascript
     ntfs-3g                         # (extra)       ntfs partition support
+    otf-font-awesome                # (extra)       font awesome
     pipewire                        # (extra)       audio/video processor
     pipewire-alsa                   # (extra)       alsa replacement for pipewire
     pipewire-jack                   # (extra)       jack support for pipewire
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
+    polkit-kde-agent                # (extra)       authentication agent
     powerline-fonts                 # (extra)       fonts for zsh-theme-powerlevel10k
     pyright                         # (extra)       python LSP (for nvim)
     python-pip                      # (extra)       python package manager
@@ -55,6 +59,7 @@ pkg=(
     udiskie                         # (extra)       disk automount
     usbutils                        # (core)        usb tools
     wireplumber                     # (extra)       pipewire client
+    waybar                          # (extra)       status bar for wayland
     wayland                         # (extra)       display server protocol
     wofi                            # (extra)       app launcher
     xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
