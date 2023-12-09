@@ -15,6 +15,7 @@ pkg=(
     cups                            # (extra)       open printing daemon package
     discord                         # (extra)       chat
     dunst                           # (extra)       notification daemon
+    fd                              # (extra)       alternative to find
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
     fzf                             # (extra)       fuzzy finder
@@ -49,6 +50,7 @@ pkg=(
     python-pip                      # (extra)       python package manager
     python-pipx                     # (extra)       python isolated packages
     ranger                          # (extra)       file browser cli
+    ripgrep                         # (extra)       recursive regex grep
     ruff                            # (extra)       python linter
     steam                           # (multilib)    games
     ttf-font-awesome                # (extra)       font awesome
