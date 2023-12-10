@@ -9,6 +9,7 @@ pkg=(
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
     cdw                             # (aur)         optical disk drive cli
+    cliphist                        # (extra)       clipboard manager
     code                            # (extra)       ide
     code-features                   # (aur)         vscode extensions dependencies
     code-marketplace                # (aur)         vscode extensions
@@ -64,7 +65,8 @@ pkg=(
     waybar                          # (extra)       status bar for wayland
     wayland                         # (extra)       display server protocol
     wofi                            # (extra)       app launcher
-    xdg-desktop-portal              # (extra)       desktop integration for sandboxed apps
+    xdg-desktop-portal-gtk          # (extra)       xdg portal file picker
+    xdg-desktop-portal-hyprland     # (extra)       xdg portal extra features
     zathura                         # (extra)       document viewer
     zathura-pdf-mupdf               # (extra)       zathura plugin for pdf
     zip                             # (extra)       zip utility
