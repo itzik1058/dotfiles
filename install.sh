@@ -22,6 +22,7 @@ pkg=(
     firefox                         # (extra)       web browser
     fzf                             # (extra)       fuzzy finder
     fzf-tab-git                     # (aur)         fzf search suggestions for zsh
+    grim                            # (extra)       screenshot utility for wayland
     highlight                       # (extra)       code highlighting (for ranger)
     hyprland                        # (extra)       wayland compositor
     kitty                           # (extra)       terminal
@@ -53,6 +54,7 @@ pkg=(
     ranger                          # (extra)       file browser cli
     ripgrep                         # (extra)       recursive regex grep
     ruff                            # (extra)       python linter
+    slurp                           # (extra)       select region wayland
     steam                           # (multilib)    games
     swayidle                        # (extra)       idle management daemon
     swaylock                        # (extra)       screen lock
@@ -65,6 +67,7 @@ pkg=(
     wireplumber                     # (extra)       pipewire client
     waybar                          # (extra)       status bar for wayland
     wayland                         # (extra)       display server protocol
+    wl-clipboard                    # (extra)       clipboard utility for wayland
     wofi                            # (extra)       app launcher
     xdg-desktop-portal-gtk          # (extra)       xdg portal file picker
     xdg-desktop-portal-hyprland     # (extra)       xdg portal extra features
