@@ -23,7 +23,6 @@ pkg=(
     fzf-tab-git                     # (aur)         fzf search suggestions for zsh
     highlight                       # (extra)       code highlighting (for ranger)
     hyprland                        # (extra)       wayland compositor
-    hyprpaper                       # (extra)       wayland wallpaper
     kitty                           # (extra)       terminal
     libnotify                       # (extra)       notification events
     mobile-broadband-provider-info  # (extra)       mobile broadband APN config presets
@@ -54,11 +53,10 @@ pkg=(
     ripgrep                         # (extra)       recursive regex grep
     ruff                            # (extra)       python linter
     steam                           # (multilib)    games
+    swww                            # (extra)       wayland wallpaper
     ttf-font-awesome                # (extra)       font awesome
     ttf-fira-code                   # (extra)       fira font
-    # ttf-iosevka-nerd                # (extra)       iosevka font (patched with nerd fonts)
     ttf-jetbrains-mono              # (extra)       jetbrains font
-    ttf-jetbrains-mono-nerd         # (extra)       jetbrains nerd font
     udiskie                         # (extra)       disk automount
     usbutils                        # (core)        usb tools
     wireplumber                     # (extra)       pipewire client
