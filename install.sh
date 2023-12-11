@@ -53,6 +53,8 @@ pkg=(
     ripgrep                         # (extra)       recursive regex grep
     ruff                            # (extra)       python linter
     steam                           # (multilib)    games
+    swayidle                        # (extra)       idle management daemon
+    swaylock                        # (extra)       screen lock
     swww                            # (extra)       wayland wallpaper
     ttf-font-awesome                # (extra)       font awesome
     ttf-fira-code                   # (extra)       fira font
