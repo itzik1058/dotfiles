@@ -8,6 +8,7 @@ pkg=(
     blueman                         # (extra)       bluetooth manager
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
+    brightnessctl                   # (extra)       brightness control
     cdw                             # (aur)         optical disk drive cli
     cliphist                        # (extra)       clipboard manager
     code                            # (extra)       ide
