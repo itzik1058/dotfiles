@@ -62,6 +62,7 @@ pkg=(
     swayidle                        # (extra)       idle management daemon
     swaylock                        # (extra)       screen lock
     swww                            # (extra)       wayland wallpaper
+    tofi                            # (extra)       app launcher
     ttf-font-awesome                # (extra)       font awesome
     ttf-fira-code                   # (extra)       fira font
     ttf-jetbrains-mono              # (extra)       jetbrains font
@@ -71,7 +72,6 @@ pkg=(
     waybar                          # (extra)       status bar for wayland
     wayland                         # (extra)       display server protocol
     wl-clipboard                    # (extra)       clipboard utility for wayland
-    wofi                            # (extra)       app launcher
     xdg-desktop-portal-gtk          # (extra)       xdg portal file picker
     xdg-desktop-portal-hyprland     # (extra)       xdg portal extra features
     zathura                         # (extra)       document viewer
