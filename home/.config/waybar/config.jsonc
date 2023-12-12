@@ -4,9 +4,9 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio", "battery"],
+    "modules-left": [],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [],
     // "margin": "",
     // "margin-top": 0,
     // "margin-left": 0,
@@ -14,10 +14,10 @@
     // "margin-right": 0,
     "spacing": 0, // Gaps between modules (4px)
     // "name": "",
-    "mode": "",
+    "mode": "overlay",
     "start_hidden": false,
     "modifier-reset": "press",
-    "exclusive": true,
+    "exclusive": false,
     "fixed-center": true,
     "passthrough": false,
     "gtk-layer-shell": true,

@@ -5,6 +5,7 @@ cd $(dirname $(realpath $0)) || exit
 
 pkg=(
     acpid                           # (extra)       acpi event daemon
+    bibata-cursor-theme             # (extra)       cursor theme
     blueman                         # (extra)       bluetooth manager
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
@@ -17,6 +18,7 @@ pkg=(
     cups                            # (extra)       open printing daemon package
     discord                         # (extra)       chat
     dunst                           # (extra)       notification daemon
+    eww-git                         # (aur)         widgets
     fd                              # (extra)       alternative to find
     ffmpeg                          # (extra)       media conversion
     firefox                         # (extra)       web browser
@@ -31,6 +33,7 @@ pkg=(
     modemmanager                    # (extra)       mobile broadband modem management
     mpv                             # (extra)       media player
     neofetch                        # (extra)       system information
+    neovide                         # (extra)       gui for neovim
     neovim                          # (extra)       text editor
     nerd-fonts                      # (extra)       nerd fonts
     networkmanager                  # (extra)       network connection manager
