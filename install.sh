@@ -46,10 +46,12 @@ pkg=(
     npm                             # (extra)       package manager for javascript
     ntfs-3g                         # (extra)       ntfs partition support
     otf-font-awesome                # (extra)       font awesome
+    pavucontrol                     # (extra)       pulseaudio volume control
     pipewire                        # (extra)       audio/video processor
     pipewire-alsa                   # (extra)       alsa replacement for pipewire
     pipewire-jack                   # (extra)       jack support for pipewire
     pipewire-pulse                  # (extra)       pulseaudio replacement for pipewire
+    playerctl                       # (extra)       media player control
     polkit-kde-agent                # (extra)       authentication agent
     powerline-fonts                 # (extra)       fonts for zsh-theme-powerlevel10k
     pyright                         # (extra)       python LSP (for nvim)

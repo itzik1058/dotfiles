@@ -4,25 +4,28 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-left": [],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": [],
+    "modules-left": ["custom/playerctl"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "hyprland/language", "cpu", "memory", "network", "pulseaudio", "battery"],
     // "margin": "",
     // "margin-top": 0,
     // "margin-left": 0,
     // "margin-bottom": 0,
     // "margin-right": 0,
-    "spacing": 0, // Gaps between modules (4px)
+    "spacing": 0,
     // "name": "",
-    "mode": "overlay",
+    "mode": "",
     "start_hidden": false,
     "modifier-reset": "press",
-    "exclusive": false,
+    "exclusive": true,
     "fixed-center": true,
     "passthrough": false,
     "gtk-layer-shell": true,
     "ipc": false,
     "id": "",
-    "include": ["~/.config/waybar/modules.jsonc"],
+    "include": [
+        "~/.config/waybar/groups.jsonc",
+        "~/.config/waybar/modules.jsonc"
+    ]
 }
 
