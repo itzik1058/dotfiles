@@ -27,6 +27,7 @@ pkg=(
     grim                            # (extra)       screenshot utility for wayland
     highlight                       # (extra)       code highlighting (for ranger)
     hyprland                        # (extra)       wayland compositor
+    imagemagick                     # (extra)       image utility
     kitty                           # (extra)       terminal
     libnotify                       # (extra)       notification events
     mobile-broadband-provider-info  # (extra)       mobile broadband APN config presets
