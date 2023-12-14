@@ -46,6 +46,7 @@ pkg=(
     npm                             # (extra)       package manager for javascript
     ntfs-3g                         # (extra)       ntfs partition support
     otf-font-awesome                # (extra)       font awesome
+    papirus-icon-theme              # (extra)       icon theme
     pavucontrol                     # (extra)       pulseaudio volume control
     pipewire                        # (extra)       audio/video processor
     pipewire-alsa                   # (extra)       alsa replacement for pipewire
