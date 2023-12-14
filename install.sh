@@ -10,6 +10,7 @@ pkg=(
     bluez                           # (extra)       bluetooth
     bluez-utils                     # (extra)       bluetooth
     brightnessctl                   # (extra)       brightness control
+    catppuccin-gtk-theme-mocha      # (aur)         gtk theme
     cdw                             # (aur)         optical disk drive cli
     cliphist                        # (extra)       clipboard manager
     code                            # (extra)       ide
@@ -125,7 +126,7 @@ cp -aflv home/.*[^.] $HOME/
 
 # apply themes
 gsettings set org.gnome.desktop.interface font-name "Fira Nerd Font"
-gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Peach-Dark"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 gsettings set org.gnome.desktop.interface icon-theme "Papirus"
 gsettings set org.gnome.desktop.interface cursor-theme "Bibata-Modern-Ice"
