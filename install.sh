@@ -124,7 +124,7 @@ chsh -s /bin/zsh
 cp -aflv home/.*[^.] $HOME/
 
 # apply themes
-gsettings set org.gnome.desktop.interface font-name "FiraMono Nerd Font"
+gsettings set org.gnome.desktop.interface font-name "Fira Nerd Font"
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 gsettings set org.gnome.desktop.interface icon-theme "Papirus"
