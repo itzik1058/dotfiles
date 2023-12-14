@@ -121,3 +121,11 @@ chsh -s /bin/zsh
 
 # link user files
 cp -aflv home/.*[^.] $HOME/
+
+# apply themes
+gsettings set org.gnome.desktop.interface font-name "FiraMono Nerd Font"
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface icon-theme "Papirus"
+gsettings set org.gnome.desktop.interface cursor-theme "Bibata-Modern-Ice"
+
