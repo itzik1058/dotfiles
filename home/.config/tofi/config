@@ -142,7 +142,7 @@
 ### Text layout
 #
 	# Prompt to display.
-	prompt-text = "run: "
+	prompt-text = ">> "
 
 	# Extra horizontal padding between prompt and input.
 	prompt-padding = 0
@@ -186,7 +186,7 @@
 	border-color = #F92672
 
 	# Radius of window corners in pixels.
-	corner-radius = 0
+	corner-radius = 12
 
 	# Padding between borders and text. Can be pixels or a percentage.
 	padding-top = 8

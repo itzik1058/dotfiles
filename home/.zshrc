@@ -1,9 +1,19 @@
 # Environment variables
 export EDITOR=nvim
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
+
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+# export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+# export GOPATH="$XDG_DATA_HOME"/go
+# export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+# export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+# export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+# export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
+# export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
 
 # Aliases
 alias v="nvim"
