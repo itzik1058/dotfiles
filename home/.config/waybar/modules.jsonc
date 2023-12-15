@@ -1,17 +1,12 @@
 {
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
     "tray": {
-        "spacing": 10
+        "spacing": 8
     },
     "clock": {
-        "format": "{:%H:%M}  ",
-        "format-alt": "{:%A, %B %d, %Y (%R)} ",
+        "format": "{:%H:%M} "
+    },
+    "clock#date": {
+        "format": "{:%b %d} ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
@@ -62,21 +57,28 @@
         },
         "on-click": "pavucontrol"
     },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 32,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1"
+        }
+    },
     "hyprland/language": {
         "format": "{} 󰛓",
         "format-en": "en",
         "format-he": "he"
     },
-    "custom/playerctl": {
-        "format": "{icon}  <span>{}</span>",
+    "custom/media": {
+        "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 50,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click-middle": "playerctl play-pause",
-        "on-click": "playerctl previous", "on-click-right": "playerctl next",
+        "max-length": 40,
         "format-icons": {
-            "Playing": "<span foreground='#94e2d5'></span>",
-            "Paused": "<span foreground='#f38ba8'></span>"
-        }
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "${XDG_CONFIG_HOME:-$HOME/.config}/waybar/scripts/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
     }
 }

@@ -4,8 +4,8 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-left": ["custom/playerctl"],
-    "modules-center": ["clock"],
+    "modules-left": ["clock", "clock#date", "custom/media"],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "hyprland/language", "cpu", "memory", "network", "pulseaudio", "battery"],
     // "margin": "",
     // "margin-top": 0,

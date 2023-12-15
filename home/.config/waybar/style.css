@@ -47,9 +47,10 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
-#custom-playerctl,
-#pulseaudio,
 #clock,
+#custom-media,
+#window,
+#pulseaudio,
 #tray,
 #language,
 #memory,

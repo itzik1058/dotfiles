@@ -16,6 +16,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # export AZURE_CONFIG_DIR="$XDG_DATA_HOME"/azure
 
 # Aliases
+alias ssh="kitty +kitten ssh"
+alias icat="kitty +kitten icat"
 alias v="nvim"
 alias r="ranger"
 alias mnt="udiskie-mount"
