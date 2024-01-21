@@ -57,6 +57,7 @@ pkg=(
     polkit-kde-agent                # (extra)       authentication agent
     powerline-fonts                 # (extra)       fonts for zsh-theme-powerlevel10k
     pyright                         # (extra)       python LSP (for nvim)
+    python-lsp-server               # (extra)       python LSP (for helix)
     python-pip                      # (extra)       python package manager
     python-pipx                     # (extra)       python isolated packages
     ranger                          # (extra)       file browser cli
