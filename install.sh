@@ -28,6 +28,7 @@ pkg=(
     grim                            # (extra)       screenshot utility for wayland
     highlight                       # (extra)       code highlighting (for ranger)
     hyprland                        # (extra)       wayland compositor
+    hyprpaper                       # (extra)       hyprland wallpaper
     imagemagick                     # (extra)       image utility
     kitty                           # (extra)       terminal
     libnotify                       # (extra)       notification events
@@ -67,7 +68,6 @@ pkg=(
     steam                           # (multilib)    games
     swayidle                        # (extra)       idle management daemon
     swaylock                        # (extra)       screen lock
-    swww                            # (extra)       wayland wallpaper
     tofi                            # (extra)       app launcher
     ttf-font-awesome                # (extra)       font awesome
     ttf-fira-code                   # (extra)       fira font
