@@ -65,6 +65,7 @@ pkg=(
     ripgrep                         # (extra)       recursive regex grep
     ruff                            # (extra)       python linter
     slurp                           # (extra)       select region wayland
+    speech-dispatcher               # (extra)       speech dispatcher
     steam                           # (multilib)    games
     swayidle                        # (extra)       idle management daemon
     swaylock                        # (extra)       screen lock
