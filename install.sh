@@ -26,6 +26,7 @@ pkg=(
     fzf                             # (extra)       fuzzy finder
     fzf-tab-git                     # (aur)         fzf search suggestions for zsh
     grim                            # (extra)       screenshot utility for wayland
+    gvfs                            # (extra)       gnome virtual fs for mounting and trash in thunar
     highlight                       # (extra)       code highlighting (for ranger)
     hyprland                        # (extra)       wayland compositor
     hyprpaper                       # (extra)       hyprland wallpaper
