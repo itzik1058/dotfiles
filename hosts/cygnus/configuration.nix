@@ -54,7 +54,14 @@
   users.users.koi = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ firefox tree gh vscode spotify ];
+    packages = with pkgs; [
+      firefox
+      tree
+      gh
+      nixfmt
+      vscode
+      gnome.gnome-software
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -62,6 +69,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ vim wget git ];
+
+  services.flatpak.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
