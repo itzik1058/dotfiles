@@ -7,22 +7,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let inherit (self) outputs;
-    in {
-      nixosConfigurations = {
-        cygnus = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/cygnus/configuration.nix ];
-        };
-      };
-
-      homeConfigurations = {
-        cygnus = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/cygnus/home.nix ];
-        };
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    nixosConfigurations = {
+      cygnus = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/cygnus/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.koi = import ./hosts/cygnus/home.nix;
+          }
+        ];
       };
     };
+
+    homeConfigurations = {
+      cygnus = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./hosts/cygnus/home.nix ];
+      };
+    };
+  };
 }
