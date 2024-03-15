@@ -19,15 +19,23 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  programs.zsh.enable = true;
+
   users.users.koi = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    shell = pkgs.zsh;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  environment = {
+    shells = with pkgs; [ zsh ];
+    pathsToLink = [ "/share/zsh" ];
+    systemPackages = with pkgs; [ vim wget git ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ vim wget git ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system.stateVersion = "23.11";
 }

@@ -61,6 +61,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  imports =
-    [ ../../modules/home-manager/gtk.nix ../../modules/home-manager/qt.nix ];
+  imports = [
+    ../../modules/home-manager/gnome.nix
+    ../../modules/home-manager/gtk.nix
+    ../../modules/home-manager/qt.nix
+    ../../modules/home-manager/zsh.nix
+  ];
 }
