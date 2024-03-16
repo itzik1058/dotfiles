@@ -3,8 +3,8 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
+      package = pkgs.gnome.gnome-themes-extra;
+      name = "Adwaita-dark";
     };
     cursorTheme = {
       package = pkgs.bibata-cursors;
@@ -13,6 +13,17 @@
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name = "Papirus";
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
     };
   };
 
