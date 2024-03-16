@@ -30,7 +30,6 @@
   programs.zsh.enable = true;
 
   services = {
-    pipewire.enable = true;
     printing.enable = true;
     flatpak.enable = true;
   };
