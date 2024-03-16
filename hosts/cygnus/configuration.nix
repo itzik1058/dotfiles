@@ -45,6 +45,7 @@
     ./hardware-configuration.nix
     ../../modules/wayland.nix
     ../../modules/gnome.nix
+    ../../modules/steam.nix
   ];
 }
 

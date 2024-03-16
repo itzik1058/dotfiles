@@ -25,6 +25,7 @@
           "firefox.desktop"
           "org.gnome.Console.desktop"
           "com.discordapp.Discord.desktop"
+          "steam.desktop"
         ];
 
         enabled-extensions = [
