@@ -18,6 +18,7 @@
       };
 
       "org/gnome/desktop/wm/preferences" = { resize-with-right-button = true; };
+      "org/gnome/desktop/interface" = { enable-hot-corners = false; };
 
       "org/gnome/shell" = {
         favorite-apps = [
