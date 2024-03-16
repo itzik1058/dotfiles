@@ -17,10 +17,21 @@
         switch-input-source-backward = [ "<Alt>Shift_L" ];
       };
 
-      "org/gnome/shell".enabled-extensions = [
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "dash-to-dock@micxgx.gmail.com"
-      ];
+      "org/gnome/desktop/wm/preferences" = { resize-with-right-button = true; };
+
+      "org/gnome/shell" = {
+        favorite-apps = [
+          "org.gnome.Nautilus.desktop"
+          "firefox.desktop"
+          "org.gnome.Console.desktop"
+          "com.discordapp.Discord.desktop"
+        ];
+
+        enabled-extensions = [
+          "appindicatorsupport@rgcjonas.gmail.com"
+          "dash-to-dock@micxgx.gmail.com"
+        ];
+      };
 
       "org/gnome/shell/extensions/dash-to-dock" = {
         background-opacity = 0.0;
