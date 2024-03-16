@@ -1,7 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ../../modules/gnome.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/wayland.nix
+    ../../modules/gnome.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
