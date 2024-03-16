@@ -40,6 +40,8 @@
     systemPackages = with pkgs; [ vim wget git ];
   };
 
+  security.rtkit.enable = true;
+
   imports = [
     ./hardware-configuration.nix
     ../../modules/gnome.nix
