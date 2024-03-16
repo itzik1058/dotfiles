@@ -33,7 +33,10 @@
   # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   hardware = {
+    pulseaudio.enable = true;
+
     cpu.intel.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
     nvidia = {
@@ -42,6 +45,8 @@
       nvidiaSettings = true;
     };
   };
+
+  sound.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 }
