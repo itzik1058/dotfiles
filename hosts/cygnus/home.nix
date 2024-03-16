@@ -37,5 +37,6 @@
     ../../modules/home/gtk.nix
     ../../modules/home/qt.nix
     ../../modules/home/zsh.nix
+    ../../modules/home/gaming.nix
   ];
 }
