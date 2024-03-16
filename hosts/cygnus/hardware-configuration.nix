@@ -37,14 +37,9 @@
     cpu.intel.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
+      powerManagement.enable = true;
       nvidiaSettings = true;
-    };
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
     };
   };
 
