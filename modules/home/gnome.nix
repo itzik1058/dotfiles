@@ -17,7 +17,10 @@
         switch-input-source-backward = [ "<Alt>Shift_L" ];
       };
 
-      "org/gnome/desktop/wm/preferences" = { resize-with-right-button = true; };
+      "org/gnome/desktop/wm/preferences" = {
+        resize-with-right-button = true;
+        button-layout = ":minimize,maximize,close";
+      };
       "org/gnome/desktop/interface" = { enable-hot-corners = false; };
 
       "org/gnome/shell" = {
