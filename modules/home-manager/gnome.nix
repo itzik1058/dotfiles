@@ -1,4 +1,8 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
+  home.packages = with pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
+  ];
   dconf = {
     enable = true;
     settings = let inherit (lib.hm.gvariant) mkTuple;
@@ -11,6 +15,26 @@
       "org/gnome/desktop/wm/keybindings" = {
         switch-input-source = [ "<Shift>Alt_L" ];
         switch-input-source-backward = [ "<Alt>Shift_L" ];
+      };
+
+      "org/gnome/shell".enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "dash-to-dock@micxgx.gmail.com"
+      ];
+
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        background-opacity = 0.0;
+        click-action = "focus-minimize-or-previews";
+        custom-theme-shrink = true;
+        dash-max-icon-size = 48;
+        dock-position = "BOTTOM";
+        height-fraction = 0.9;
+        intellihide-mode = "ALL_WINDOWS";
+        multi-monitor = true;
+        show-mounts = false;
+        show-show-apps-button = false;
+        show-trash = false;
+        transparency-mode = "FIXED";
       };
     };
   };
