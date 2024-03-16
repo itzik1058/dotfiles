@@ -42,9 +42,8 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/wayland.nix
     ../../modules/gnome.nix
-    ../../modules/steam.nix
+    ../../modules/gaming.nix
   ];
 }
 
