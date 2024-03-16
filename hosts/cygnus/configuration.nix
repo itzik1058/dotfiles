@@ -44,8 +44,8 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/gnome.nix
-    ../../modules/gaming.nix
+    ../../modules/system/gnome.nix
+    ../../modules/system/gaming.nix
   ];
 }
 

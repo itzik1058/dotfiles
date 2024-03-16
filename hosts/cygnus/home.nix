@@ -33,9 +33,9 @@
   home.sessionVariables = { EDITOR = "vim"; };
 
   imports = [
-    ../../modules/home-manager/gnome.nix
-    ../../modules/home-manager/gtk.nix
-    ../../modules/home-manager/qt.nix
-    ../../modules/home-manager/zsh.nix
+    ../../modules/home/gnome.nix
+    ../../modules/home/gtk.nix
+    ../../modules/home/qt.nix
+    ../../modules/home/zsh.nix
   ];
 }
