@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  # GTK2/3
   gtk = {
     enable = true;
     theme = {
@@ -13,5 +14,11 @@
       package = pkgs.papirus-icon-theme;
       name = "Papirus";
     };
+  };
+
+  # GTK4
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 }
