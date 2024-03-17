@@ -23,6 +23,10 @@
       };
       "org/gnome/desktop/interface" = { enable-hot-corners = false; };
 
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = "nothing";
+      };
+
       "org/gnome/shell" = {
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
