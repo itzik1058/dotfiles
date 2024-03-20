@@ -41,6 +41,12 @@
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
+      # forceFullCompositionPipeline = true;
+    };
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
     };
   };
 
