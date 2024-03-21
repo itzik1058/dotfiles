@@ -12,7 +12,7 @@
       cygnus = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/cygnus/configuration.nix
+          ./hosts/cygnus
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

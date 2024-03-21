@@ -43,7 +43,7 @@
   security.rtkit.enable = true;
 
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ../../modules/system/gnome.nix
     ../../modules/system/gaming.nix
   ];
