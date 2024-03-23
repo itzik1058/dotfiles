@@ -34,9 +34,10 @@
 
   imports = [
     ../../modules/home/gnome.nix
+    ../../modules/home/shell.nix
     ../../modules/home/gtk.nix
     ../../modules/home/qt.nix
-    ../../modules/home/zsh.nix
+    ../../modules/home/autostart.nix
     ../../modules/home/direnv.nix
     ../../modules/home/gaming.nix
   ];
