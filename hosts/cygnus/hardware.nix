@@ -38,10 +38,8 @@
     cpu.intel.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
     nvidia = {
-      modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
-      # forceFullCompositionPipeline = true;
     };
     opengl = {
       enable = true;
