@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Hidamari
-Exec=flatpak run --branch=stable --arch=x86_64 --command=hidamari io.github.jeffshee.Hidamari
+Exec=flatpak run --branch=stable --arch=x86_64 --command=hidamari io.github.jeffshee.Hidamari -b
 Icon=io.github.jeffshee.Hidamari
 Terminal=false
 Type=Application
