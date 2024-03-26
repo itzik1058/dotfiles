@@ -6,9 +6,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... }@inputs: {
     nixosConfigurations = {
+      wsl = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/wsl
+          home-manager.nixosModules.home-manager
+          nixos-wsl.nixosModules.wsl
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nixos = import ./hosts/wsl/home.nix;
+          }
+        ];
+      };
       cygnus = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
