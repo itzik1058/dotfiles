@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  imports = [ ./wayland.nix ];
+
   services = {
     xserver = {
       enable = true;
@@ -10,6 +12,4 @@
     };
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   };
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

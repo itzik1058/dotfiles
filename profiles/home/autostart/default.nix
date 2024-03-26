@@ -1,6 +1,6 @@
 { config, ... }: {
   home.file."${config.xdg.configHome}/autostart" = {
-    source = ./autostart;
+    source = ./applications;
     recursive = true;
   };
 }

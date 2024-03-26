@@ -1,5 +1,5 @@
 {
-  imports = [ ../../modules/system/home-manager.nix ];
+  imports = [ ../../profiles/system/home-manager ];
   home-manager.users.nixos = { pkgs, ... }: {
     home.stateVersion = "23.11";
 
@@ -12,6 +12,6 @@
 
     home.sessionVariables = { EDITOR = "vim"; };
 
-    imports = [ ../../modules/home/shell.nix ../../modules/home/direnv.nix ];
+    imports = [ ../../profiles/home/shell ../../profiles/home/direnv ];
   };
 }

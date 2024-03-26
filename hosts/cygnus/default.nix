@@ -4,8 +4,8 @@
   imports = [
     ./hardware.nix
     ./home.nix
-    ../../modules/system/gnome.nix
-    ../../modules/system/gaming.nix
+    ../../profiles/system/gnome
+    ../../profiles/system/gaming
   ];
 
   system.stateVersion = "23.11";

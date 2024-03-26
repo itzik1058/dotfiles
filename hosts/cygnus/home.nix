@@ -1,5 +1,5 @@
 {
-  imports = [ ../../modules/system/home-manager.nix ];
+  imports = [ ../../profiles/system/home-manager ];
   home-manager.users.koi = { config, pkgs, ... }: {
     home.stateVersion = "23.11";
 
@@ -33,13 +33,12 @@
     home.sessionVariables = { EDITOR = "vim"; };
 
     imports = [
-      ../../modules/home/gnome.nix
-      ../../modules/home/shell.nix
-      ../../modules/home/gtk.nix
-      ../../modules/home/qt.nix
-      ../../modules/home/autostart.nix
-      ../../modules/home/direnv.nix
-      ../../modules/home/gaming.nix
+      ../../profiles/home/gnome
+      ../../profiles/home/shell
+      ../../profiles/home/theme
+      ../../profiles/home/autostart
+      ../../profiles/home/direnv
+      ../../profiles/home/gaming
     ];
   };
 }
