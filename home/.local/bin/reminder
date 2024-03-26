@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-while true; do
-    sleep 1h
-    notify-send "Drink water" -a "Reminder" -u low
-done
