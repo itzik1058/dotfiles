@@ -1,14 +1,17 @@
-{ pkgs, ... }: {
-  home.stateVersion = "23.11";
+{
+  imports = [ ../../modules/system/home-manager.nix ];
+  home-manager.users.nixos = { pkgs, ... }: {
+    home.stateVersion = "23.11";
 
-  programs.home-manager.enable = true;
+    programs.home-manager.enable = true;
 
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+    home.username = "nixos";
+    home.homeDirectory = "/home/nixos";
 
-  home.packages = with pkgs; [ gh nixfmt ];
+    home.packages = with pkgs; [ gh nixfmt ];
 
-  home.sessionVariables = { EDITOR = "vim"; };
+    home.sessionVariables = { EDITOR = "vim"; };
 
-  imports = [ ../../modules/home/shell.nix ../../modules/home/direnv.nix ];
+    imports = [ ../../modules/home/shell.nix ../../modules/home/direnv.nix ];
+  };
 }

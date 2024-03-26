@@ -1,6 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./hardware.nix
+    ./home.nix
+    ../../modules/system/gnome.nix
+    ../../modules/system/gaming.nix
+  ];
+
   system.stateVersion = "23.11";
 
   nix = {
@@ -50,11 +57,5 @@
   };
 
   security.rtkit.enable = true;
-
-  imports = [
-    ./hardware.nix
-    ../../modules/system/gnome.nix
-    ../../modules/system/gaming.nix
-  ];
 }
 

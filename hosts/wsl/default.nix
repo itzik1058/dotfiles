@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, self, ... }: {
+  imports = [ self.inputs.nixos-wsl.nixosModules.wsl ./home.nix ];
+
   system.stateVersion = "23.11";
 
   nixpkgs.hostPlatform = "x86_64-linux";
