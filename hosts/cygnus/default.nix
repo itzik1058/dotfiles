@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware.nix
+    ./hardware
     ./home.nix
     ../../profiles/system/gnome
     ../../profiles/system/gaming
