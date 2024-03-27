@@ -31,6 +31,7 @@
   };
 
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   environment = {
     shells = with pkgs; [ zsh ];
