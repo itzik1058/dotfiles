@@ -33,7 +33,7 @@
           "org.gnome.Nautilus.desktop"
           "firefox.desktop"
           "org.gnome.Console.desktop"
-          "com.discordapp.Discord.desktop"
+          "vesktop.desktop"
           "steam.desktop"
         ];
 

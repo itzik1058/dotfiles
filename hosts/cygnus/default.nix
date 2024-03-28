@@ -53,7 +53,7 @@
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
-    systemPackages = with pkgs; [ vim wget git ];
+    systemPackages = with pkgs; [ vim wget git vesktop ];
   };
 
   security.rtkit.enable = true;
