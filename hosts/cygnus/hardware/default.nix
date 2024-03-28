@@ -3,7 +3,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./nvidia.nix
+    ./video.nix
     ./audio.nix
     ./mount.nix
   ];
