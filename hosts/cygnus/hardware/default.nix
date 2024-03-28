@@ -12,6 +12,7 @@
     ./video.nix
     ./audio.nix
     ./mount.nix
+    ./vfio.nix
   ];
 
   boot.initrd.availableKernelModules = [
