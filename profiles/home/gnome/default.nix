@@ -4,6 +4,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
   ];
+
   dconf = {
     enable = true;
     settings = let inherit (lib.hm.gvariant) mkTuple;
@@ -57,6 +58,13 @@
         show-trash = false;
         transparency-mode = "FIXED";
       };
+    };
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
     };
   };
 }
