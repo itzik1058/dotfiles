@@ -35,6 +35,7 @@
     imports = [
       ../../profiles/home/gnome
       ../../profiles/home/shell
+      ../../profiles/home/audio
       ../../profiles/home/theme
       ../../profiles/home/autostart
       ../../profiles/home/direnv
