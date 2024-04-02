@@ -15,8 +15,12 @@
         xkb-options = [ "caps:escape" "grp:alt_shift_toggle" ];
       };
       "org/gnome/desktop/wm/keybindings" = {
+        switch-applications = [ ];
+        switch-applications-backward = [ ];
         switch-input-source = [ "<Shift>Alt_L" ];
         switch-input-source-backward = [ "<Alt>Shift_L" ];
+        switch-windows = [ "<Alt>Tab" ];
+        switch-windows-backward = [ "<Shift><Alt>Tab" ];
       };
 
       "org/gnome/desktop/wm/preferences" = {
