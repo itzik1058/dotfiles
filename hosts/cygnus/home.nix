@@ -1,9 +1,7 @@
 {
   imports = [ ../../profiles/system/home-manager ];
   home-manager.users.koi = { config, pkgs, ... }: {
-    home.stateVersion = "23.11";
-
-    programs.home-manager.enable = true;
+    imports = [ ../../profiles/home ];
 
     home.username = "koi";
     home.homeDirectory = "/home/koi";
@@ -30,7 +28,7 @@
       # '';
     };
 
-    home.sessionVariables = { EDITOR = "vim"; };
+    # home.sessionVariables = { };
 
     imports = [
       ../../profiles/home/gnome
