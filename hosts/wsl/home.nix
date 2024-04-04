@@ -12,7 +12,7 @@
 
     # home.sessionVariables = { };
 
-    home.packages = with pkgs; [ gh nixfmt ];
+    home.packages = with pkgs; [ gh nixfmt python3Full ];
 
     home.file."${config.home.homeDirectory}/.vscode-server/server-env-setup".text =
       "PATH=$PATH:/run/current-system/sw/bin/";
