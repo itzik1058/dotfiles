@@ -1,7 +1,16 @@
 {
   imports = [ ../../profiles/system/home-manager ];
   home-manager.users.koi = { config, pkgs, ... }: {
-    imports = [ ../../profiles/home ];
+    imports = [
+      ../../profiles/home
+      ../../profiles/home/gnome
+      ../../profiles/home/shell
+      ../../profiles/home/audio
+      ../../profiles/home/theme
+      ../../profiles/home/autostart
+      ../../profiles/home/direnv
+      ../../profiles/home/gaming
+    ];
 
     home.username = "koi";
     home.homeDirectory = "/home/koi";
@@ -29,15 +38,5 @@
     };
 
     # home.sessionVariables = { };
-
-    imports = [
-      ../../profiles/home/gnome
-      ../../profiles/home/shell
-      ../../profiles/home/audio
-      ../../profiles/home/theme
-      ../../profiles/home/autostart
-      ../../profiles/home/direnv
-      ../../profiles/home/gaming
-    ];
   };
 }
