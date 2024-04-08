@@ -1,6 +1,10 @@
-{ pkgs, self, ... }: {
-  imports =
-    [ self.inputs.nixos-wsl.nixosModules.wsl ./home.nix ../../profiles/system ];
+{ pkgs, self, ... }:
+{
+  imports = [
+    self.inputs.nixos-wsl.nixosModules.wsl
+    ./home.nix
+    ../../profiles/system
+  ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
@@ -10,11 +14,16 @@
     defaultUser = "nixos";
   };
 
-  networking = { hostName = "wsl"; };
+  networking = {
+    hostName = "wsl";
+  };
 
   users.users.nixos = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
 

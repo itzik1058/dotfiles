@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   system.stateVersion = "23.11";
 
   nix = {
@@ -9,7 +10,10 @@
       persistent = true;
     };
     optimise.automatic = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   programs.git = {

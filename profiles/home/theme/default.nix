@@ -1,1 +1,7 @@
-{ ... }: { imports = [ ./gtk.nix ./qt.nix ]; }
+{ ... }:
+{
+  imports = [
+    ./gtk.nix
+    ./qt.nix
+  ];
+}

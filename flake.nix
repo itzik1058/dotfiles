@@ -11,16 +11,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... }@inputs: {
-    nixosConfigurations = {
-      wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit self; };
-        modules = [ ./hosts/wsl ];
-      };
-      cygnus = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit self; };
-        modules = [ ./hosts/cygnus ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-wsl,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        wsl = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit self;
+          };
+          modules = [ ./hosts/wsl ];
+        };
+        cygnus = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit self;
+          };
+          modules = [ ./hosts/cygnus ];
+        };
       };
     };
-  };
 }

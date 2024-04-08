@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./hardware
@@ -42,9 +46,11 @@
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
-    systemPackages = with pkgs; [ wget vesktop ];
+    systemPackages = with pkgs; [
+      wget
+      vesktop
+    ];
   };
 
   security.rtkit.enable = true;
 }
-
