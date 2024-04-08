@@ -6,7 +6,10 @@ let
 in
 { lib, pkgs, ... }:
 {
-  imports = [ ./virt-manager.nix ];
+  imports = [
+    ./virt-manager.nix
+    ./looking-glass.nix
+  ];
 
   boot = {
     initrd.kernelModules = [
