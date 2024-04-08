@@ -51,6 +51,10 @@
           sleep-inactive-ac-type = "nothing";
         };
 
+        "org/gnome/mutter" = {
+          dynamic-workspaces = true;
+        };
+
         "org/gnome/shell" = {
           favorite-apps = [
             "org.gnome.Nautilus.desktop"
@@ -64,6 +68,10 @@
             "appindicatorsupport@rgcjonas.gmail.com"
             "dash-to-dock@micxgx.gmail.com"
           ];
+        };
+
+        "org/gnome/shell/app-switcher" = {
+          current-workspace-only = true;
         };
 
         "org/gnome/shell/extensions/dash-to-dock" = {
