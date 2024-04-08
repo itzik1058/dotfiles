@@ -6,6 +6,8 @@ let
 in
 { lib, pkgs, ... }:
 {
+  imports = [ ./virt-manager.nix ];
+
   boot = {
     initrd.kernelModules = [
       "vfio_pci"
@@ -24,27 +26,5 @@ in
     ];
   };
 
-  virtualisation = {
-    spiceUSBRedirection.enable = true;
-    libvirtd.enable = true;
-  };
-
-  users.users.koi.extraGroups = [ "libvirtd" ];
-
-  environment.systemPackages = with pkgs; [
-    (import ./ls-iommu-groups.nix { inherit pkgs; })
-    spice
-    spice-gtk
-    spice-protocol
-    virt-viewer
-    virtio-win
-    win-spice
-  ];
-
-  programs.virt-manager.enable = true;
-
-  home-manager.users.koi.dconf.settings."org/virt-manager/virt-manager/connections" = {
-    autoconnect = [ "qemu:///system" ];
-    uris = [ "qemu:///system" ];
-  };
+  environment.systemPackages = [ (import ./ls-iommu-groups.nix { inherit pkgs; }) ];
 }
