@@ -32,6 +32,7 @@ in
   users.users.koi.extraGroups = [ "libvirtd" ];
 
   environment.systemPackages = with pkgs; [
+    (import ./ls-iommu-groups.nix { inherit pkgs; })
     spice
     spice-gtk
     spice-protocol
