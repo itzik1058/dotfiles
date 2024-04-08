@@ -5,15 +5,6 @@
     libvirtd.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    spice
-    spice-gtk
-    spice-protocol
-    virt-viewer
-    virtio-win
-    win-spice
-  ];
-
   users.users.koi.extraGroups = [ "libvirtd" ];
 
   programs.virt-manager.enable = true;
