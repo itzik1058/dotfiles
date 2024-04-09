@@ -76,3 +76,60 @@ This causes issues with VFIO and should be disabled
 - </memballoon>
 + <memballoon model="none"/>
 ```
+
+### Anticheat
+
+Add vendor id and hide kvm
+
+```xml
+<features>
+  ...
+  <hyperv mode="passthrough">
+    <relaxed state="on"/>
+    <vapic state="on"/>
+    <spinlocks state="on" retries="8191"/>
+    <vendor_id state="on" value="0123756792CD"/>
+  </hyperv>
+  <kvm>
+    <hidden state="on"/>
+  </kvm>
+  ...
+</features>
+```
+
+Add SMBIOS data
+
+```bash
+nix-shell -p dmidecode --run "sudo dmidecode --type bios"
+nix-shell -p dmidecode --run "sudo dmidecode --type baseboard"
+nix-shell -p dmidecode --run "sudo dmidecode --type system"
+```
+
+```xml
+<os>
+  ...
+  <smbios mode="sysinfo"/>
+  ...
+</os>
+
+...
+
+<sysinfo type="smbios">
+  <bios>
+    <entry name="vendor">???</entry>
+    <entry name="version">???</entry>
+    <entry name="date">???</entry>
+  </bios>
+  <system>
+    <entry name="manufacturer">???</entry>
+    <entry name="product">???</entry>
+    <entry name="version">???</entry>
+    <entry name="serial">???</entry>
+    <entry name="uuid">???</entry>
+    <entry name="family">???</entry>
+  </system>
+</sysinfo>
+```
+
+> [!NOTE]  
+> sysinfo system uuid must match domain uuid
