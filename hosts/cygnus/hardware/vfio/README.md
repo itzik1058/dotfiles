@@ -10,8 +10,6 @@ nix-shell -p quickemu --run "quickget windows 10"
 
 ## virt-manager
 
-Use i440fx chipset
-
 ### Virtio
 
 Change disk target bus from `sata` to `virtio` and address type to `pci` after Windows recognizes virtio driver.
@@ -31,26 +29,50 @@ Disable safe boot
 bcdedit /deletevalue "{current}" safeboot
 ```
 
-### Share mouse and keyboard
+### [Looking Glass](https://looking-glass.io/docs/stable/install/)
 
-Remove tablet and add evdev devices for mouse and keyboard
+Install host application on the VM
 
-```xml
-<input type="evdev">
-    <source dev="/dev/input/by-id/usb-???-event-mouse"/>
-</input>
-<input type="evdev">
-    <source dev="/dev/input/by-id/usb-???-event-kbd" grab="all" grabToggle="ctrl-ctrl" repeat="on"/>
-</input>
-```
-
-### Looking Glass
-
-Add shared memory for looking glass
+#### Add shared memory for looking glass
 
 ```xml
 <shmem name="looking-glass">
     <model type="ivshmem-plain"/>
     <size unit="M">32</size>
 </shmem>
+```
+
+#### Keyboard/mouse/display/audio
+
+- Make sure `<graphics type='spice'>` is present
+- In `<video>` set `<model type='vga'/>`
+- Remove `<input type='tablet'/>`
+- Create `<input type='mouse' bus='virtio'/>`
+- Create `<input type='keyboard' bus='virtio'/>`
+- Enable audio support
+
+```xml
+<sound model='ich9'>
+  <audio id='1'/>
+</sound>
+<audio id='1' type='spice'/>
+```
+
+#### Clipboard sync
+
+```xml
+<channel type="spicevmc">
+  <target type="virtio" name="com.redhat.spice.0"/>
+</channel>
+```
+
+#### Memballoon
+
+This causes issues with VFIO and should be disabled
+
+```diff
+- <memballoon model="virtio">
+-     <address type="pci" domain="0x0000" bus="0x00" slot="0x08" function="0x0"/>
+- </memballoon>
++ <memballoon model="none"/>
 ```
