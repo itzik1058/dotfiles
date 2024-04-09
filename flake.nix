@@ -33,6 +33,12 @@
           };
           modules = [ ./hosts/cygnus ];
         };
+        pavo = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit self;
+          };
+          modules = [ ./hosts/pavo ];
+        };
       };
     };
 }
