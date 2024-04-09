@@ -1,25 +1,17 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
-    ./hardware.nix
+    ./hardware
     ./home.nix
+    ../../profiles/system
     ../../profiles/system/gnome
     ../../profiles/system/gaming
   ];
-
-  system.stateVersion = "23.11";
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-      persistent = true;
-    };
-    optimise.automatic = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -44,6 +36,7 @@
   };
 
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   services = {
     printing.enable = true;
@@ -53,9 +46,11 @@
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
-    systemPackages = with pkgs; [ vim wget git ];
+    systemPackages = with pkgs; [
+      wget
+      vesktop
+    ];
   };
 
   security.rtkit.enable = true;
 }
-

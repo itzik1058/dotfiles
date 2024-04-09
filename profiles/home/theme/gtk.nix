@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # GTK2/3
   gtk = {
     enable = true;

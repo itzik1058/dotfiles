@@ -1,17 +1,25 @@
 {
   imports = [ ../../profiles/system/home-manager ];
-  home-manager.users.nixos = { pkgs, ... }: {
-    home.stateVersion = "23.11";
+  home-manager.users.nixos =
+    { config, pkgs, ... }:
+    {
+      imports = [
+        ../../profiles/home
+        ../../profiles/home/shell
+        ../../profiles/home/direnv
+      ];
 
-    programs.home-manager.enable = true;
+      home.username = "nixos";
+      home.homeDirectory = "/home/nixos";
 
-    home.username = "nixos";
-    home.homeDirectory = "/home/nixos";
+      # home.sessionVariables = { };
 
-    home.packages = with pkgs; [ gh nixfmt ];
+      home.packages = with pkgs; [
+        gh
+        nixfmt-rfc-style
+        python3Full
+      ];
 
-    home.sessionVariables = { EDITOR = "vim"; };
-
-    imports = [ ../../profiles/home/shell ../../profiles/home/direnv ];
-  };
+      home.file."${config.home.homeDirectory}/.vscode-server/server-env-setup".text = "PATH=$PATH:/run/current-system/sw/bin/";
+    };
 }
