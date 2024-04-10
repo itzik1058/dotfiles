@@ -44,11 +44,15 @@ Add `<binary path="/run/current-system/sw/bin/virtiofsd"/>` e.g.
 
 https://virtio-fs.gitlab.io/howto-windows.html
 
+https://github.com/virtio-win/kvm-guest-drivers-windows/wiki/Virtiofs:-Shared-file-system
+
 Start the service manually
 
 ```bash
 sc start VirtioFsSvc
 ```
+
+Or enable automatic startup in services
 
 ### [Looking Glass](https://looking-glass.io/docs/stable/install/)
 
