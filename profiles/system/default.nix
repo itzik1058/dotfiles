@@ -16,9 +16,13 @@
     ];
   };
 
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
+  programs = {
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
+    vim.defaultEditor = true;
   };
-  programs.vim.defaultEditor = true;
+
+  services.fwupd.enable = true;
 }
