@@ -41,6 +41,8 @@
   services = {
     printing.enable = true;
     flatpak.enable = true;
+    fwupd.enable = true;
+    smartd.enable = true;
   };
 
   environment = {
