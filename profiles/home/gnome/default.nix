@@ -76,7 +76,7 @@
 
         "org/gnome/shell/extensions/dash-to-dock" = {
           background-opacity = 0.0;
-          click-action = "focus-minimize-or-previews";
+          click-action = "minimize-or-previews";
           custom-theme-shrink = true;
           dash-max-icon-size = 48;
           dock-position = "BOTTOM";
