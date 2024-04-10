@@ -29,6 +29,27 @@ Disable safe boot
 bcdedit /deletevalue "{current}" safeboot
 ```
 
+### VirtioFS
+
+Add `<binary path="/run/current-system/sw/bin/virtiofsd"/>` e.g.
+
+```xml
+<filesystem type="mount" accessmode="passthrough">
+  <driver type="virtiofs"/>
+  <binary path="/run/current-system/sw/bin/virtiofsd"/>
+  <source dir="???"/>
+  <target dir="???"/>
+</filesystem>
+```
+
+https://virtio-fs.gitlab.io/howto-windows.html
+
+Start the service manually
+
+```bash
+sc start VirtioFsSvc
+```
+
 ### [Looking Glass](https://looking-glass.io/docs/stable/install/)
 
 Install host application on the VM
@@ -44,18 +65,18 @@ Install host application on the VM
 
 #### Keyboard/mouse/display/audio
 
-- Make sure `<graphics type='spice'>` is present
-- In `<video>` set `<model type='vga'/>`
-- Remove `<input type='tablet'/>`
-- Create `<input type='mouse' bus='virtio'/>`
-- Create `<input type='keyboard' bus='virtio'/>`
+- Make sure `<graphics type="spice">` is present
+- In `<video>` set `<model type="vga"/>`
+- Remove `<input type="tablet"/>`
+- Create `<input type="mouse" bus="virtio"/>`
+- Create `<input type="keyboard" bus="virtio"/>`
 - Enable audio support
 
 ```xml
-<sound model='ich9'>
-  <audio id='1'/>
+<sound model="ich9">
+  <audio id="1"/>
 </sound>
-<audio id='1' type='spice'/>
+<audio id="1" type="spice"/>
 ```
 
 #### Clipboard sync
