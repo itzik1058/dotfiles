@@ -10,7 +10,7 @@
         ../../profiles/home/audio
         ../../profiles/home/theme
         ../../profiles/home/autostart
-        ../../profiles/home/direnv
+        ../../profiles/home/dev
         ../../profiles/home/gaming
       ];
 
@@ -20,9 +20,6 @@
       home.packages = with pkgs; [
         firefox
         tree
-        gh
-        nixfmt-rfc-style
-        vscode
         gnome.gnome-software
       ];
 

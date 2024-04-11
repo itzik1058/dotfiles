@@ -9,7 +9,7 @@
         ../../profiles/home/shell
         ../../profiles/home/audio
         ../../profiles/home/theme
-        ../../profiles/home/direnv
+        ../../profiles/home/dev
       ];
 
       home.username = "koi";
@@ -18,9 +18,6 @@
       home.packages = with pkgs; [
         firefox
         tree
-        gh
-        nixfmt-rfc-style
-        vscode
         gnome.gnome-software
       ];
 
