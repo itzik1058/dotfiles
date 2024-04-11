@@ -39,6 +39,10 @@
           switch-windows-backward = [ "<Shift><Alt>Tab" ];
         };
 
+        "org/gnome/desktop/peripherals/touchpad" = {
+          tap-to-click = true;
+        };
+
         "org/gnome/desktop/wm/preferences" = {
           resize-with-right-button = true;
           button-layout = ":minimize,maximize,close";
