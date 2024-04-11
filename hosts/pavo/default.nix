@@ -12,8 +12,6 @@
     ../../profiles/system/gnome
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -33,9 +31,6 @@
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
   };
-
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
 
   services = {
     printing.enable = true;

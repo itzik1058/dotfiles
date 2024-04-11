@@ -16,7 +16,11 @@
     ];
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   programs = {
+    nix-ld.enable = true;
+    zsh.enable = true;
     git = {
       enable = true;
       lfs.enable = true;

@@ -7,7 +7,6 @@
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
-  nixpkgs.config.allowUnfree = true;
 
   wsl = {
     enable = true;
@@ -34,9 +33,6 @@
     #   setSocketVariable = true;
     # };
   };
-
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
 
   environment = {
     shells = with pkgs; [ zsh ];
