@@ -10,7 +10,7 @@
     enable = true;
     settings =
       let
-        inherit (lib.hm.gvariant) mkTuple;
+        inherit (lib.hm.gvariant) mkTuple mkUint32;
       in
       {
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
