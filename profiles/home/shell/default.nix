@@ -9,7 +9,10 @@
     history.expireDuplicatesFirst = true;
     history.extended = true;
 
-    historySubstringSearch.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "history-substring-search" ];
+    };
   };
 
   programs.fzf.enable = true;
