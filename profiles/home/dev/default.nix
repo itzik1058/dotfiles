@@ -8,4 +8,12 @@
     vscode
     python3Full
   ];
+
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    neovim.enable = true;
+  };
 }
