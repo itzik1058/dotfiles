@@ -49,6 +49,10 @@
         };
         "org/gnome/desktop/interface" = {
           enable-hot-corners = false;
+          show-battery-percentage = true;
+        };
+        "org/gnome/desktop/session" = {
+          idle-delay = mkUint32 900;
         };
 
         "org/gnome/settings-daemon/plugins/power" = {
