@@ -4,6 +4,7 @@
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.blur-my-shell
   ];
 
   dconf = {
@@ -75,6 +76,7 @@
           enabled-extensions = [
             "appindicatorsupport@rgcjonas.gmail.com"
             "dash-to-dock@micxgx.gmail.com"
+            "blur-my-shell@aunetx"
           ];
         };
 
