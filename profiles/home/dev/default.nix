@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     gh
     nixfmt-rfc-style
-    vscode
     (buildFHSUserEnv {
       name = "python-fhs";
       targetPkgs = pkgs: (with pkgs; [ python3 ]);
@@ -20,5 +19,9 @@
       nix-direnv.enable = true;
     };
     neovim.enable = true;
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [ ];
+    };
   };
 }
