@@ -4,7 +4,14 @@
     gh
     nixfmt-rfc-style
     vscode
-    python3Full
+    (buildFHSUserEnv {
+      name = "python-fhs";
+      targetPkgs = pkgs: (with pkgs; [ python3 ]);
+      profile = ''
+        export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
+      '';
+      runScript = "$SHELL";
+    })
   ];
 
   programs = {
