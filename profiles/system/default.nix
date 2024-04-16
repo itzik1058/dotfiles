@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   system.stateVersion = "23.11";
 
@@ -19,7 +19,27 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        zlib
+        zstd
+        stdenv.cc.cc
+        curl
+        openssl
+        attr
+        libssh
+        bzip2
+        libxml2
+        acl
+        libsodium
+        util-linux
+        xz
+        systemd
+        libGL
+        glib
+      ];
+    };
     zsh.enable = true;
     git = {
       enable = true;
