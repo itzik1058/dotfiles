@@ -10,6 +10,7 @@
     ./home.nix
     ../../profiles/system
     ../../profiles/system/gnome
+    ../../profiles/system/dev
   ];
 
   boot.loader = {

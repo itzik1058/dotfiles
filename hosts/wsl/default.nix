@@ -4,6 +4,7 @@
     self.inputs.nixos-wsl.nixosModules.wsl
     ./home.nix
     ../../profiles/system
+    ../../profiles/system/dev
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
