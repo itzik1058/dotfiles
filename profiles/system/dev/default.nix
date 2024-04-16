@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ./platformio.nix ];
+
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -21,4 +23,6 @@
       glib
     ];
   };
+
+  services.envfs.enable = true;
 }
