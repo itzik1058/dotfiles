@@ -5,18 +5,28 @@
     protonup-qt
   ];
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      gamescopeSession.enable = true;
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    };
+
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+
+    gamemode.enable = true;
   };
 
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
+  networking.firewall = {
+    allowedUDPPorts = [
+      27016 # Grim Dawn
+    ];
   };
 
-  programs.gamemode.enable = true;
+  # services.miniupnpd.enable = true; # Potential security risk
 }
