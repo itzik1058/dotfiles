@@ -11,7 +11,6 @@
         ../../profiles/home/theme
         ../../profiles/home/autostart
         ../../profiles/home/dev
-        ../../profiles/home/gaming
       ];
 
       home.username = "koi";

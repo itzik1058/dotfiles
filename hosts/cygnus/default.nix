@@ -11,7 +11,7 @@
     ../../profiles/system
     ../../profiles/system/gnome
     ../../profiles/system/dev
-    ../../profiles/system/gaming
+    ../../modules
   ];
 
   boot.loader = {
@@ -51,4 +51,10 @@
   };
 
   security.rtkit.enable = true;
+
+  # extra.users.koi.gaming.enable = true;
+  profiles.gaming = {
+    enable = true;
+    users.koi.enable = true;
+  };
 }

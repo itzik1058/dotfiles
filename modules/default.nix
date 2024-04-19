@@ -1,0 +1,4 @@
+{ lib, config, ... }:
+{
+  imports = [ ./gaming ];
+}
