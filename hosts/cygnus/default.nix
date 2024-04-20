@@ -47,8 +47,8 @@
   security.rtkit.enable = true;
 
   profiles = {
+    desktop.enable = true;
     dev.enable = true;
-    gnome.enable = true;
     gaming.enable = true;
     system.enable = true;
   };

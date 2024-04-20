@@ -6,11 +6,11 @@
 }:
 with lib;
 let
-  cfg = config.profiles.gnome;
+  cfg = config.profiles.desktop;
 in
 {
-  options.profiles.gnome = {
-    enable = mkEnableOption "gnome profile";
+  options.profiles.desktop = {
+    enable = mkEnableOption "desktop profile";
   };
 
   config = mkIf cfg.enable {
