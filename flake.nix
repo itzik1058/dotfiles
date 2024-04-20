@@ -12,13 +12,7 @@
     };
   };
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixos-wsl,
-      ...
-    }@inputs:
+    { self, nixpkgs, ... }@inputs:
     {
       nixosConfigurations = {
         wsl = nixpkgs.lib.nixosSystem {

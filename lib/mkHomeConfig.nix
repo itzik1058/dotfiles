@@ -7,15 +7,13 @@ in
 {
   options = setAttrByPath path {
     users = mkOption {
-      type =
-        with types;
-        attrsOf (submodule {
-          options = getAttrFromPath path homeModule.options;
-        });
+      type = types.attrs;
       default = { };
     };
   };
-  config.home-manager.users = mapAttrs (
-    _: home: recursiveUpdate { imports = [ homeModule ]; } (getAttrFromPath path home)
-  ) cfg.users;
+  config = mkIf cfg.enable {
+    home-manager.users = mapAttrs (
+      _: home: recursiveUpdate { imports = [ homeModule ]; } (setAttrByPath path home)
+    ) cfg.users;
+  };
 }

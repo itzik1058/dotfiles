@@ -8,9 +8,6 @@
   imports = [
     ./hardware
     ./home.nix
-    ../../profiles/system
-    ../../profiles/system/gnome
-    ../../profiles/system/dev
     ../../modules
   ];
 
@@ -52,9 +49,11 @@
 
   security.rtkit.enable = true;
 
-  # extra.users.koi.gaming.enable = true;
-  profiles.gaming = {
-    enable = true;
-    users.koi.enable = true;
+  profiles = {
+    dev.enable = true;
+    gnome.enable = true;
+    home-manager.enable = true;
+    gaming.enable = true;
+    system.enable = true;
   };
 }

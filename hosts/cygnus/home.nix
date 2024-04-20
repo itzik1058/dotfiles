@@ -1,17 +1,8 @@
 {
-  imports = [ ../../profiles/system/home-manager ];
   home-manager.users.koi =
-    { config, pkgs, ... }:
+    { pkgs, ... }:
     {
-      imports = [
-        ../../profiles/home
-        ../../profiles/home/gnome
-        ../../profiles/home/shell
-        ../../profiles/home/audio
-        ../../profiles/home/theme
-        ../../profiles/home/autostart
-        ../../profiles/home/dev
-      ];
+      imports = [ ../../modules/home.nix ];
 
       home.username = "koi";
       home.homeDirectory = "/home/koi";
@@ -36,5 +27,16 @@
       };
 
       # home.sessionVariables = { };
+
+      profiles = {
+        audio.enable = true;
+        autostart.enable = true;
+        dev.enable = true;
+        gaming.enable = true;
+        gnome.enable = true;
+        home-manager.enable = true;
+        shell.enable = true;
+        theme.enable = true;
+      };
     };
 }
