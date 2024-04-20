@@ -10,7 +10,7 @@ let
 in
 {
   options.profiles.gnome = {
-    enable = mkEnableOption "gnome module";
+    enable = mkEnableOption "gnome profile";
   };
 
   config = mkIf cfg.enable {

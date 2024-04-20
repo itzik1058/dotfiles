@@ -5,7 +5,7 @@ let
 in
 {
   options.profiles.home-manager = {
-    enable = mkEnableOption "home-manager user module";
+    enable = mkEnableOption "home-manager profile";
   };
 
   config = mkIf cfg.enable {

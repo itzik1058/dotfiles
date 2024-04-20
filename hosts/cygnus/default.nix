@@ -8,7 +8,6 @@
   imports = [
     ./hardware
     ./home.nix
-    ../../modules
   ];
 
   boot.loader = {

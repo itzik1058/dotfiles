@@ -10,7 +10,7 @@ let
 in
 {
   options.profiles.audio = {
-    enable = mkEnableOption "audio user module";
+    enable = mkEnableOption "audio profile";
   };
 
   config = mkIf cfg.enable {

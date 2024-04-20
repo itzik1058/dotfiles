@@ -5,7 +5,7 @@ let
 in
 {
   options.profiles.autostart = {
-    enable = mkEnableOption "autostart user module";
+    enable = mkEnableOption "autostart profile";
   };
 
   config = mkIf cfg.enable {

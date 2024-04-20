@@ -5,7 +5,7 @@ let
 in
 {
   options.profiles.gaming = {
-    enable = mkEnableOption "gaming user module";
+    enable = mkEnableOption "gaming profile";
   };
 
   config = mkIf cfg.enable {

@@ -10,7 +10,7 @@ let
 in
 {
   options.profiles.theme = {
-    enable = mkEnableOption "theme user module";
+    enable = mkEnableOption "theme profile";
   };
 
   config = mkIf cfg.enable {

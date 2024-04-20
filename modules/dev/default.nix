@@ -10,7 +10,7 @@ let
 in
 {
   options.profiles.dev = {
-    enable = mkEnableOption "dev module";
+    enable = mkEnableOption "dev profile";
   };
 
   config = mkIf cfg.enable {

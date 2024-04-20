@@ -10,7 +10,7 @@ let
 in
 {
   options.profiles.shell = {
-    enable = mkEnableOption "shell user module";
+    enable = mkEnableOption "shell profile";
   };
 
   config = mkIf cfg.enable {

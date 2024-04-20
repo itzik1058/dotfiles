@@ -10,7 +10,7 @@ let
 in
 {
   options.profiles.system = {
-    enable = mkEnableOption "system module";
+    enable = mkEnableOption "system profile";
   };
 
   config = mkIf cfg.enable {

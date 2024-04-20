@@ -12,27 +12,24 @@
     };
   };
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, home-manager, ... }:
+    let
+      inherit (nixpkgs.lib) nixosSystem;
+      mkSystem =
+        entrypoint:
+        nixosSystem {
+          modules = [
+            entrypoint
+            home-manager.nixosModules.home-manager
+            ./modules
+          ];
+        };
+    in
     {
       nixosConfigurations = {
-        wsl = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit self;
-          };
-          modules = [ ./hosts/wsl ];
-        };
-        cygnus = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit self;
-          };
-          modules = [ ./hosts/cygnus ];
-        };
-        pavo = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit self;
-          };
-          modules = [ ./hosts/pavo ];
-        };
+        wsl = mkSystem ./hosts/wsl;
+        cygnus = mkSystem ./hosts/cygnus;
+        pavo = mkSystem ./hosts/pavo;
       };
     };
 }
