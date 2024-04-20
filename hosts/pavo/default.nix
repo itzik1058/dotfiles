@@ -5,10 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ./hardware.nix
-    ./home.nix
-  ];
+  imports = [ ./hardware.nix ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -29,6 +26,7 @@
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
   };
+  home-manager.users.koi = import ./users/koi.nix;
 
   services = {
     printing.enable = true;

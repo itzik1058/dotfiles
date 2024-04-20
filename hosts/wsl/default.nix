@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [ ./home.nix ];
-
   nixpkgs.hostPlatform = "x86_64-linux";
 
   wsl = {
@@ -21,6 +19,7 @@
     ];
     shell = pkgs.zsh;
   };
+  home-manager.users.nixos = import ./users/nixos.nix;
 
   virtualisation.docker = {
     enable = true;
