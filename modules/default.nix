@@ -4,7 +4,6 @@
     ./dev
     ./gaming
     ./gnome
-    ./home-manager
     ./system
   ];
 

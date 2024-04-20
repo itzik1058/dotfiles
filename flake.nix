@@ -12,7 +12,12 @@
     };
   };
   outputs =
-    { nixpkgs, home-manager, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nixos-wsl,
+      ...
+    }:
     let
       inherit (nixpkgs.lib) nixosSystem;
       mkSystem =
@@ -21,6 +26,7 @@
           modules = [
             entrypoint
             home-manager.nixosModules.home-manager
+            nixos-wsl.nixosModules.wsl
             ./modules
           ];
         };

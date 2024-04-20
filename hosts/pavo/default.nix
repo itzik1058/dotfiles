@@ -8,9 +8,6 @@
   imports = [
     ./hardware.nix
     ./home.nix
-    ../../profiles/system
-    ../../profiles/system/gnome
-    ../../profiles/system/dev
   ];
 
   boot.loader = {
@@ -50,4 +47,11 @@
   };
 
   security.rtkit.enable = true;
+
+  profiles = {
+    audio.enable = true;
+    dev.enable = true;
+    gnome.enable = true;
+    system.enable = true;
+  };
 }

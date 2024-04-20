@@ -1,11 +1,6 @@
-{ pkgs, self, ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    self.inputs.nixos-wsl.nixosModules.wsl
-    ./home.nix
-    ../../profiles/system
-    ../../profiles/system/dev
-  ];
+  imports = [ ./home.nix ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
@@ -39,5 +34,10 @@
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
     systemPackages = with pkgs; [ wget ];
+  };
+
+  profiles = {
+    dev.enable = true;
+    system.enable = true;
   };
 }

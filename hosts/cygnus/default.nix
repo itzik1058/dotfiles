@@ -51,7 +51,6 @@
   profiles = {
     dev.enable = true;
     gnome.enable = true;
-    home-manager.enable = true;
     gaming.enable = true;
     system.enable = true;
   };
