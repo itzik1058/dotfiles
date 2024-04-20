@@ -5,13 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ./hardware.nix
-    ./home.nix
-    ../../profiles/system
-    ../../profiles/system/gnome
-    ../../profiles/system/dev
-  ];
+  imports = [ ./hardware.nix ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -32,6 +26,7 @@
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
   };
+  home-manager.users.koi = import ./users/koi.nix;
 
   services = {
     printing.enable = true;
@@ -50,4 +45,11 @@
   };
 
   security.rtkit.enable = true;
+
+  profiles = {
+    audio.enable = true;
+    dev.enable = true;
+    gnome.enable = true;
+    system.enable = true;
+  };
 }

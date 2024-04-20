@@ -10,7 +10,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./video.nix
-    ./audio.nix
     ./mount.nix
   ];
 
@@ -48,4 +47,6 @@
       system.nixos.tags = [ "vfio" ];
     };
   };
+
+  profiles.audio.enable = true;
 }
