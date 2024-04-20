@@ -17,6 +17,7 @@ in
     home.packages = with pkgs; [
       gh
       nixfmt-rfc-style
+      docker-compose
       (buildFHSUserEnv {
         name = "python-fhs";
         targetPkgs = pkgs: (with pkgs; [ python3 ]);

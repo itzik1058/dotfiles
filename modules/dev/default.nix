@@ -36,6 +36,14 @@ in
       ];
     };
 
+    virtualisation.docker = {
+      enable = true;
+      # rootless = {
+      #   enable = true;
+      #   setSocketVariable = true;
+      # };
+    };
+
     services.envfs.enable = true;
     services.udev.packages = with pkgs; [
       platformio-core.udev

@@ -21,14 +21,6 @@
   };
   home-manager.users.nixos = import ./users/nixos.nix;
 
-  virtualisation.docker = {
-    enable = true;
-    # rootless = {
-    #   enable = true;
-    #   setSocketVariable = true;
-    # };
-  };
-
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
