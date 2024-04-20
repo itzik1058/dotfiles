@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ./hardware ];
+  imports = [ ./hardware.nix ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -13,7 +13,7 @@
   };
 
   networking = {
-    hostName = "cygnus";
+    hostName = "pavo";
     networkmanager.enable = true;
   };
 
@@ -47,9 +47,9 @@
   security.rtkit.enable = true;
 
   profiles = {
+    audio.enable = true;
     dev.enable = true;
     gnome.enable = true;
-    gaming.enable = true;
     system.enable = true;
   };
 }

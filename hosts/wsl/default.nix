@@ -1,13 +1,6 @@
-{ pkgs, self, ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    self.inputs.nixos-wsl.nixosModules.wsl
-    ./home.nix
-    ../../profiles/system
-  ];
-
   nixpkgs.hostPlatform = "x86_64-linux";
-  nixpkgs.config.allowUnfree = true;
 
   wsl = {
     enable = true;
@@ -26,21 +19,16 @@
     ];
     shell = pkgs.zsh;
   };
-
-  virtualisation.docker = {
-    enable = true;
-    # rootless = {
-    #   enable = true;
-    #   setSocketVariable = true;
-    # };
-  };
-
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
+  home-manager.users.nixos = import ./users/nixos.nix;
 
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
     systemPackages = with pkgs; [ wget ];
+  };
+
+  profiles = {
+    dev.enable = true;
+    system.enable = true;
   };
 }
