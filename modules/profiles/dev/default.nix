@@ -11,6 +11,7 @@ in
 {
   options.profiles.dev = {
     enable = mkEnableOption "dev profile";
+    openFirewall = mkEnableOption "tcp port 3000";
   };
 
   config = mkIf cfg.enable {
@@ -49,5 +50,7 @@ in
       platformio-core.udev
       openocd
     ];
+
+    networking.firewall.allowedTCPPorts = mkIf cfg.openFirewall [ 3000 ];
   };
 }
