@@ -49,7 +49,10 @@
   profiles = {
     audio.enable = true;
     desktop.enable = true;
-    dev.enable = true;
+    dev = {
+      enable = true;
+      openFirewall = true;
+    };
     system.enable = true;
   };
 }

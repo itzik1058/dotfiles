@@ -48,7 +48,10 @@
 
   profiles = {
     desktop.enable = true;
-    dev.enable = true;
+    dev = {
+      enable = true;
+      openFirewall = true;
+    };
     gaming.enable = true;
     system.enable = true;
   };

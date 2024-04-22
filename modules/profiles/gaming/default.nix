@@ -36,11 +36,7 @@ in
       gamemode.enable = true;
     };
 
-    networking.firewall = {
-      allowedUDPPorts = [
-        27016 # Grim Dawn
-      ];
-    };
+    programs.grim-dawn.enable = true;
 
     # services.miniupnpd.enable = true; # Potential security risk
   };
