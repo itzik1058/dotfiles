@@ -28,10 +28,8 @@ in
       udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     };
 
-    environment.systemPackages = [ pkgs.localsend ];
+    programs.localsend.enable = true;
 
-    networking.firewall.allowedTCPPorts = [
-      53317 # Local Send
-    ];
+    environment.systemPackages = with pkgs; [ ];
   };
 }

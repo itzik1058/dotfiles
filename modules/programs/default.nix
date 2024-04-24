@@ -1,1 +1,6 @@
-{ imports = [ ./grim-dawn.nix ]; }
+{
+  imports = [
+    ./grim-dawn.nix
+    ./localsend.nix
+  ];
+}
