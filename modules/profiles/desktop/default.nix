@@ -28,8 +28,7 @@ in
       udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     };
 
+    programs.java.enable = true;
     programs.localsend.enable = true;
-
-    environment.systemPackages = with pkgs; [ ];
   };
 }
