@@ -18,6 +18,8 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ onlyoffice-bin ];
 
+    programs.firefox.enable = true;
+
     profiles.desktop.gnome.enable = true;
   };
 }

@@ -1,11 +1,4 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    firefox
-    tree
-    gnome.gnome-software
-  ];
-
   profiles = {
     audio.enable = true;
     desktop.enable = true;

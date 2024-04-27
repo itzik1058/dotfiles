@@ -16,6 +16,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome.gnome-tweaks
+      gnome.gnome-software
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
       gnomeExtensions.blur-my-shell
