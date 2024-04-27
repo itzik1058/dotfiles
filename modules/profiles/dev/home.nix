@@ -9,6 +9,8 @@ let
   cfg = config.profiles.dev;
 in
 {
+  imports = [ ./python.nix ];
+
   options.profiles.dev = {
     enable = mkEnableOption "dev profile";
   };
@@ -18,14 +20,6 @@ in
       gh
       nixfmt-rfc-style
       docker-compose
-      (buildFHSUserEnv {
-        name = "python-fhs";
-        targetPkgs = pkgs: (with pkgs; [ python3 ]);
-        profile = ''
-          export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
-        '';
-        runScript = "$SHELL";
-      })
     ];
 
     programs = {
@@ -39,5 +33,7 @@ in
         extensions = with pkgs.vscode-extensions; [ ];
       };
     };
+
+    profiles.dev.python.enable = true;
   };
 }
