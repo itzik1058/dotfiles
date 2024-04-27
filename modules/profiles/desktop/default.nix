@@ -18,9 +18,9 @@ in
   config = mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    profiles.desktop.gnome.enable = true;
-
     programs.java.enable = true;
     programs.localsend.enable = true;
+
+    profiles.desktop.gnome.enable = true;
   };
 }
