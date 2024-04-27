@@ -23,10 +23,13 @@ in
       history.expireDuplicatesFirst = true;
       history.extended = true;
 
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "history-substring-search" ];
-      };
+      plugins = [
+        {
+          name = "history-substring-search";
+          src = pkgs.zsh-history-substring-search;
+          file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+        }
+      ];
     };
 
     programs.fzf.enable = true;
