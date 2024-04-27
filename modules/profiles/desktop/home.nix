@@ -15,5 +15,9 @@ in
     enable = mkEnableOption "desktop profile";
   };
 
-  config = mkIf cfg.enable { profiles.desktop.gnome.enable = true; };
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [ onlyoffice-bin ];
+
+    profiles.desktop.gnome.enable = true;
+  };
 }
