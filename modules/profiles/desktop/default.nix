@@ -18,6 +18,8 @@ in
   config = mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+    fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+
     programs.java.enable = true;
     programs.localsend.enable = true;
 

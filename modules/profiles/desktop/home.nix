@@ -21,5 +21,6 @@ in
     programs.firefox.enable = true;
 
     profiles.desktop.gnome.enable = true;
+    profiles.desktop.terminal.alacritty.enable = true;
   };
 }

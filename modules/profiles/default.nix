@@ -19,6 +19,7 @@
       ./gaming/home.nix
       ./home-manager/home.nix
       ./shell/home.nix
+      ./terminal/home.nix
       ./theme/home.nix
     ];
   };
