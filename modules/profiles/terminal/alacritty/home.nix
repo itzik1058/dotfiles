@@ -5,7 +5,7 @@ let
 in
 {
   options.profiles.desktop.terminal.alacritty = {
-    enable = mkEnableOption "foot profile";
+    enable = mkEnableOption "alacritty profile";
   };
 
   config = mkIf cfg.enable {
