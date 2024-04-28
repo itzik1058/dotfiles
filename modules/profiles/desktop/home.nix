@@ -16,7 +16,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ onlyoffice-bin ];
+    home.packages = with pkgs; [
+      bitwarden-desktop
+      onlyoffice-bin
+    ];
 
     programs.firefox.enable = true;
 
