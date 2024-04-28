@@ -23,6 +23,7 @@ in
 
     programs.firefox.enable = true;
     programs.mpv.enable = true;
+    programs.eza.enable = true;
 
     profiles.desktop.gnome.enable = true;
     profiles.desktop.terminal.alacritty.enable = true;
