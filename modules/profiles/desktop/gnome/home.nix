@@ -84,6 +84,7 @@ in
               "org.gnome.Nautilus.desktop"
               "firefox.desktop"
               "org.gnome.Console.desktop"
+              "Alacritty.desktop"
               "vesktop.desktop"
               "steam.desktop"
             ];
