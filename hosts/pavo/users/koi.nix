@@ -4,7 +4,10 @@
     desktop.enable = true;
     dev.enable = true;
     home-manager.enable = true;
-    shell.enable = true;
+    shell = {
+      enable = true;
+      prompt = "powerlevel10k";
+    };
     theme.enable = true;
   };
 }

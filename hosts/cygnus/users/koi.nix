@@ -6,7 +6,10 @@
     dev.enable = true;
     gaming.enable = true;
     home-manager.enable = true;
-    shell.enable = true;
+    shell = {
+      enable = true;
+      prompt = "starship";
+    };
     theme.enable = true;
   };
 }
