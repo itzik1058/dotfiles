@@ -27,6 +27,8 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
+    services.fstrim.enable = true;
+
     programs = {
       zsh.enable = true;
       git = {
