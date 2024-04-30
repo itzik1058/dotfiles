@@ -27,6 +27,7 @@ in
           }
         ];
         colors = {
+          # https://github.com/catppuccin/alacritty
           bright = {
             black = "#585b70";
             blue = "#89b4fa";

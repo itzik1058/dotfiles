@@ -65,6 +65,7 @@ in
         };
         palette = "catppuccin_mocha";
         palettes.catppuccin_mocha = {
+          # https://github.com/catppuccin/starship
           rosewater = "#f5e0dc";
           flamingo = "#f2cdcd";
           pink = "#f5c2e7";

@@ -17,6 +17,7 @@ in
           font = "JetBrainsMono NF:size=11:line-height=16px";
         };
         colors = {
+          # https://github.com/catppuccin/foot
           foreground = "cdd6f4";
           background = "1e1e2e";
           regular0 = "bac2de";
