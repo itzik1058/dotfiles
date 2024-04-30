@@ -13,5 +13,8 @@ in
     enable = mkEnableOption "LocalSend";
   };
 
-  config = mkIf cfg.enable { networking.firewall.allowedTCPPorts = [ 53317 ]; };
+  config = mkIf cfg.enable {
+    networking.firewall.allowedTCPPorts = [ 53317 ];
+    environment.systemPackages = [ pkgs.localsend ];
+  };
 }
