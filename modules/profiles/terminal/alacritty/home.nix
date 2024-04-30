@@ -12,6 +12,20 @@ in
     programs.alacritty = {
       enable = true;
       settings = {
+        keyboard.bindings = [
+          {
+            key = "H";
+            mods = "Shift";
+            mode = "Vi";
+            action = "FirstOccupied";
+          }
+          {
+            key = "L";
+            mods = "Shift";
+            mode = "Vi";
+            action = "Last";
+          }
+        ];
         colors = {
           bright = {
             black = "#585b70";
