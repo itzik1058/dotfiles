@@ -27,6 +27,10 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
+    networking.firewall = {
+      logReversePathDrops = true;
+    };
+
     services.fstrim.enable = true;
 
     programs = {
