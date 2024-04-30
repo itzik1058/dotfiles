@@ -1,10 +1,10 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.profiles.desktop.terminal.foot;
+  cfg = config.profiles.terminal.foot;
 in
 {
-  options.profiles.desktop.terminal.foot = {
+  options.profiles.terminal.foot = {
     enable = mkEnableOption "foot profile";
   };
 

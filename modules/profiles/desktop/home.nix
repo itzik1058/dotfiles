@@ -26,6 +26,6 @@ in
     programs.eza.enable = true;
 
     profiles.desktop.gnome.enable = true;
-    profiles.desktop.terminal.alacritty.enable = true;
+    profiles.terminal.alacritty.enable = true;
   };
 }

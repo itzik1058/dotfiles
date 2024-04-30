@@ -1,10 +1,10 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.profiles.desktop.terminal.alacritty;
+  cfg = config.profiles.terminal.alacritty;
 in
 {
-  options.profiles.desktop.terminal.alacritty = {
+  options.profiles.terminal.alacritty = {
     enable = mkEnableOption "alacritty profile";
   };
 
