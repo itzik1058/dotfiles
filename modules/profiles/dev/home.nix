@@ -30,7 +30,12 @@ in
       neovim.enable = true;
       vscode = {
         enable = true;
-        extensions = with pkgs.vscode-extensions; [ ];
+        enableUpdateCheck = true;
+        enableExtensionUpdateCheck = true;
+        mutableExtensionsDir = true;
+        # extensions = with pkgs.vscode-extensions; [ ];
+        keybindings = [ ];
+        userSettings = { };
       };
     };
 
