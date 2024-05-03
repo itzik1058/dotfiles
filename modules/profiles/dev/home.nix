@@ -20,6 +20,7 @@ in
       gh
       nixfmt-rfc-style
       docker-compose
+      sops
     ];
 
     programs = {
