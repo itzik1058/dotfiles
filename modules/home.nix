@@ -1,0 +1,1 @@
+{ imports = [ ./profiles/home.nix ]; }

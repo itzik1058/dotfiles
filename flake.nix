@@ -20,6 +20,7 @@
     }:
     let
       inherit (nixpkgs.lib) nixosSystem;
+      inherit (home-manager.lib) homeManagerConfiguration;
       mkSystem =
         entrypoint:
         nixosSystem {
@@ -30,12 +31,25 @@
             ./modules
           ];
         };
+      mkHome =
+        entrypoint: system:
+        homeManagerConfiguration {
+          pkgs = import nixpkgs { system = system; };
+          modules = [
+            entrypoint
+            ./modules/home.nix
+          ];
+        };
     in
     {
       nixosConfigurations = {
         wsl = mkSystem ./hosts/wsl;
         cygnus = mkSystem ./hosts/cygnus;
         pavo = mkSystem ./hosts/pavo;
+      };
+
+      homeConfigurations = {
+        atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
       };
     };
 }
