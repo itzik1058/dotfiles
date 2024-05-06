@@ -6,16 +6,14 @@
 }:
 with lib;
 let
-  cfg = config.profiles.gnome;
+  cfg = config.profiles.desktop.gnome;
 in
 {
-  options.profiles.gnome = {
-    enable = mkEnableOption "gnome profile";
+  options.profiles.desktop.gnome = {
+    enable = mkEnableOption "gnome desktop profile";
   };
 
   config = mkIf cfg.enable {
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
     services = {
       xserver = {
         enable = true;
@@ -27,5 +25,7 @@ in
       };
       udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     };
+
+    environment.gnome.excludePackages = with pkgs; [ gnome-console ];
   };
 }

@@ -6,16 +6,17 @@
 }:
 with lib;
 let
-  cfg = config.profiles.gnome;
+  cfg = config.profiles.desktop.gnome;
 in
 {
-  options.profiles.gnome = {
-    enable = mkEnableOption "gnome profile";
+  options.profiles.desktop.gnome = {
+    enable = mkEnableOption "gnome desktop profile";
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gnome.gnome-tweaks
+      gnome.gnome-software
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
       gnomeExtensions.blur-my-shell
@@ -83,6 +84,7 @@ in
               "org.gnome.Nautilus.desktop"
               "firefox.desktop"
               "org.gnome.Console.desktop"
+              "Alacritty.desktop"
               "vesktop.desktop"
               "steam.desktop"
             ];

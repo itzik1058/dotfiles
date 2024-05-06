@@ -23,7 +23,10 @@
 
   users.users.koi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
   home-manager.users.koi = import ./users/koi.nix;
@@ -47,8 +50,11 @@
   security.rtkit.enable = true;
 
   profiles = {
-    dev.enable = true;
-    gnome.enable = true;
+    desktop.enable = true;
+    dev = {
+      enable = true;
+      openFirewall = true;
+    };
     gaming.enable = true;
     system.enable = true;
   };

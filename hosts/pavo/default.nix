@@ -48,8 +48,11 @@
 
   profiles = {
     audio.enable = true;
-    dev.enable = true;
-    gnome.enable = true;
+    desktop.enable = true;
+    dev = {
+      enable = true;
+      openFirewall = true;
+    };
     system.enable = true;
   };
 }
