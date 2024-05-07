@@ -26,6 +26,7 @@ in
             action = "Last";
           }
         ];
+        env.TERM = "xterm-256color";
         colors = {
           # https://github.com/catppuccin/alacritty
           bright = {
