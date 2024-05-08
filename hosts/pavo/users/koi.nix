@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ aws-vpn-client ];
+  programs.aws-vpn-client.enable = true;
 
   profiles = {
     audio.enable = true;
