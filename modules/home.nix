@@ -1,1 +1,6 @@
-{ imports = [ ./profiles/home.nix ]; }
+{
+  imports = [
+    ./profiles/home.nix
+    ./programs/home.nix
+  ];
+}

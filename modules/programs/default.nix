@@ -1,6 +1,6 @@
 {
   imports = [
-    ./grim-dawn.nix
-    ./localsend.nix
+    ./grim-dawn
+    ./localsend
   ];
 }
