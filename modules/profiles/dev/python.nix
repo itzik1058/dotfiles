@@ -19,6 +19,7 @@ in
         python-pkgs:
         with python-pkgs;
         [
+          pip
           fastapi
           openai
           matplotlib
@@ -26,6 +27,7 @@ in
           pandas
           python-dotenv
           uvicorn
+          jupyterlab
         ]
         ++ uvicorn.optional-dependencies.standard
       ))
