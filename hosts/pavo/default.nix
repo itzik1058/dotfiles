@@ -23,7 +23,10 @@
 
   users.users.koi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
   home-manager.users.koi = import ./users/koi.nix;
