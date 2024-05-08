@@ -27,6 +27,14 @@
           modules = [
             entrypoint
             home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+
+                sharedModules = [ ./modules/home.nix ];
+              };
+            }
             nixos-wsl.nixosModules.wsl
             ./modules
           ];
