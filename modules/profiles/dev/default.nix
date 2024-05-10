@@ -39,6 +39,7 @@ in
 
     virtualisation.docker = {
       enable = true;
+      enableNvidia = true;
       # rootless = {
       #   enable = true;
       #   setSocketVariable = true;
