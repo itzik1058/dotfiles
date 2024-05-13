@@ -56,6 +56,7 @@
       openFirewall = true;
     };
     gaming.enable = true;
+    ssh.enable = true;
     system.enable = true;
   };
 }

@@ -4,6 +4,7 @@
     ./desktop
     ./dev
     ./gaming
+    ./ssh
     ./system
   ];
 }
