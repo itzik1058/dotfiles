@@ -21,6 +21,7 @@ in
       nixfmt-rfc-style
       docker-compose
       sops
+      bat
       (google-cloud-sdk.withExtraComponents (
         with google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]
       ))
