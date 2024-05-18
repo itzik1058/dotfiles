@@ -18,7 +18,9 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
+      libreoffice
       onlyoffice-bin
+      notes
     ];
 
     programs.firefox.enable = true;
