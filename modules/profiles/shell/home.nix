@@ -38,17 +38,22 @@ in
         plugins = [ "history-substring-search" ];
       };
 
-      plugins = mkIf (cfg.prompt == "powerlevel10k") [
+      plugins = [
         {
+          name = "fzf-tab";
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+        (mkIf (cfg.prompt == "powerlevel10k") ({
           name = "powerlevel10k";
           src = pkgs.zsh-powerlevel10k;
           file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        {
+        }))
+        (mkIf (cfg.prompt == "powerlevel10k") ({
           name = "powerlevel10k-config";
           src = ./powerlevel10k;
           file = ".p10k.zsh";
-        }
+        }))
       ];
     };
 
