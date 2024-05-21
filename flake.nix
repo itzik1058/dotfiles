@@ -17,26 +17,35 @@
       home-manager,
       nixos-wsl,
       ...
-    }:
+    }@inputs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
+      nixRegistry = {
+        nix.registry = builtins.mapAttrs (name: input: { flake = input; }) (
+          nixpkgs.lib.filterAttrs (name: value: value ? outputs) inputs
+        );
+      };
       mkSystem =
         entrypoint:
         nixosSystem {
           modules = [
-            entrypoint
+            nixRegistry
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
 
-                sharedModules = [ ./modules/home.nix ];
+                sharedModules = [
+                  nixRegistry
+                  ./modules/home.nix
+                ];
               };
             }
             nixos-wsl.nixosModules.wsl
             ./modules
+            entrypoint
           ];
         };
       mkHome =
@@ -44,8 +53,8 @@
         homeManagerConfiguration {
           pkgs = import nixpkgs { system = system; };
           modules = [
-            entrypoint
             ./modules/home.nix
+            entrypoint
           ];
         };
     in
