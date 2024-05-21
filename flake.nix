@@ -68,5 +68,7 @@
       homeConfigurations = {
         atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
       };
+
+      devShells = import ./shells { inherit nixpkgs; };
     };
 }
