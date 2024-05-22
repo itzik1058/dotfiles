@@ -70,5 +70,6 @@
       };
 
       devShells = import ./shells { inherit nixpkgs; };
+      templates = import ./templates;
     };
 }
