@@ -36,7 +36,7 @@ in
         enableUpdateCheck = true;
         enableExtensionUpdateCheck = true;
         mutableExtensionsDir = true;
-        # extensions = with pkgs.vscode-extensions; [ ];
+        extensions = with pkgs.vscode-extensions; [ mkhl.direnv ];
         keybindings = [ ];
         userSettings = { };
       };
