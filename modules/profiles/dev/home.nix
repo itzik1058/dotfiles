@@ -9,8 +9,6 @@ let
   cfg = config.profiles.dev;
 in
 {
-  imports = [ ./python.nix ];
-
   options.profiles.dev = {
     enable = mkEnableOption "dev profile";
   };
@@ -43,7 +41,5 @@ in
         userSettings = { };
       };
     };
-
-    profiles.dev.python.enable = true;
   };
 }

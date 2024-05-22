@@ -52,10 +52,7 @@
   profiles = {
     audio.enable = true;
     desktop.enable = true;
-    dev = {
-      enable = true;
-      openFirewall = true;
-    };
+    dev.enable = true;
     system.enable = true;
   };
 }
