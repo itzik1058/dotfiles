@@ -30,6 +30,7 @@
         entrypoint:
         nixosSystem {
           modules = [
+            { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             nixRegistry
             home-manager.nixosModules.home-manager
             {
