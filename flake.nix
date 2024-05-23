@@ -22,15 +22,12 @@
       inherit (nixpkgs.lib) nixosSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
       nixRegistry = {
-        nix.registry = builtins.mapAttrs (name: input: { flake = input; }) (
-          nixpkgs.lib.filterAttrs (name: value: value ? outputs) inputs
-        );
+        nix.registry = builtins.mapAttrs (_: input: { flake = input; }) inputs;
       };
       mkSystem =
         entrypoint:
         nixosSystem {
           modules = [
-            { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
             nixRegistry
             home-manager.nixosModules.home-manager
             {
