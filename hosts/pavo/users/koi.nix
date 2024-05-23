@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [ brasero ];
+
   programs.aws-vpn-client.enable = true;
 
   profiles = {
