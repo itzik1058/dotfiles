@@ -58,6 +58,9 @@
         };
     in
     {
+      devShells = import ./shells { inherit nixpkgs; };
+      templates = import ./templates;
+
       nixosConfigurations = {
         wsl = mkSystem ./hosts/wsl;
         cygnus = mkSystem ./hosts/cygnus;
@@ -67,8 +70,5 @@
       homeConfigurations = {
         atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
       };
-
-      devShells = import ./shells { inherit nixpkgs; };
-      templates = import ./templates;
     };
 }
