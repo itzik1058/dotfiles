@@ -10,7 +10,7 @@ in
 nixpkgs.lib.genAttrs supportedSystems (
   system:
   let
-    pkgs = import nixpkgs { system = system; };
+    pkgs = nixpkgs.legacyPackages.${system};
   in
   {
     python = pkgs.mkShell {

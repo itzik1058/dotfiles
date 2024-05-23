@@ -50,7 +50,7 @@
       mkHome =
         entrypoint: system:
         homeManagerConfiguration {
-          pkgs = import nixpkgs { system = system; };
+          pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             ./modules/home.nix
             entrypoint
