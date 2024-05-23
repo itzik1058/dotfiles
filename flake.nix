@@ -24,37 +24,30 @@
       nixRegistry = {
         nix.registry = builtins.mapAttrs (_: input: { flake = input; }) inputs;
       };
-      mkSystem =
-        entrypoint:
-        nixosSystem {
-          modules = [
-            nixRegistry
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "backup";
-
-                sharedModules = [
-                  nixRegistry
-                  ./modules/home.nix
-                ];
-              };
-            }
-            nixos-wsl.nixosModules.wsl
-            ./modules
-            entrypoint
-          ];
-        };
+      nixosModules = [
+        nixRegistry
+        ./modules
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
+            sharedModules = homeManagerModules;
+          };
+        }
+        nixos-wsl.nixosModules.wsl
+      ];
+      homeManagerModules = [
+        nixRegistry
+        ./modules/home.nix
+      ];
+      mkSystem = entrypoint: nixosSystem { modules = nixosModules ++ [ entrypoint ]; };
       mkHome =
         entrypoint: system:
         homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            ./modules/home.nix
-            entrypoint
-          ];
+          modules = homeManagerModules ++ [ entrypoint ];
         };
     in
     {
