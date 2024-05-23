@@ -4,17 +4,16 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.shell;
 in
 {
   options.profiles.shell = {
-    enable = mkEnableOption "shell profile";
-    prompt = mkOption {
+    enable = lib.mkEnableOption "shell profile";
+    prompt = lib.mkOption {
       description = "shell prompt";
       type =
-        with types;
+        with lib.types;
         nullOr (enum [
           "powerlevel10k"
           "starship"
@@ -23,7 +22,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs = {
       fzf.enable = true;
 
@@ -47,20 +46,20 @@ in
             src = pkgs.zsh-fzf-tab;
             file = "share/fzf-tab/fzf-tab.plugin.zsh";
           }
-          (mkIf (cfg.prompt == "powerlevel10k") ({
+          (lib.mkIf (cfg.prompt == "powerlevel10k") {
             name = "powerlevel10k";
             src = pkgs.zsh-powerlevel10k;
             file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-          }))
-          (mkIf (cfg.prompt == "powerlevel10k") ({
+          })
+          (lib.mkIf (cfg.prompt == "powerlevel10k") {
             name = "powerlevel10k-config";
             src = ./powerlevel10k;
             file = ".p10k.zsh";
-          }))
+          })
         ];
       };
 
-      starship = mkIf (cfg.prompt == "starship") {
+      starship = lib.mkIf (cfg.prompt == "starship") {
         enable = true;
         settings = {
           add_newline = false;

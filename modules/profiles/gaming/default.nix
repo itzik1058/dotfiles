@@ -4,16 +4,15 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.gaming;
 in
 {
   options.profiles.gaming = {
-    enable = mkEnableOption "gaming profile";
+    enable = lib.mkEnableOption "gaming profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       heroic
       protonup-qt

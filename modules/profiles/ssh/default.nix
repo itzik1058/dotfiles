@@ -1,24 +1,18 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
-with lib;
+{ lib, config, ... }:
 let
   cfg = config.profiles.ssh;
 in
 {
   options.profiles.ssh = {
-    enable = mkEnableOption "ssh profile";
-    ports = mkOption {
-      type = with types; listOf port;
+    enable = lib.mkEnableOption "ssh profile";
+    ports = lib.mkOption {
+      type = with lib.types; listOf port;
       default = [ 22 ];
       description = "OpenSSH ports";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.openssh = {
       enable = true;
       ports = cfg.ports;

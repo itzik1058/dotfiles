@@ -1,17 +1,11 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
-with lib;
+{ lib, config, ... }:
 let
   cfg = config.programs.grim-dawn;
 in
 {
   options.programs.grim-dawn = {
-    enable = mkEnableOption "Grim Dawn";
+    enable = lib.mkEnableOption "Grim Dawn";
   };
 
-  config = mkIf cfg.enable { networking.firewall.allowedUDPPorts = [ 27016 ]; };
+  config = lib.mkIf cfg.enable { networking.firewall.allowedUDPPorts = [ 27016 ]; };
 }

@@ -4,16 +4,15 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.theme;
 in
 {
   options.profiles.theme = {
-    enable = mkEnableOption "theme profile";
+    enable = lib.mkEnableOption "theme profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

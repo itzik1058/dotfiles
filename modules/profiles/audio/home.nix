@@ -4,16 +4,15 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.audio;
 in
 {
   options.profiles.audio = {
-    enable = mkEnableOption "audio profile";
+    enable = lib.mkEnableOption "audio profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       helvum
       qpwgraph

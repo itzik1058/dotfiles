@@ -4,16 +4,15 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.dev;
 in
 {
   options.profiles.dev = {
-    enable = mkEnableOption "dev profile";
+    enable = lib.mkEnableOption "dev profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     virtualisation.docker = {
       enable = true;
       # rootless = {

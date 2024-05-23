@@ -1,19 +1,13 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
-with lib;
+{ lib, config, ... }:
 let
   cfg = config.profiles.audio;
 in
 {
   options.profiles.audio = {
-    enable = mkEnableOption "audio profile";
+    enable = lib.mkEnableOption "audio profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     hardware.pulseaudio.enable = false;
 
     services = {
