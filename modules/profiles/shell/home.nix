@@ -26,6 +26,11 @@ in
     programs = {
       fzf.enable = true;
 
+      bash = {
+        enable = true;
+        historyFile = "${config.xdg.stateHome}/.bash_history";
+      };
+
       zsh = {
         enable = true;
         enableCompletion = true;
