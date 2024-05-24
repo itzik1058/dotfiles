@@ -4,7 +4,6 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.desktop;
 in
@@ -12,15 +11,19 @@ in
   imports = [ ./gnome/home.nix ];
 
   options.profiles.desktop = {
-    enable = mkEnableOption "desktop profile";
+    enable = lib.mkEnableOption "desktop profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
+      telegram-desktop
+      libreoffice
       onlyoffice-bin
+      notes
     ];
 
+    programs.java.enable = true;
     programs.firefox.enable = true;
     programs.mpv.enable = true;
     programs.eza.enable = true;

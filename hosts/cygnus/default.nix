@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [ ./hardware ];
 
@@ -51,11 +46,9 @@
 
   profiles = {
     desktop.enable = true;
-    dev = {
-      enable = true;
-      openFirewall = true;
-    };
+    dev.enable = true;
     gaming.enable = true;
+    ssh.enable = true;
     system.enable = true;
   };
 }

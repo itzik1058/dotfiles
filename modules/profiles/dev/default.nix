@@ -4,17 +4,29 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.dev;
 in
 {
   options.profiles.dev = {
-    enable = mkEnableOption "dev profile";
-    openFirewall = mkEnableOption "tcp port 3000";
+    enable = lib.mkEnableOption "dev profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
+    virtualisation.docker = {
+      enable = true;
+      # rootless = {
+      #   enable = true;
+      #   setSocketVariable = true;
+      # };
+    };
+
+    services.envfs.enable = true;
+    services.udev.packages = with pkgs; [
+      platformio-core.udev
+      openocd
+    ];
+
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [
@@ -36,21 +48,5 @@ in
         glib
       ];
     };
-
-    virtualisation.docker = {
-      enable = true;
-      # rootless = {
-      #   enable = true;
-      #   setSocketVariable = true;
-      # };
-    };
-
-    services.envfs.enable = true;
-    services.udev.packages = with pkgs; [
-      platformio-core.udev
-      openocd
-    ];
-
-    networking.firewall.allowedTCPPorts = mkIf cfg.openFirewall [ 3000 ];
   };
 }

@@ -4,23 +4,21 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.dev;
 in
 {
-  imports = [ ./python.nix ];
-
   options.profiles.dev = {
-    enable = mkEnableOption "dev profile";
+    enable = lib.mkEnableOption "dev profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       gh
       nixfmt-rfc-style
       docker-compose
       sops
+      bat
       (google-cloud-sdk.withExtraComponents (
         with google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]
       ))
@@ -37,12 +35,10 @@ in
         enableUpdateCheck = true;
         enableExtensionUpdateCheck = true;
         mutableExtensionsDir = true;
-        # extensions = with pkgs.vscode-extensions; [ ];
+        extensions = with pkgs.vscode-extensions; [ mkhl.direnv ];
         keybindings = [ ];
         userSettings = { };
       };
     };
-
-    profiles.dev.python.enable = true;
   };
 }

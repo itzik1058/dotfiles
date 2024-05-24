@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [ ./hardware.nix ];
 
@@ -23,7 +18,10 @@
 
   users.users.koi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
   home-manager.users.koi = import ./users/koi.nix;
@@ -49,10 +47,7 @@
   profiles = {
     audio.enable = true;
     desktop.enable = true;
-    dev = {
-      enable = true;
-      openFirewall = true;
-    };
+    dev.enable = true;
     system.enable = true;
   };
 }

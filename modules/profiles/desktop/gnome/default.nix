@@ -4,16 +4,15 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.desktop.gnome;
 in
 {
   options.profiles.desktop.gnome = {
-    enable = mkEnableOption "gnome desktop profile";
+    enable = lib.mkEnableOption "gnome desktop profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services = {
       xserver = {
         enable = true;

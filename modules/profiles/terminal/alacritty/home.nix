@@ -1,14 +1,13 @@
 { lib, config, ... }:
-with lib;
 let
   cfg = config.profiles.terminal.alacritty;
 in
 {
   options.profiles.terminal.alacritty = {
-    enable = mkEnableOption "alacritty profile";
+    enable = lib.mkEnableOption "alacritty profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.alacritty = {
       enable = true;
       settings = {
@@ -26,6 +25,7 @@ in
             action = "Last";
           }
         ];
+        env.TERM = "xterm-256color";
         colors = {
           # https://github.com/catppuccin/alacritty
           bright = {

@@ -4,26 +4,28 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.profiles.theme;
 in
 {
   options.profiles.theme = {
-    enable = mkEnableOption "theme profile";
+    enable = lib.mkEnableOption "theme profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
+    home.pointerCursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+      gtk.enable = true;
+    };
+
     # GTK2/3
     gtk = {
       enable = true;
       theme = {
         package = pkgs.gnome.gnome-themes-extra;
         name = "Adwaita-dark";
-      };
-      cursorTheme = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Ice";
       };
       iconTheme = {
         package = pkgs.papirus-icon-theme;

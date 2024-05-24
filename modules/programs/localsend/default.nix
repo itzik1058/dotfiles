@@ -4,16 +4,15 @@
   config,
   ...
 }:
-with lib;
 let
   cfg = config.programs.localsend;
 in
 {
   options.programs.localsend = {
-    enable = mkEnableOption "LocalSend";
+    enable = lib.mkEnableOption "LocalSend";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ 53317 ];
     environment.systemPackages = [ pkgs.localsend ];
   };

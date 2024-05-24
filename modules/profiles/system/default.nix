@@ -1,17 +1,17 @@
 { lib, config, ... }:
-with lib;
 let
   cfg = config.profiles.system;
 in
 {
   options.profiles.system = {
-    enable = mkEnableOption "system profile";
+    enable = lib.mkEnableOption "system profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     system.stateVersion = "23.11";
 
     nix = {
+      nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
       gc = {
         automatic = true;
         dates = "weekly";

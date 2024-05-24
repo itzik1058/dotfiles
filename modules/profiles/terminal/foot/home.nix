@@ -1,14 +1,13 @@
 { lib, config, ... }:
-with lib;
 let
   cfg = config.profiles.terminal.foot;
 in
 {
   options.profiles.terminal.foot = {
-    enable = mkEnableOption "foot profile";
+    enable = lib.mkEnableOption "foot profile";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.foot = {
       enable = true;
 
