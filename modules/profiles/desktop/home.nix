@@ -23,6 +23,7 @@ in
       notes
     ];
 
+    programs.java.enable = true;
     programs.firefox.enable = true;
     programs.mpv.enable = true;
     programs.eza.enable = true;

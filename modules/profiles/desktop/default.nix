@@ -19,7 +19,6 @@ in
 
     fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
-    programs.java.enable = true;
     programs.localsend.enable = true;
 
     profiles.desktop.gnome.enable = true;
