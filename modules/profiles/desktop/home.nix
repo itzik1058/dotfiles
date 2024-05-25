@@ -21,6 +21,7 @@ in
       libreoffice
       onlyoffice-bin
       notes
+      yt-dlp
     ];
 
     programs.java.enable = true;
