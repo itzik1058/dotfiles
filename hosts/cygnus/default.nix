@@ -31,6 +31,12 @@
     flatpak.enable = true;
     fwupd.enable = true;
     smartd.enable = true;
+    sunshine = {
+      enable = true;
+      package = pkgs.sunshine.override { cudaSupport = true; };
+      openFirewall = true;
+      capSysAdmin = true;
+    };
   };
 
   environment = {
