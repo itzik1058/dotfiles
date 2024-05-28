@@ -18,7 +18,6 @@ in
       nixfmt-rfc-style
       docker-compose
       sops
-      bat
       (google-cloud-sdk.withExtraComponents (
         with google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]
       ))
@@ -29,7 +28,10 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
-      neovim.enable = true;
+      neovim = {
+        enable = true;
+        defaultEditor = true;
+      };
       vscode = {
         enable = true;
         enableUpdateCheck = true;

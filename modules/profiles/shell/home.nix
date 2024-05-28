@@ -23,6 +23,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [ bat ];
+
+    home.shellAliases =
+      let
+        bat = lib.getExe pkgs.bat;
+      in
+      {
+        cat = "${bat} -Pp";
+        man = ''MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | ${bat} -l man -p'" man'';
+      };
+
     programs = {
       fzf.enable = true;
 
