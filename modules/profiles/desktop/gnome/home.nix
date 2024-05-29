@@ -13,14 +13,19 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      gnome.gnome-tweaks
-      gnome.gnome-software
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.blur-my-shell
-      newsflash
-    ];
+    home.packages = (
+      (with pkgs; [ newsflash ])
+      ++ (with pkgs.gnome; [
+        gnome-tweaks
+        gnome-software
+      ])
+      ++ (with pkgs.gnomeExtensions; [
+        appindicator
+        dash-to-dock
+        blur-my-shell
+        ddterm
+      ])
+    );
 
     dconf = {
       enable = true;
@@ -93,6 +98,7 @@ in
               "appindicatorsupport@rgcjonas.gmail.com"
               "dash-to-dock@micxgx.gmail.com"
               "blur-my-shell@aunetx"
+              "ddterm@amezin.github.com"
             ];
           };
 
@@ -113,6 +119,43 @@ in
             show-show-apps-button = false;
             show-trash = false;
             transparency-mode = "FIXED";
+          };
+
+          "com/github/amezin/ddterm" = {
+            panel-icon-type = "none";
+            tab-policy = "automatic";
+            window-resizable = false;
+            window-size = 0.4;
+            use-system-font = false;
+            custom-font = "JetBrainsMono Nerd Font 11";
+            # Catppuccin theme
+            background-color = "#1e1e2e";
+            foreground-color = "#cdd6f4";
+            cursor-colors-set = true;
+            cursor-background-color = "#f5e0dc";
+            cursor-foreground-color = "#1e1e2e";
+            highlight-colors-set = true;
+            highlight-background-color = "#f5e0dc";
+            highlight-foreground-color = "#1e1e2e";
+            use-theme-colors = false;
+            palette = [
+              "#45475a" # black
+              "#f38ba8" # red
+              "#a6e3a1" # green
+              "#f9e2af" # yellow
+              "#89b4fa" # blue
+              "#f5c2e7" # magenta
+              "#94e2d5" # cyan
+              "#bac2de" # gray
+              "#585b70" # bright black
+              "#f38ba8" # bright red
+              "#a6e3a1" # bright green
+              "#f9e2af" # bright yellow
+              "#89b4fa" # bright blue
+              "#f5c2e7" # bright magenta
+              "#94e2d5" # bright cyan
+              "#a6adc8" # bright gray
+            ];
           };
         };
     };
