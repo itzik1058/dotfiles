@@ -19,6 +19,7 @@ in
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
       gnomeExtensions.blur-my-shell
+      newsflash
     ];
 
     dconf = {
