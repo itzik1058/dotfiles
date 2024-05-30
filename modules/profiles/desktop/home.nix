@@ -18,6 +18,7 @@ in
     home.packages = with pkgs; [
       bitwarden-desktop
       telegram-desktop
+      qbittorrent
       libreoffice
       onlyoffice-bin
       notes
