@@ -14,7 +14,11 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = (
-      (with pkgs; [ newsflash ])
+      (with pkgs; [
+        p7zip
+        unrar
+        newsflash
+      ])
       ++ (with pkgs.gnome; [
         gnome-tweaks
         gnome-software
