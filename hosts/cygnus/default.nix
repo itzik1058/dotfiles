@@ -37,6 +37,7 @@
       openFirewall = true;
       capSysAdmin = true;
     };
+    tailscale.enable = true;
   };
 
   environment = {
