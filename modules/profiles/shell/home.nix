@@ -51,9 +51,16 @@ in
         history.expireDuplicatesFirst = true;
         history.extended = true;
 
-        oh-my-zsh = {
+        historySubstringSearch = {
           enable = true;
-          plugins = [ "history-substring-search" ];
+          searchDownKey = [
+            "^[[B"
+            "^[OB"
+          ];
+          searchUpKey = [
+            "^[[A"
+            "^[OA"
+          ];
         };
 
         plugins = [
