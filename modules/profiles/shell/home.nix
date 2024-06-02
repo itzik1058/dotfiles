@@ -48,6 +48,8 @@ in
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
 
+        defaultKeymap = "viins";
+
         history.expireDuplicatesFirst = true;
         history.extended = true;
 
@@ -82,6 +84,8 @@ in
         ];
 
         initExtra = ''
+          bindkey -a H vi-beginning-of-line
+          bindkey -a L vi-end-of-line
           bindkey '^ ' autosuggest-accept
         '';
       };
