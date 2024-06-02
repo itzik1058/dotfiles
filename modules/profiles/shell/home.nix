@@ -73,6 +73,10 @@ in
             file = ".p10k.zsh";
           })
         ];
+
+        initExtra = ''
+          bindkey '^ ' autosuggest-accept
+        '';
       };
 
       starship = lib.mkIf (cfg.prompt == "starship") {
