@@ -44,6 +44,7 @@
     vfio.configuration = {
       imports = [ ./vfio ];
       system.nixos.tags = [ "vfio" ];
+      services.sunshine.enable = false;
     };
   };
 

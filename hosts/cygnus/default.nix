@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ ./hardware ];
 
@@ -32,7 +32,7 @@
     fwupd.enable = true;
     smartd.enable = true;
     sunshine = {
-      enable = true;
+      enable = lib.mkDefault true;
       package = pkgs.sunshine.override { cudaSupport = true; };
       openFirewall = true;
       capSysAdmin = true;
