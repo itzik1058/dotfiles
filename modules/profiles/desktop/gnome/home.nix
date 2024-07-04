@@ -15,14 +15,12 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = (
       (with pkgs; [
+        gnome-tweaks
         p7zip
         unrar
         newsflash
       ])
-      ++ (with pkgs.gnome; [
-        gnome-tweaks
-        gnome-software
-      ])
+      ++ (with pkgs.gnome; [ gnome-software ])
       ++ (with pkgs.gnomeExtensions; [
         appindicator
         dash-to-dock
