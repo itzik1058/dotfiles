@@ -19,7 +19,10 @@ in
 
     fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
-    programs.localsend.enable = true;
+    programs.localsend = {
+      enable = true;
+      openFirewall = true;
+    };
 
     profiles.desktop.gnome.enable = true;
   };
