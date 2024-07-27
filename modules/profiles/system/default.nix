@@ -49,7 +49,7 @@ in
         enable = true;
         lfs.enable = true;
       };
-      vim.defaultEditor = true;
+      vim.enable = true;
     };
   };
 }
