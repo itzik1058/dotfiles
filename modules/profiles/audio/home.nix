@@ -23,13 +23,15 @@ in
     dconf = {
       enable = true;
       settings = {
-        "com/github/wwmm/easyeffects/streaminputs".plugins = [
-          "rnnoise#0"
-        ];
+        "com/github/wwmm/easyeffects/streaminputs".plugins = [ "rnnoise#0" ];
 
         "com/github/wwmm/easyeffects/streaminputs/rnnoise/0" = {
           bypass = false;
-          enable-vad = false;
+          enable-vad = true;
+          output-gain = 0.0;
+          release = 20.0;
+          vad-thres = 70.0;
+          wet = 0.0;
         };
       };
     };
