@@ -10,12 +10,17 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
       nixpkgs,
       home-manager,
       nixos-wsl,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -41,6 +46,7 @@
       homeManagerModules = [
         nixRegistry
         ./modules/home.nix
+        nix-index-database.hmModules.nix-index
       ];
       mkSystem = entrypoint: nixosSystem { modules = nixosModules ++ [ entrypoint ]; };
       mkHome =
