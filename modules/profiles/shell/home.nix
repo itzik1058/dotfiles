@@ -36,6 +36,11 @@ in
 
     programs = {
       fzf.enable = true;
+      eza = {
+        enable = true;
+        git = true;
+        icons = true;
+      };
 
       bash = {
         enable = true;

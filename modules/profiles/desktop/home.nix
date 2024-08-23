@@ -28,11 +28,6 @@ in
     programs.java.enable = true;
     programs.firefox.enable = true;
     programs.mpv.enable = true;
-    programs.eza = {
-      enable = true;
-      git = true;
-      icons = true;
-    };
 
     profiles.desktop.gnome.enable = true;
     profiles.terminal.alacritty.enable = true;
