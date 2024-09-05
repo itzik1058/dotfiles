@@ -2,6 +2,7 @@
 {
   hardware = {
     nvidia = {
+      open = false;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
@@ -12,6 +13,7 @@
         nvidiaBusId = "PCI:1:0:0";
       };
     };
+
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -22,9 +24,9 @@
         libvdpau-va-gl
       ];
     };
+
+    nvidia-container-toolkit.enable = true;
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  virtualisation.docker.enableNvidia = true;
 }
