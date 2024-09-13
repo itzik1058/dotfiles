@@ -19,6 +19,7 @@ in
         gnome-tweaks
         p7zip
         unrar
+        geary
         newsflash
       ])
       ++ (with pkgs.gnomeExtensions; [
@@ -121,6 +122,10 @@ in
             show-show-apps-button = false;
             show-trash = false;
             transparency-mode = "FIXED";
+          };
+
+          "org/gnome/Geary" = {
+            run-in-background = true;
           };
 
           "com/github/amezin/ddterm" = {
