@@ -18,6 +18,7 @@ in
       nixfmt-rfc-style
       docker-compose
       sops
+      uv
       (google-cloud-sdk.withExtraComponents (
         with google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]
       ))
