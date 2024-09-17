@@ -28,10 +28,12 @@ in
     home.shellAliases =
       let
         bat = lib.getExe pkgs.bat;
+        procs = lib.getExe pkgs.procs;
       in
       {
         cat = "${bat} -Pp";
         man = ''MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | ${bat} -l man -p'" man'';
+        ps = procs;
       };
 
     programs = {
