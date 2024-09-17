@@ -35,7 +35,17 @@ in
       };
 
     programs = {
-      fzf.enable = true;
+      fd.enable = true;
+      fzf =
+        let
+          fd = lib.getExe pkgs.fd;
+        in
+        {
+          enable = true;
+          defaultCommand = fd;
+          fileWidgetCommand = "${fd} --type f";
+          changeDirWidgetCommand = "${fd} --type d";
+        };
       eza = {
         enable = true;
         git = true;
