@@ -17,6 +17,9 @@ nixpkgs.lib.genAttrs supportedSystems (
       packages = with pkgs; [
         nixfmt-rfc-style
         nixd
+        (writeShellScriptBin "rebuild" ''
+          nixos-rebuild --flake . "$@" && nix store diff-closures /run/*-system
+        '')
       ];
     };
     python = import ./python.nix { inherit pkgs; };

@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./grim-dawn
-    ./localsend
-  ];
-}
+{ imports = [ ./grim-dawn ]; }

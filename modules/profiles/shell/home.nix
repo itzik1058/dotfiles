@@ -23,8 +23,36 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [ bat ];
+
+    home.shellAliases =
+      let
+        bat = lib.getExe pkgs.bat;
+        procs = lib.getExe pkgs.procs;
+      in
+      {
+        cat = "${bat} -Pp";
+        man = ''MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | ${bat} -l man -p'" man'';
+        ps = procs;
+      };
+
     programs = {
-      fzf.enable = true;
+      fd.enable = true;
+      fzf =
+        let
+          fd = lib.getExe pkgs.fd;
+        in
+        {
+          enable = true;
+          defaultCommand = fd;
+          fileWidgetCommand = "${fd} --type f";
+          changeDirWidgetCommand = "${fd} --type d";
+        };
+      eza = {
+        enable = true;
+        git = true;
+        icons = true;
+      };
 
       bash = {
         enable = true;
@@ -37,12 +65,21 @@ in
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
 
+        defaultKeymap = "viins";
+
         history.expireDuplicatesFirst = true;
         history.extended = true;
 
-        oh-my-zsh = {
+        historySubstringSearch = {
           enable = true;
-          plugins = [ "history-substring-search" ];
+          searchDownKey = [
+            "^[[B"
+            "^[OB"
+          ];
+          searchUpKey = [
+            "^[[A"
+            "^[OA"
+          ];
         };
 
         plugins = [
@@ -62,6 +99,12 @@ in
             file = ".p10k.zsh";
           })
         ];
+
+        initExtra = ''
+          bindkey -a H vi-beginning-of-line
+          bindkey -a L vi-end-of-line
+          bindkey '^ ' autosuggest-accept
+        '';
       };
 
       starship = lib.mkIf (cfg.prompt == "starship") {

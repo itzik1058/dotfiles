@@ -18,15 +18,16 @@ in
     home.packages = with pkgs; [
       bitwarden-desktop
       telegram-desktop
+      qbittorrent
       libreoffice
       onlyoffice-bin
       notes
+      yt-dlp
     ];
 
     programs.java.enable = true;
     programs.firefox.enable = true;
     programs.mpv.enable = true;
-    programs.eza.enable = true;
 
     profiles.desktop.gnome.enable = true;
     profiles.terminal.alacritty.enable = true;
