@@ -29,8 +29,8 @@ in
           bypass = false;
           enable-vad = true;
           output-gain = 0.0;
-          release = 20.0;
-          vad-thres = 85.0;
+          release = 200.0;
+          vad-thres = 75.0;
           wet = 0.0;
         };
       };
