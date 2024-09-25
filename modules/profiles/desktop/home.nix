@@ -16,6 +16,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      wl-clipboard
       bitwarden-desktop
       telegram-desktop
       qbittorrent
