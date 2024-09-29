@@ -8,8 +8,6 @@ let
   cfg = config.profiles.dev;
 in
 {
-  imports = [ ./neovim.nix ];
-
   options.profiles.dev = {
     enable = lib.mkEnableOption "dev profile";
   };
@@ -28,6 +26,7 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
+      nixvim = import ./nixvim;
       vscode = {
         enable = true;
         enableUpdateCheck = true;
@@ -38,7 +37,5 @@ in
         userSettings = { };
       };
     };
-
-    profiles.dev.neovim.enable = true;
   };
 }
