@@ -19,6 +19,7 @@ in
       docker-compose
       sops
       uv
+      neovide
     ];
 
     programs = {
