@@ -17,6 +17,7 @@ in
       (with pkgs; [
         gnome-software
         gnome-tweaks
+        gnome-decoder
         p7zip
         unrar
         geary
