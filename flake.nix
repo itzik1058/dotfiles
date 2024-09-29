@@ -42,6 +42,7 @@
           };
         }
         nixos-wsl.nixosModules.wsl
+        nix-index-database.nixosModules.nix-index
       ];
       homeManagerModules = [
         nixRegistry
