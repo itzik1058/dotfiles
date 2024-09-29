@@ -14,6 +14,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -21,6 +25,7 @@
       home-manager,
       nixos-wsl,
       nix-index-database,
+      nixvim,
       ...
     }@inputs:
     let
@@ -43,11 +48,13 @@
         }
         nixos-wsl.nixosModules.wsl
         nix-index-database.nixosModules.nix-index
+        nixvim.nixosModules.nixvim
       ];
       homeManagerModules = [
         nixRegistry
         ./modules/home.nix
         nix-index-database.hmModules.nix-index
+        nixvim.homeManagerModules.nixvim
       ];
       mkSystem = entrypoint: nixosSystem { modules = nixosModules ++ [ entrypoint ]; };
       mkHome =
