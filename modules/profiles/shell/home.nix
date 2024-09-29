@@ -38,6 +38,7 @@ in
 
     programs = {
       fd.enable = true;
+      ripgrep.enable = true;
       fzf =
         let
           fd = lib.getExe pkgs.fd;
