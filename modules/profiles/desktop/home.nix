@@ -23,12 +23,21 @@ in
       libreoffice
       onlyoffice-bin
       notes
-      yt-dlp
     ];
 
-    programs.java.enable = true;
-    programs.firefox.enable = true;
-    programs.mpv.enable = true;
+    programs = {
+      java.enable = true;
+      firefox.enable = true;
+      mpv = {
+        enable = true;
+        scriptOpts = {
+          ytdl_hook = {
+            ytdl_path = "${lib.getExe pkgs.yt-dlp}";
+          };
+        };
+      };
+      yt-dlp.enable = true;
+    };
 
     profiles.desktop.gnome.enable = true;
     profiles.terminal.alacritty.enable = true;
