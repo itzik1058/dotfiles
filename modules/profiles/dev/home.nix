@@ -27,7 +27,7 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
-      nixvim = import ./nixvim;
+      nixvim = import ../../nixvim;
       vscode = {
         enable = true;
         enableUpdateCheck = true;
