@@ -23,6 +23,7 @@ in
         unrar
         geary
         newsflash
+        polari
       ])
       ++ (with pkgs.gnomeExtensions; [
         appindicator
