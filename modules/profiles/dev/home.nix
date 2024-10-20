@@ -19,6 +19,7 @@ in
       docker-compose
       sops
       uv
+      neovide
     ];
 
     programs = {
@@ -26,10 +27,7 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
-      neovim = {
-        enable = true;
-        defaultEditor = true;
-      };
+      nixvim = import ../../nixvim;
       vscode = {
         enable = true;
         enableUpdateCheck = true;
