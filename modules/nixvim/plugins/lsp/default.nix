@@ -66,7 +66,7 @@
       };
       postConfig = builtins.readFile ./postConfig.lua;
       servers = {
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         nixd.enable = true;
         pyright.enable = true;
         jsonls.enable = true;
