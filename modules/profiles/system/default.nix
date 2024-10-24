@@ -48,6 +48,10 @@ in
 
     services.fstrim.enable = true;
 
+    environment.systemPackages = with pkgs; [
+      wget
+    ];
+
     programs = {
       zsh.enable = true;
       git = {

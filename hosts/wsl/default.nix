@@ -24,7 +24,6 @@
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
-    systemPackages = with pkgs; [ wget ];
   };
 
   profiles = {
