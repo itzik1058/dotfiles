@@ -21,6 +21,10 @@
     wrap = false;
     hlsearch = false;
     number = true;
+    tabstop = 2;
+    softtabstop = 0;
+    shiftwidth = 2;
+    expandtab = true;
   };
   colorschemes.catppuccin = {
     enable = true;

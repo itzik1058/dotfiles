@@ -1,6 +1,7 @@
 {
   plugins.oil = {
     enable = true;
+    settings.default_file_explorer = false; # keep netrw for scp
   };
   keymaps = [
     {

@@ -15,7 +15,6 @@
     git-conflict.enable = true;
     lsp-format.enable = true;
     lualine.enable = true;
-    molten.enable = true;
     nvim-autopairs.enable = true;
     nvim-colorizer.enable = true;
     nvim-surround.enable = true;

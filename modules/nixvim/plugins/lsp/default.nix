@@ -1,4 +1,7 @@
 {
+  globals.markdown_fenced_languages = {
+    ts = "typescript";
+  };
   plugins = {
     fidget.enable = true;
     lsp-format.enable = true;
@@ -66,10 +69,22 @@
       };
       postConfig = builtins.readFile ./postConfig.lua;
       servers = {
+        denols = {
+          enable = true;
+          rootDir = ''
+            require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
+          '';
+          extraOptions = {
+            init_options = {
+              lint = true;
+              unstable = true;
+            };
+          };
+        };
+        jsonls.enable = true;
         lua_ls.enable = true;
         nixd.enable = true;
         pyright.enable = true;
-        jsonls.enable = true;
         yamlls.enable = true;
       };
     };
