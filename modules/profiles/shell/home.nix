@@ -34,8 +34,13 @@ in
         cat = "${bat} -Pp";
         man = ''MANROFFOPT="-c" MANPAGER="sh -c 'col -bx | ${bat} -l man -p'" man'';
         ps = procs;
+        z = "${lib.getExe config.programs.zellij.package} attach -c main";
       };
 
+    xdg.configFile."zellij" = {
+      source = ./zellij;
+      recursive = true;
+    };
     programs = {
       fd.enable = true;
       ripgrep.enable = true;
@@ -53,6 +58,34 @@ in
         enable = true;
         git = true;
         icons = "auto";
+      };
+
+      zellij = {
+        enable = true;
+        settings = {
+          default_mode = "locked";
+          session_serialization = false;
+          ui = {
+            pane_frames = {
+              rounded_corners = true;
+              hide_session_name = true;
+            };
+          };
+          theme = "catppuccin-mocha";
+          themes.catppuccin-mocha = {
+            bg = "#585b70"; # Surface2
+            fg = "#cdd6f4"; # Text
+            red = "#f38ba8";
+            green = "#a6e3a1";
+            blue = "#89b4fa";
+            yellow = "#f9e2af";
+            magenta = "#f5c2e7"; # Pink
+            orange = "#fab387"; # Peach
+            cyan = "#89dceb"; # Sky
+            black = "#181825"; # Mantle
+            white = "#cdd6f4"; # Text
+          };
+        };
       };
 
       bash = {
