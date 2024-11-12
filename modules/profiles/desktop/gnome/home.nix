@@ -58,12 +58,39 @@ in
             ];
           };
           "org/gnome/desktop/wm/keybindings" = {
+            maximize = [
+              "<Super>Up"
+              "<Super>k"
+            ];
+            minimize = [ ];
+            move-to-center = [ "<Ctrl><Super>Space" ];
+            move-to-side-e = [
+              "<Ctrl><Super>Right"
+              "<Ctrl><Super>l"
+            ];
+            move-to-side-n = [
+              "<Ctrl><Super>Up"
+              "<Ctrl><Super>k"
+            ];
+            move-to-side-s = [
+              "<Ctrl><Super>Down"
+              "<Ctrl><Super>j"
+            ];
+            move-to-side-w = [
+              "<Ctrl><Super>Left"
+              "<Ctrl><Super>h"
+            ];
             switch-applications = [ ];
             switch-applications-backward = [ ];
             switch-input-source = [ "<Shift>Alt_L" ];
             switch-input-source-backward = [ "<Alt>Shift_L" ];
             switch-windows = [ "<Alt>Tab" ];
             switch-windows-backward = [ "<Shift><Alt>Tab" ];
+            unmaximize = [
+              "<Super>Down"
+              "<Alt>F5"
+              "<Super>j"
+            ];
           };
 
           "org/gnome/desktop/peripherals/touchpad" = {
@@ -88,6 +115,17 @@ in
 
           "org/gnome/mutter" = {
             dynamic-workspaces = true;
+          };
+
+          "org/gnome/mutter/keybindings" = {
+            toggle-tiled-left = [
+              "<Super>Left"
+              "<Super>h"
+            ];
+            toggle-tiled-right = [
+              "<Super>Right"
+              "<Super>l"
+            ];
           };
 
           "org/gnome/shell" = {
