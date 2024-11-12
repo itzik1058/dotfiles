@@ -45,6 +45,7 @@
     desktop.enable = true;
     dev.enable = true;
     gaming.enable = true;
+    ssh.enable = true;
     system.enable = true;
   };
 }
