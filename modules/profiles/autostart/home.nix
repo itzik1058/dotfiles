@@ -8,7 +8,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.file."${config.xdg.configHome}/autostart" = {
+    xdg.configFile."autostart" = {
       source = ./applications;
       recursive = true;
     };
