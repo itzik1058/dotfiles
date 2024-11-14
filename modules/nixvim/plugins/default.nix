@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bufferline.nix
     ./cmp.nix
     ./gitsigns.nix
     ./lsp
