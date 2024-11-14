@@ -52,7 +52,7 @@
     {
       mode = [ "n" ];
       key = "<leader>e";
-      action = "<cmd>Neotree toggle float<cr>";
+      action = "<cmd>Neotree toggle reveal float<cr>";
       options = {
         desc = "Neotree";
       };
