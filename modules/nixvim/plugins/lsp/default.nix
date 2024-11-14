@@ -1,8 +1,29 @@
 {
-  globals.markdown_fenced_languages = {
-    ts = "typescript";
-  };
   plugins = {
+    conform-nvim = {
+      enable = true;
+      settings = {
+        format_on_save = {
+          timeout_ms = 500;
+          lsp_format = "first";
+        };
+        formatters_by_ft =
+          let
+            prettier = {
+              __unkeyed-1 = "prettierd";
+              __unkeyed-2 = "prettier";
+              timeout_ms = 2000;
+              stop_after_first = true;
+            };
+          in
+          {
+            javascript = prettier;
+            javascriptreact = prettier;
+            typescript = prettier;
+            typescriptreact = prettier;
+          };
+      };
+    };
     fidget.enable = true;
     lsp-format.enable = true;
     lsp = {
@@ -69,18 +90,7 @@
       };
       postConfig = builtins.readFile ./postConfig.lua;
       servers = {
-        denols = {
-          enable = true;
-          rootDir = ''
-            require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-          '';
-          extraOptions = {
-            init_options = {
-              lint = true;
-              unstable = true;
-            };
-          };
-        };
+        eslint.enable = true;
         jsonls.enable = true;
         lua_ls.enable = true;
         nixd = {
@@ -90,6 +100,7 @@
           };
         };
         pyright.enable = true;
+        ts_ls.enable = true;
         yamlls.enable = true;
       };
     };
