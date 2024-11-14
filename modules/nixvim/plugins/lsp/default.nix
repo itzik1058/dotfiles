@@ -83,7 +83,12 @@
         };
         jsonls.enable = true;
         lua_ls.enable = true;
-        nixd.enable = true;
+        nixd = {
+          enable = true;
+          extraOptions = {
+            offset_encoding = "utf-8";
+          };
+        };
         pyright.enable = true;
         yamlls.enable = true;
       };
