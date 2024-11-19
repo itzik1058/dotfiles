@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
@@ -16,8 +15,6 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-    fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
     programs.localsend = {
       enable = true;
