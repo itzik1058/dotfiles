@@ -31,13 +31,31 @@
     flatpak.enable = true;
     fwupd.enable = true;
     smartd.enable = true;
+    tailscale.enable = true;
     sunshine = {
       enable = lib.mkDefault true;
       package = pkgs.sunshine.override { cudaSupport = true; };
       openFirewall = true;
       capSysAdmin = true;
     };
-    tailscale.enable = true;
+    # avahi = {
+    #   enable = true;
+    #   nssmdns4 = true;
+    #   denyInterfaces = [ "docker0" ];
+    #   publish = {
+    #     enable = true;
+    #     userServices = true;
+    #     addresses = true;
+    #     hinfo = true;
+    #     workstation = true;
+    #     domain = true;
+    #   };
+    # };
+    # xrdp = {
+    #   enable = true;
+    #   defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
+    #   openFirewall = true;
+    # };
   };
 
   environment = {
