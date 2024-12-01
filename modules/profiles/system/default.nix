@@ -32,6 +32,8 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
+    zramSwap.enable = true;
+
     networking.firewall = {
       logReversePathDrops = true;
 
