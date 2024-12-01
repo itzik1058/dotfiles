@@ -58,6 +58,7 @@ in
     ];
 
     programs = {
+      cfs-zen-tweaks.enable = true;
       zsh.enable = true;
       git = {
         enable = true;
