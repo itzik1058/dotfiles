@@ -16,6 +16,8 @@ in
   config = lib.mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+    services.earlyoom.enable = true;
+
     programs.localsend = {
       enable = true;
       openFirewall = true;
