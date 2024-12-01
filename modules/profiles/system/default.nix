@@ -32,6 +32,7 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
+    boot.kernel.sysctl."kernel.sysrq" = 438; # debian default
     boot.loader.systemd-boot.memtest86.enable = true;
     boot.loader.grub.memtest86.enable = true;
 
