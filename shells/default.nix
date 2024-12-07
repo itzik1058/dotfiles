@@ -14,7 +14,7 @@ nixpkgs.lib.genAttrs supportedSystems (
   in
   {
     default = pkgs.mkShell {
-      packages = with pkgs; [
+      buildInputs = with pkgs; [
         nixfmt-rfc-style
         nixd
         (writeShellScriptBin "rebuild" ''
