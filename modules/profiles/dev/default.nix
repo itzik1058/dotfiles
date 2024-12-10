@@ -21,7 +21,6 @@ in
       # };
     };
 
-    services.envfs.enable = true;
     services.udev.packages = with pkgs; [
       platformio-core.udev
       openocd
