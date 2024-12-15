@@ -24,6 +24,7 @@ in
       libreoffice
       onlyoffice-bin
       notes
+      nvtopPackages.full
     ];
 
     programs = {
