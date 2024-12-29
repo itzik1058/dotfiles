@@ -113,6 +113,10 @@ in
             sleep-inactive-ac-type = "nothing";
           };
 
+          "org/gnome/settings-daemon/plugins/media-keys" = {
+            screensaver = [ "<Shift><Super>l" ];
+          };
+
           "org/gnome/mutter" = {
             dynamic-workspaces = true;
           };
