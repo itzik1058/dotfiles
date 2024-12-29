@@ -17,7 +17,7 @@
     lsp-format.enable = true;
     lualine.enable = true;
     nvim-autopairs.enable = true;
-    nvim-colorizer.enable = true;
+    colorizer.enable = true;
     nvim-surround.enable = true;
     project-nvim.enable = true;
     sleuth.enable = true;
