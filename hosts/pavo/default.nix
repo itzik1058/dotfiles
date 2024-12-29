@@ -40,6 +40,15 @@
 
   security.rtkit.enable = true;
 
+  # dhcp & dns for wifi hotspot
+  networking.firewall.interfaces.wlo1 = {
+    allowedTCPPorts = [ 53 ];
+    allowedUDPPorts = [
+      53
+      67
+    ];
+  };
+
   profiles = {
     audio.enable = true;
     desktop.enable = true;
