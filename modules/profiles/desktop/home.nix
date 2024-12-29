@@ -25,6 +25,7 @@ in
       onlyoffice-bin
       notes
       nvtopPackages.full
+      scrcpy
     ];
 
     programs = {

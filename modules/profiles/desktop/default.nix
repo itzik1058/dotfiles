@@ -18,9 +18,12 @@ in
 
     services.earlyoom.enable = true;
 
-    programs.localsend = {
-      enable = true;
-      openFirewall = true;
+    programs = {
+      localsend = {
+        enable = true;
+        openFirewall = true;
+      };
+      adb.enable = true;
     };
 
     profiles.desktop.gnome.enable = true;
