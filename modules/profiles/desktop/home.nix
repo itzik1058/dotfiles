@@ -44,5 +44,6 @@ in
 
     profiles.desktop.gnome.enable = true;
     profiles.terminal.alacritty.enable = true;
+    profiles.terminal.ghostty.enable = true;
   };
 }

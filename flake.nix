@@ -18,6 +18,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty.url = "github:ghostty-org/ghostty";
   };
   outputs =
     {
@@ -34,8 +35,12 @@
       nixRegistry = {
         nix.registry = builtins.mapAttrs (_: input: { flake = input; }) inputs;
       };
+      overlays = {
+        nixpkgs.overlays = (import ./overlays inputs);
+      };
       nixosModules = [
         nixRegistry
+        overlays
         ./modules
         home-manager.nixosModules.home-manager
         {
@@ -44,6 +49,7 @@
             useUserPackages = true;
             backupFileExtension = "backup";
             sharedModules = homeManagerModules;
+            extraSpecialArgs = { inherit inputs; };
           };
         }
         nixos-wsl.nixosModules.wsl
@@ -52,16 +58,23 @@
       ];
       homeManagerModules = [
         nixRegistry
+        overlays
         ./modules/home.nix
         nix-index-database.hmModules.nix-index
         nixvim.homeManagerModules.nixvim
       ];
-      mkSystem = entrypoint: nixosSystem { modules = nixosModules ++ [ entrypoint ]; };
+      mkSystem =
+        entrypoint:
+        nixosSystem {
+          modules = nixosModules ++ [ entrypoint ];
+          specialArgs = { inherit inputs; };
+        };
       mkHome =
         entrypoint: system:
         homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = homeManagerModules ++ [ entrypoint ];
+          extraSpecialArgs = { inherit inputs; };
         };
     in
     {
