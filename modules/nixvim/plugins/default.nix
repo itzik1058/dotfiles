@@ -22,6 +22,7 @@
     project-nvim.enable = true;
     sleuth.enable = true;
     treesitter.enable = true;
+    treesitter-context.enable = true;
     trouble.enable = true;
     ts-context-commentstring.enable = true;
     web-devicons.enable = true;
