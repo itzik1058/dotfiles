@@ -92,6 +92,7 @@
       };
       postConfig = builtins.readFile ./postConfig.lua;
       servers = {
+        clangd.enable = true;
         eslint.enable = true;
         jsonls.enable = true;
         lua_ls.enable = true;
