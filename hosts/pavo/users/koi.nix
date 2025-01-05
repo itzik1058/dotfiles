@@ -12,7 +12,7 @@
     home-manager.enable = true;
     shell = {
       enable = true;
-      prompt = "powerlevel10k";
+      powerlevel10k.enable = true;
     };
     theme.enable = true;
   };

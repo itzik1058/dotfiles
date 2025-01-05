@@ -8,7 +8,7 @@
     home-manager.enable = true;
     shell = {
       enable = true;
-      prompt = "starship";
+      starship.enable = true;
     };
     theme.enable = true;
   };
