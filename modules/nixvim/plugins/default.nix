@@ -21,6 +21,7 @@
     nvim-surround.enable = true;
     project-nvim.enable = true;
     sleuth.enable = true;
+    tmux-navigator.enable = true;
     treesitter.enable = true;
     treesitter-context.enable = true;
     trouble.enable = true;

@@ -11,7 +11,9 @@ in
   imports = [
     ./powerlevel10k/home.nix
     ./starship/home.nix
+    ./tmux/home.nix
     ./zellij/home.nix
+    ./zsh/home.nix
   ];
 
   options.profiles.shell = {
@@ -55,47 +57,11 @@ in
         enable = true;
         historyFile = "${config.xdg.stateHome}/.bash_history";
       };
+    };
 
-      zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
-
-        history.expireDuplicatesFirst = true;
-        history.extended = true;
-
-        historySubstringSearch = {
-          enable = true;
-          searchDownKey = [
-            "^[[B"
-            "^[OB"
-          ];
-          searchUpKey = [
-            "^[[A"
-            "^[OA"
-          ];
-        };
-
-        plugins = [
-          {
-            name = "fzf-tab";
-            src = pkgs.zsh-fzf-tab;
-            file = "share/fzf-tab/fzf-tab.plugin.zsh";
-          }
-          {
-            name = "vi-mode";
-            src = pkgs.zsh-vi-mode;
-            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-          }
-        ];
-
-        initExtra = ''
-          bindkey -a H vi-beginning-of-line
-          bindkey -a L vi-end-of-line
-          bindkey '^ ' autosuggest-accept
-        '';
-      };
+    profiles.shell = {
+      tmux.enable = true;
+      zsh.enable = true;
     };
   };
 }
