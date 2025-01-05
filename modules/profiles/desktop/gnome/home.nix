@@ -53,7 +53,7 @@ in
               ])
             ];
             xkb-options = [
-              "caps:escape"
+              # "caps:escape"
               "grp:alt_shift_toggle"
             ];
           };

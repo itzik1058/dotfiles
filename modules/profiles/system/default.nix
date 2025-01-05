@@ -52,7 +52,22 @@ in
       '';
     };
 
-    services.fstrim.enable = true;
+    services = {
+      fstrim.enable = true;
+      keyd = {
+        enable = true;
+        keyboards = {
+          default = {
+            ids = [ "*" ];
+            settings = {
+              main = {
+                capslock = "overload(control, esc)";
+              };
+            };
+          };
+        };
+      };
+    };
 
     environment.systemPackages = with pkgs; [
       wget
