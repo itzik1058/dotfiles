@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.tmux = {
       enable = true;
-      prefix = "A-space";
+      prefix = "C-a";
       keyMode = "vi";
       baseIndex = 1;
       clock24 = true;
