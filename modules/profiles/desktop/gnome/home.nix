@@ -63,22 +63,38 @@ in
               "<Super>k"
             ];
             minimize = [ ];
-            move-to-center = [ "<Ctrl><Super>Space" ];
+            move-to-center = [ "<Shift><Super>Space" ];
+            move-to-monitor-down = [
+              "<Control><Super>Down"
+              "<Control><Super>j"
+            ];
+            move-to-monitor-left = [
+              "<Control><Super>Left"
+              "<Control><Super>h"
+            ];
+            move-to-monitor-right = [
+              "<Control><Super>Right"
+              "<Control><Super>l"
+            ];
+            move-to-monitor-up = [
+              "<Control><Super>Up"
+              "<Control><Super>k"
+            ];
             move-to-side-e = [
-              "<Ctrl><Super>Right"
-              "<Ctrl><Super>l"
+              "<Shift><Super>Right"
+              "<Shift><Super>l"
             ];
             move-to-side-n = [
-              "<Ctrl><Super>Up"
-              "<Ctrl><Super>k"
+              "<Shift><Super>Up"
+              "<Shift><Super>k"
             ];
             move-to-side-s = [
-              "<Ctrl><Super>Down"
-              "<Ctrl><Super>j"
+              "<Shift><Super>Down"
+              "<Shift><Super>j"
             ];
             move-to-side-w = [
-              "<Ctrl><Super>Left"
-              "<Ctrl><Super>h"
+              "<Shift><Super>Left"
+              "<Shift><Super>h"
             ];
             switch-applications = [ ];
             switch-applications-backward = [ ];
@@ -114,7 +130,7 @@ in
           };
 
           "org/gnome/settings-daemon/plugins/media-keys" = {
-            screensaver = [ "<Shift><Super>l" ];
+            screensaver = [ "<Ctrl><Super>l" ];
           };
 
           "org/gnome/mutter" = {
