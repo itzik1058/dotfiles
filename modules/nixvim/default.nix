@@ -8,9 +8,9 @@
   defaultEditor = true;
   vimdiffAlias = true;
   performance.byteCompileLua = {
-    # enable = true;
-    # nvimRuntime = true;
-    # plugins = true;
+    enable = true;
+    nvimRuntime = true;
+    plugins = true;
   };
   clipboard = {
     register = "unnamedplus";
