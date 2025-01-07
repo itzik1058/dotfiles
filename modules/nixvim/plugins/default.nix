@@ -12,14 +12,15 @@
   ];
 
   plugins = {
+    colorizer.enable = true;
     fugitive.enable = true;
     git-conflict.enable = true;
     lsp-format.enable = true;
     lualine.enable = true;
     nvim-autopairs.enable = true;
-    colorizer.enable = true;
     nvim-surround.enable = true;
     project-nvim.enable = true;
+    rainbow-delimiters.enable = true;
     sleuth.enable = true;
     tmux-navigator.enable = true;
     treesitter.enable = true;
