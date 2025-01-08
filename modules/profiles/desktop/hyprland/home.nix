@@ -47,6 +47,7 @@ in
           "${lib.getExe config.services.swaync.package}"
         ];
         bind = [
+          "$mod, grave, hyprexpo:expo, toggle"
           "$mod, Q, killactive,"
           "$mod, M, togglefloating"
           "$mod, Z, fullscreen"
@@ -96,6 +97,10 @@ in
           "$mod SHIFT, 0, movetoworkspace, 0"
           "$mod, Tab, workspace, e+1"
           "$mod SHIFT, Tab, workspace, e-1"
+
+          ", PRINT, exec, ${lib.getExe pkgs.hyprshot} -m region"
+          "SHIFT, PRINT, exec, ${lib.getExe pkgs.hyprshot} -m output"
+          "$mod, PRINT, exec, ${lib.getExe pkgs.hyprshot} -m window"
         ];
         bindm = [
           "$mod, mouse:272, movewindow"
