@@ -14,6 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.hyprlock = {
+      enable = true;
       settings = {
         "$accent" = "$mauve";
         "$accentAlpha" = "$mauveAlpha";
