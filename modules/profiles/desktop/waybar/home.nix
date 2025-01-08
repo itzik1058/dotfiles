@@ -21,7 +21,7 @@ in
           margin-top = 5;
           margin-left = 5;
           margin-right = 5;
-          height = 30;
+          height = 20;
           modules-left = [ "hyprland/window" ];
           modules-center = [ "hyprland/workspaces" ];
           modules-right = [
@@ -33,7 +33,7 @@ in
           ];
           "hyprland/window" = {
             format = "{}";
-            max-len = 35;
+            max-len = 30;
             separate-outputs = true;
           };
           "hyprland/workspaces" = {
@@ -87,7 +87,7 @@ in
             format-ethernet = "  {ifname}";
             tooltip-format = "{ifname} via {gwaddr}";
             format-linked = "  {ifname} (No IP)";
-            format-disconnected = " ⚠ ";
+            format-disconnected = "⚠";
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };
           pulseaudio = {
