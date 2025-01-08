@@ -7,7 +7,10 @@ let
   cfg = config.profiles.desktop;
 in
 {
-  imports = [ ./gnome ];
+  imports = [
+    ./gnome
+    ./hyprland
+  ];
 
   options.profiles.desktop = {
     enable = lib.mkEnableOption "desktop profile";

@@ -51,7 +51,11 @@
 
   profiles = {
     audio.enable = true;
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      gnome.enable = true;
+      hyprland.enable = true;
+    };
     dev.enable = true;
     gaming.enable = true;
     ssh.enable = true;

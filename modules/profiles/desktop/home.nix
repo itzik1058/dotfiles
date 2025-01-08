@@ -8,7 +8,13 @@ let
   cfg = config.profiles.desktop;
 in
 {
-  imports = [ ./gnome/home.nix ];
+  imports = [
+    ./gnome/home.nix
+    ./hyprland/home.nix
+    ./hyprlock/home.nix
+    ./swaync/home.nix
+    ./waybar/home.nix
+  ];
 
   options.profiles.desktop = {
     enable = lib.mkEnableOption "desktop profile";
@@ -35,7 +41,7 @@ in
         enable = true;
         scriptOpts = {
           ytdl_hook = {
-            ytdl_path = "${lib.getExe pkgs.yt-dlp}";
+            ytdl_path = "${lib.getExe config.programs.yt-dlp.package}";
           };
         };
       };

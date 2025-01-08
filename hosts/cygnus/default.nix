@@ -66,7 +66,10 @@
   security.rtkit.enable = true;
 
   profiles = {
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      gnome.enable = true;
+    };
     dev.enable = true;
     gaming.enable = true;
     ssh.enable = true;
