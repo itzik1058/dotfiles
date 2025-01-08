@@ -21,6 +21,7 @@
     wrap = false;
     hlsearch = false;
     number = true;
+    relativenumber = true;
     tabstop = 2;
     softtabstop = 0;
     shiftwidth = 2;
