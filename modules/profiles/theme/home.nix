@@ -13,6 +13,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    catppuccin.flavor = "mocha";
+
     home.pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

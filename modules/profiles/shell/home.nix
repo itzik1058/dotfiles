@@ -21,11 +21,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [ bat ];
-
     home.shellAliases =
       let
-        bat = lib.getExe pkgs.bat;
+        bat = lib.getExe config.programs.bat.package;
         procs = lib.getExe pkgs.procs;
       in
       {
@@ -35,11 +33,12 @@ in
       };
 
     programs = {
+      bat.enable = true;
       fd.enable = true;
       ripgrep.enable = true;
       fzf =
         let
-          fd = lib.getExe pkgs.fd;
+          fd = lib.getExe config.programs.fd.package;
         in
         {
           enable = true;
@@ -57,6 +56,11 @@ in
         enable = true;
         historyFile = "${config.xdg.stateHome}/.bash_history";
       };
+    };
+
+    catppuccin = {
+      bat.enable = true;
+      fzf.enable = true;
     };
 
     profiles.shell = {

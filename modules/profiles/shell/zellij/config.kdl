@@ -1,21 +1,5 @@
 default_mode "locked"
 session_serialization false
-theme "catppuccin-mocha"
-themes {
-	catppuccin-mocha {
-		bg "#585b70"
-		black "#181825"
-		blue "#89b4fa"
-		cyan "#89dceb"
-		fg "#cdd6f4"
-		green "#a6e3a1"
-		magenta "#f5c2e7"
-		orange "#fab387"
-		red "#f38ba8"
-		white "#cdd6f4"
-		yellow "#f9e2af"
-	}
-}
 ui {
 	pane_frames {
 		hide_session_name true

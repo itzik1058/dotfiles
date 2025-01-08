@@ -18,6 +18,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
     ghostty.url = "github:ghostty-org/ghostty";
   };
   outputs =
@@ -27,6 +28,7 @@
       nixos-wsl,
       nix-index-database,
       nixvim,
+      catppuccin,
       ...
     }@inputs:
     let
@@ -55,6 +57,7 @@
         nixos-wsl.nixosModules.wsl
         nix-index-database.nixosModules.nix-index
         nixvim.nixosModules.nixvim
+        catppuccin.nixosModules.catppuccin
       ];
       homeManagerModules = [
         nixRegistry
@@ -62,6 +65,7 @@
         ./modules/home.nix
         nix-index-database.hmModules.nix-index
         nixvim.homeManagerModules.nixvim
+        catppuccin.homeManagerModules.catppuccin
       ];
       mkSystem =
         entrypoint:
