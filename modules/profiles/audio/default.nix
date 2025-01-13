@@ -8,8 +8,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    hardware.pulseaudio.enable = false;
-
     services = {
       pipewire = {
         enable = true;
@@ -17,6 +15,7 @@ in
         alsa.support32Bit = true;
         pulse.enable = true;
       };
+      pulseaudio.enable = false;
     };
   };
 }
