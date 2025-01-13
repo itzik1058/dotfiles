@@ -14,7 +14,22 @@ in
 
   config = lib.mkIf cfg.enable {
     programs = {
-      tofi.enable = true;
+      tofi = {
+        enable = true;
+        settings = {
+          matching-algorithm = "fuzzy";
+          font = "JetBrainsMono Nerd Font";
+          font-size = 16;
+          width = "50%";
+          height = "50%";
+          outline-width = 0;
+          border-width = 0;
+          corner-radius = 12;
+          prompt-text = ">>";
+          num-results = 0;
+          result-spacing = 0;
+        };
+      };
     };
 
     catppuccin.tofi.enable = true;
