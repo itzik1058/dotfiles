@@ -14,6 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     services = {
+      blueman.enable = true;
       greetd = {
         enable = true;
         settings = {

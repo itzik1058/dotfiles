@@ -35,10 +35,12 @@ in
     catppuccin.tofi.enable = true;
 
     services = {
+      blueman-applet.enable = true;
       hypridle = {
         enable = true;
         settings = import ./hypridle.nix;
       };
+      network-manager-applet.enable = true;
       swayosd.enable = true;
     };
 
@@ -150,6 +152,9 @@ in
             ",XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
             ",XF86MonBrightnessDown, exec, ${swayosd-client} --brightness lower"
             ",XF86MonBrightnessUp, exec, ${swayosd-client} --brightness raise"
+          ];
+          windowrulev2 = [
+            "float, class:nm-connection-editor|blueman-manager"
           ];
         };
     };
