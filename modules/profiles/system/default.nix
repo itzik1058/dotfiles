@@ -62,6 +62,7 @@ in
             settings = {
               main = {
                 capslock = "overload(control, esc)";
+                esc = "capslock";
               };
             };
           };
