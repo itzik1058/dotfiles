@@ -21,16 +21,18 @@ in
           margin-top = 5;
           margin-left = 5;
           margin-right = 5;
-          height = 20;
           modules-left = [ "hyprland/window" ];
           modules-center = [ "hyprland/workspaces" ];
           modules-right = [
+            "tray"
             "pulseaudio"
-            "network"
-            "temperature"
             "battery"
+            "hyprland/language"
             "clock"
           ];
+          "hyprland/language" = {
+            format = "{shortDescription}";
+          };
           "hyprland/window" = {
             format = "{}";
             max-len = 30;
@@ -44,36 +46,22 @@ in
             };
             sort-by = "number";
           };
+          tray = {
+            spacing = 8;
+          };
           clock = {
             tooltip-format = "{:%B %d}";
             format-alt = "{:%c}";
-          };
-          cpu = {
-            format = "  {usage}%";
-            tooltip = false;
-          };
-          memory = {
-            format = "{}%  ";
-          };
-          temperature = {
-            critical-threshold = 80;
-            format = "{icon} {temperatureC}°C";
-            format-icons = [
-              ""
-              ""
-              ""
-            ];
           };
           battery = {
             states = {
               warning = 30;
               critical = 15;
             };
-            format = "{icon} {capacity}%";
-            format-full = "{icon} {capacity}%";
-            format-charging = "  {capacity}%";
-            format-plugged = " {capacity}%";
-            format-alt = "{time} {icon}";
+            format = "{icon}";
+            format-full = "{icon}";
+            format-charging = " ";
+            format-plugged = "";
             format-icons = [
               " "
               " "
@@ -81,20 +69,13 @@ in
               " "
               " "
             ];
-          };
-          network = {
-            format-wifi = "  {signalStrength}%";
-            format-ethernet = "  {ifname}";
-            tooltip-format = "{ifname} via {gwaddr}";
-            format-linked = "  {ifname} (No IP)";
-            format-disconnected = "⚠";
-            format-alt = "{ifname}: {ipaddr}/{cidr}";
+            tooltip-format = "{capacity}% ({time})";
           };
           pulseaudio = {
-            format = "{icon} {volume}%";
-            format-bluetooth = "{volume}% {icon} {format_source}";
-            format-bluetooth-muted = " {icon} {format_source}";
+            format = "{icon}";
             format-muted = "";
+            format-bluetooth = "{icon}";
+            format-bluetooth-muted = " ";
             format-icons = {
               headphone = "";
               hands-free = "󰋎";
@@ -108,7 +89,7 @@ in
                 ""
               ];
             };
-            on-click = "pavucontrol";
+            tooltip-format = "{volume}% ({format_source})";
           };
         }
       ];
