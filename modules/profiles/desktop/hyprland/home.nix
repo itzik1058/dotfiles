@@ -157,8 +157,10 @@ in
             ",XF86MonBrightnessDown, exec, ${swayosd-client} --brightness lower"
             ",XF86MonBrightnessUp, exec, ${swayosd-client} --brightness raise"
           ];
+
           windowrulev2 = [
-            "float, class:nm-connection-editor|blueman-manager"
+            "float, class:nm-connection-editor"
+            "float, class:^\\.blueman.*"
           ];
         };
     };
