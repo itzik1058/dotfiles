@@ -62,6 +62,9 @@ in
           tofi-drun = lib.getExe' config.programs.tofi.package "tofi-drun";
         in
         {
+          general = {
+            gaps_out = 10;
+          };
           input = {
             kb_layout = "us,il";
             kb_options = [ "grp:alt_shift_toggle" ];
@@ -70,10 +73,11 @@ in
               disable_while_typing = true;
             };
           };
-          "$mod" = "SUPER";
           exec-once = [
             "${alacritty}"
           ];
+
+          "$mod" = "SUPER";
           bind = [
             "$mod, grave, hyprexpo:expo, toggle"
             "$mod, Q, killactive,"
