@@ -24,10 +24,6 @@
     sleuth.enable = true;
     tmux-navigator.enable = true;
     treesitter.enable = true;
-    treesitter-context = {
-      enable = true;
-      settings.max_lines = 3;
-    };
     trouble.enable = true;
     ts-context-commentstring.enable = true;
     web-devicons.enable = true;
