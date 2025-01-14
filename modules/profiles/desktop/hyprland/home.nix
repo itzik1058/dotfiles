@@ -30,6 +30,7 @@ in
           result-spacing = 0;
         };
       };
+      ghostty.settings.window-decoration = false;
     };
 
     catppuccin.tofi.enable = true;

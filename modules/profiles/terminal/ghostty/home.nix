@@ -16,7 +16,6 @@ in
       enable = true;
       settings = {
         font-size = 11;
-        window-decoration = false;
         keybind = [
           "ctrl+comma=unbind"
           "ctrl+shift+comma=unbind"

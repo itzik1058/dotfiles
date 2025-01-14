@@ -153,6 +153,7 @@ in
               "org.gnome.Nautilus.desktop"
               "firefox.desktop"
               "org.gnome.Console.desktop"
+              "com.mitchellh.ghostty.desktop"
               "Alacritty.desktop"
               "vesktop.desktop"
               "steam.desktop"
