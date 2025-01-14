@@ -36,6 +36,7 @@ in
 
     services = {
       blueman-applet.enable = true;
+      cliphist.enable = true;
       hypridle = {
         enable = true;
         settings = import ./hypridle.nix;
@@ -56,10 +57,12 @@ in
       settings =
         let
           alacritty = lib.getExe config.programs.alacritty.package;
+          cliphist = lib.getExe config.services.cliphist.package;
           hyprshot = lib.getExe pkgs.hyprshot;
           playerctl = lib.getExe pkgs.playerctl;
           swayosd-client = lib.getExe' config.services.swayosd.package "swayosd-client";
           tofi-drun = lib.getExe' config.programs.tofi.package "tofi-drun";
+          wl-copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
         in
         {
           general = {
@@ -83,6 +86,7 @@ in
             "$mod, Q, killactive,"
             "$mod, M, togglefloating"
             "$mod, Z, fullscreen"
+            "$mod, V, exec, ${cliphist} list | tofi | ${cliphist} decode | ${wl-copy}"
             "$mod, F12, exec, ${alacritty}"
             "$mod, Return, exec, ${tofi-drun} | xargs hyprctl dispatch exec --"
             "$mod ALT, L, exec, loginctl lock-session"
