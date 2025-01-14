@@ -45,8 +45,10 @@ in
           };
         };
       };
+      yazi.enable = true;
       yt-dlp.enable = true;
     };
+    catppuccin.yazi.enable = true;
 
     profiles.desktop.gnome.enable = true;
     profiles.terminal.defaultTerminal = "ghostty";
