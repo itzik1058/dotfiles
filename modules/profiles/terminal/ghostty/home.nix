@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -13,7 +12,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.ghostty ];
-    xdg.configFile."ghostty/config".source = ./config;
+    programs.ghostty = {
+      enable = true;
+      settings = {
+        font-size = 11;
+        window-decoration = false;
+        keybind = [
+          "ctrl+comma=unbind"
+          "ctrl+shift+comma=unbind"
+        ];
+      };
+    };
+    catppuccin.ghostty.enable = true;
   };
 }
