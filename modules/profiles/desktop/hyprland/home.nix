@@ -160,7 +160,8 @@ in
 
           windowrulev2 = [
             "float, class:nm-connection-editor"
-            "float, class:^\\.blueman.*"
+            "float, class:\\.blueman.*"
+            "float, class:org.pulseaudio.pavucontrol"
           ];
         };
     };

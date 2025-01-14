@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }:
@@ -90,6 +91,7 @@ in
               ];
             };
             tooltip-format = "{volume}% ({format_source})";
+            on-click = "${lib.getExe pkgs.pavucontrol}";
           };
         }
       ];
