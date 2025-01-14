@@ -85,6 +85,7 @@ in
             "$mod, Z, fullscreen"
             "$mod, F12, exec, ${alacritty}"
             "$mod, Return, exec, ${tofi-drun} | xargs hyprctl dispatch exec --"
+            "$mod ALT, L, exec, loginctl lock-session"
 
             "$mod, h, movefocus, l"
             "$mod, l, movefocus, r"
