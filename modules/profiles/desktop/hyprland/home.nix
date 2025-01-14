@@ -44,6 +44,7 @@ in
       };
       network-manager-applet.enable = true;
       swayosd.enable = true;
+      udiskie.enable = true;
     };
 
     wayland.windowManager.hyprland = {
