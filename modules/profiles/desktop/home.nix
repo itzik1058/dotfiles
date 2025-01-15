@@ -22,22 +22,22 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      wl-clipboard
-      vesktop
       bitwarden-desktop
-      telegram-desktop
-      qbittorrent
       libreoffice
-      onlyoffice-bin
       notes
-      obsidian
       nvtopPackages.full
+      obsidian
+      onlyoffice-bin
+      qbittorrent
       scrcpy
+      telegram-desktop
+      vesktop
+      wl-clipboard
     ];
 
     programs = {
-      java.enable = true;
       firefox.enable = true;
+      java.enable = true;
       mpv = {
         enable = true;
         scriptOpts = {
