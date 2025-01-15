@@ -30,6 +30,7 @@ in
       libreoffice
       onlyoffice-bin
       notes
+      obsidian
       nvtopPackages.full
       scrcpy
     ];
