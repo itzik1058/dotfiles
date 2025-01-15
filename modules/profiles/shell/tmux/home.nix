@@ -17,6 +17,7 @@ in
       enable = true;
       prefix = "C-a";
       keyMode = "vi";
+      mouse = true;
       baseIndex = 1;
       clock24 = true;
       terminal = "tmux-256color";
