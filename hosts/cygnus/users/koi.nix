@@ -7,6 +7,7 @@
       gnome.enable = true;
     };
     dev.enable = true;
+    gamedev.enable = true;
     gaming.enable = true;
     home-manager.enable = true;
     shell = {
