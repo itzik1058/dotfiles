@@ -29,6 +29,7 @@ in
             "pulseaudio"
             "battery"
             "hyprland/language"
+            "custom/notification"
             "clock"
           ];
           "hyprland/language" = {
@@ -47,13 +48,8 @@ in
             };
             sort-by = "number";
           };
-          tray = {
-            spacing = 8;
-          };
-          clock = {
-            tooltip-format = "{:%B %d}";
-            format-alt = "{:%c}";
-          };
+          tray.spacing = 8;
+          clock.tooltip = "{:%a %d %b}";
           battery = {
             states = {
               warning = 30;
@@ -93,6 +89,30 @@ in
             tooltip-format = "{volume}% ({format_source})";
             on-click = "${lib.getExe pkgs.pavucontrol}";
           };
+          "custom/notification" =
+            let
+              swaync-client = lib.getExe' pkgs.swaynotificationcenter "swaync-client";
+            in
+            {
+              format = " {icon} ";
+              format-icons = {
+                notification = "<span foreground='red'><sup></sup></span>";
+                none = "";
+                dnd-notification = "<span foreground='red'><sup></sup></span>";
+                dnd-none = "";
+                inhibited-notification = "<span foreground='red'><sup></sup></span>";
+                inhibited-none = "";
+                dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+                dnd-inhibited-none = "";
+              };
+              tooltip = false;
+              return-type = "json";
+              exec-if = "which ${swaync-client}";
+              exec = "${swaync-client} -swb";
+              on-click = "${swaync-client} -t -sw";
+              on-click-right = "${swaync-client} -d -sw";
+              escape = true;
+            };
         }
       ];
     };
