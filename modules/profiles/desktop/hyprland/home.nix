@@ -14,6 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs = {
+      ghostty.settings.window-decoration = false;
       tofi = {
         enable = true;
         settings = {
@@ -30,7 +31,6 @@ in
           result-spacing = 0;
         };
       };
-      ghostty.settings.window-decoration = false;
     };
 
     catppuccin.tofi.enable = true;
@@ -41,6 +41,13 @@ in
       hypridle = {
         enable = true;
         settings = import ./hypridle.nix;
+      };
+      hyprpaper = {
+        enable = true;
+        settings = {
+          preload = [ "${./wallpaper.png}" ];
+          wallpaper = [ ",${./wallpaper.png}" ];
+        };
       };
       network-manager-applet.enable = true;
       swayosd.enable = true;
