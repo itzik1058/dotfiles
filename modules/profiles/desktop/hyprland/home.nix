@@ -69,6 +69,7 @@ in
           hyprshot = lib.getExe pkgs.hyprshot;
           playerctl = lib.getExe pkgs.playerctl;
           swayosd-client = lib.getExe' config.services.swayosd.package "swayosd-client";
+          swaync-client = lib.getExe' pkgs.swaynotificationcenter "swaync-client";
           terminal = lib.getExe config.profiles.terminal.package;
           tofi-drun = lib.getExe' config.programs.tofi.package "tofi-drun";
           wl-copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
@@ -96,6 +97,7 @@ in
             "$mod, M, togglefloating"
             "$mod, Z, fullscreen"
             "$mod, V, exec, ${cliphist} list | tofi | ${cliphist} decode | ${wl-copy}"
+            "$mod, N, exec, ${swaync-client} -t"
             "$mod, F12, exec, ${terminal}"
             "$mod, Return, exec, ${tofi-drun} | xargs hyprctl dispatch exec --"
             "$mod ALT, L, exec, loginctl lock-session"
