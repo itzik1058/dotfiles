@@ -7,7 +7,6 @@
     ./neotree.nix
     ./oil.nix
     ./telescope.nix
-    ./toggleterm.nix
     ./undotree.nix
   ];
 
