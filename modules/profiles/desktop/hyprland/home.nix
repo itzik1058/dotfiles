@@ -71,6 +71,7 @@ in
           swayosd-client = lib.getExe' config.services.swayosd.package "swayosd-client";
           swaync-client = lib.getExe' pkgs.swaynotificationcenter "swaync-client";
           terminal = lib.getExe config.profiles.terminal.package;
+          tmux = lib.getExe config.programs.tmux.package;
           tofi-drun = lib.getExe' config.programs.tofi.package "tofi-drun";
           wl-copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
         in
@@ -86,8 +87,8 @@ in
               disable_while_typing = true;
             };
           };
-          exec-once = [
-            "${terminal}"
+          animations.animation = [
+            "specialWorkspace, 1, 4, default, slidevert"
           ];
 
           "$mod" = "SUPER";
@@ -98,7 +99,6 @@ in
             "$mod, Z, fullscreen"
             "$mod, V, exec, ${cliphist} list | tofi | ${cliphist} decode | ${wl-copy}"
             "$mod, N, exec, ${swaync-client} -t"
-            "$mod, F12, exec, ${terminal}"
             "$mod, Return, exec, ${tofi-drun} | xargs hyprctl dispatch exec --"
             "$mod ALT, L, exec, loginctl lock-session"
 
@@ -146,6 +146,8 @@ in
             "$mod, Tab, workspace, e+1"
             "$mod SHIFT, Tab, workspace, e-1"
 
+            ", F12, toggleSpecialWorkspace, terminal"
+
             ", PRINT, exec, ${hyprshot} -m region"
             "SHIFT, PRINT, exec, ${hyprshot} -m output"
             "$mod, PRINT, exec, ${hyprshot} -m window"
@@ -172,6 +174,10 @@ in
             ",XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
             ",XF86MonBrightnessDown, exec, ${swayosd-client} --brightness lower"
             ",XF86MonBrightnessUp, exec, ${swayosd-client} --brightness raise"
+          ];
+
+          workspace = [
+            "special:terminal, on-created-empty:${terminal} -e ${tmux} new-session -As0"
           ];
 
           windowrulev2 = [
