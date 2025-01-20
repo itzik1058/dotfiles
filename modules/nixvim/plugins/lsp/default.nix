@@ -26,7 +26,10 @@
           };
       };
     };
-    fidget.enable = true;
+    fidget = {
+      enable = true;
+      settings.notification.window.winblend = 0;
+    };
     lsp-format.enable = true;
     lsp = {
       enable = true;

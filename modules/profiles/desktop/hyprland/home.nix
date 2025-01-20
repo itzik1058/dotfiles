@@ -179,7 +179,6 @@ in
             "float, class:\\.blueman.*"
             "float, class:org.pulseaudio.pavucontrol"
 
-            "opacity 0.8, class:com.mitchellh.ghostty"
             "noblur, class:com.mitchellh.ghostty"
           ];
         };
