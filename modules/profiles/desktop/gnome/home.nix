@@ -13,8 +13,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = (
-      (with pkgs; [
+    home.packages = (with pkgs; [
         gnome-firmware
         gnome-software
         gnome-tweaks
@@ -30,8 +29,7 @@ in
         dash-to-dock
         blur-my-shell
         ddterm
-      ])
-    );
+      ]);
 
     dconf = {
       enable = true;
