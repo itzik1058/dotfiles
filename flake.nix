@@ -31,17 +31,20 @@
       ...
     }@inputs:
     let
-      inherit (nixpkgs.lib) nixosSystem;
-      inherit (home-manager.lib) homeManagerConfiguration;
+      supportedSystems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
+      eachSystem = nixpkgs.lib.genAttrs supportedSystems;
+      pkgsFor = eachSystem (system: import nixpkgs { inherit system; });
+
       nixRegistry = {
         nix.registry = builtins.mapAttrs (_: input: { flake = input; }) inputs;
       };
-      overlays = {
-        nixpkgs.overlays = (import ./overlays inputs);
-      };
       nixosModules = [
         nixRegistry
-        overlays
         ./modules
         home-manager.nixosModules.home-manager
         {
@@ -60,7 +63,6 @@
       ];
       homeManagerModules = [
         nixRegistry
-        overlays
         ./modules/home.nix
         nix-index-database.hmModules.nix-index
         nixvim.homeManagerModules.nixvim
@@ -68,21 +70,33 @@
       ];
       mkSystem =
         entrypoint:
-        nixosSystem {
+        nixpkgs.lib.nixosSystem {
           modules = nixosModules ++ [ entrypoint ];
           specialArgs = { inherit inputs; };
         };
       mkHome =
         entrypoint: system:
-        homeManagerConfiguration {
+        home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = homeManagerModules ++ [ entrypoint ];
           extraSpecialArgs = { inherit inputs; };
         };
     in
     {
-      devShells = import ./shells { inherit nixpkgs; };
-      templates = import ./templates;
+      devShells = eachSystem (
+        system: with pkgsFor.${system}; {
+          default = mkShell {
+            packages = [
+              (writeShellScriptBin "rebuild" ''nixos-rebuild --flake . "$@" && nix store diff-closures /run/*-system'')
+            ];
+          };
+        }
+      );
+      formatter = eachSystem (system: with pkgsFor.${system}; pkgs.nixfmt-rfc-style);
+
+      homeConfigurations = {
+        atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
+      };
 
       nixosConfigurations = {
         wsl = mkSystem ./hosts/wsl;
@@ -90,8 +104,6 @@
         pavo = mkSystem ./hosts/pavo;
       };
 
-      homeConfigurations = {
-        atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
-      };
+      templates = import ./templates;
     };
 }
