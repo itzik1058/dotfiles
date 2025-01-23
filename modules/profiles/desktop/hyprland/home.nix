@@ -175,6 +175,7 @@ in
             "float, class:nm-connection-editor"
             "float, class:\\.blueman.*"
             "float, class:org.pulseaudio.pavucontrol"
+            "float, class:brasero"
 
             "noblur, class:com.mitchellh.ghostty"
           ];
