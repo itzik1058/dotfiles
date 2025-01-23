@@ -87,6 +87,8 @@
         system: with pkgsFor.${system}; {
           default = mkShell {
             packages = [
+              pre-commit
+              deadnix
               (writeShellScriptBin "rebuild" ''nixos-rebuild --flake . "$@" && nix store diff-closures /run/*-system'')
             ];
           };
