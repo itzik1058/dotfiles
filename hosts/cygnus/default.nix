@@ -66,6 +66,7 @@
   security.rtkit.enable = true;
 
   profiles = {
+    audio.enable = true;
     desktop = {
       enable = true;
       gnome.enable = true;

@@ -47,6 +47,4 @@
       services.sunshine.enable = false;
     };
   };
-
-  profiles.audio.enable = true;
 }
