@@ -14,7 +14,10 @@ in
 
   config = lib.mkIf cfg.enable {
     programs = {
-      ghostty.settings.window-decoration = false;
+      ghostty.settings = {
+        window-decoration = false;
+        background-opacity = 0.8;
+      };
       tofi = {
         enable = true;
         settings = {
