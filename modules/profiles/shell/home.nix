@@ -33,6 +33,7 @@ in
       };
 
     programs = {
+      zoxide.enable = true;
       bat.enable = true;
       fd.enable = true;
       ripgrep.enable = true;
