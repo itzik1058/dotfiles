@@ -89,7 +89,11 @@
             packages = [
               pre-commit
               deadnix
-              (writeShellScriptBin "rebuild" ''nixos-rebuild --flake . "$@" && nix store diff-closures /run/*-system'')
+              (writeShellScriptBin "rebuild" ''
+                nixos-rebuild --flake . --log-format internal-json -v "$@" \
+                |& ${lib.getExe nix-output-monitor} --json \
+                && nix store diff-closures /run/*-system
+              '')
             ];
           };
         }
