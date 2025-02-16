@@ -19,12 +19,7 @@
         {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
-              (python3.withPackages (
-                python-pkgs: with python-pkgs; [
-                  pip
-                  jupyterlab
-                ]
-              ))
+              uv
             ];
           };
         }
