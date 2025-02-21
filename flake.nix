@@ -39,48 +39,6 @@
       ];
       eachSystem = nixpkgs.lib.genAttrs supportedSystems;
       pkgsFor = eachSystem (system: import nixpkgs { inherit system; });
-
-      nixRegistry = {
-        nix.registry = builtins.mapAttrs (_: input: { flake = input; }) inputs;
-      };
-      nixosModules = [
-        nixRegistry
-        ./modules
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
-            sharedModules = homeManagerModules;
-            extraSpecialArgs = { inherit inputs; };
-          };
-        }
-        nixos-wsl.nixosModules.wsl
-        nix-index-database.nixosModules.nix-index
-        nixvim.nixosModules.nixvim
-        catppuccin.nixosModules.catppuccin
-      ];
-      homeManagerModules = [
-        nixRegistry
-        ./modules/home.nix
-        nix-index-database.hmModules.nix-index
-        nixvim.homeManagerModules.nixvim
-        catppuccin.homeManagerModules.catppuccin
-      ];
-      mkSystem =
-        entrypoint:
-        nixpkgs.lib.nixosSystem {
-          modules = nixosModules ++ [ entrypoint ];
-          specialArgs = { inherit inputs; };
-        };
-      mkHome =
-        entrypoint: system:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = homeManagerModules ++ [ entrypoint ];
-          extraSpecialArgs = { inherit inputs; };
-        };
     in
     {
       devShells = eachSystem (
@@ -100,15 +58,70 @@
       );
       formatter = eachSystem (system: with pkgsFor.${system}; pkgs.nixfmt-rfc-style);
 
-      homeConfigurations = {
-        atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
-      };
+      packages = eachSystem (
+        system:
+        let
+          nixRegistry = {
+            nix.registry = builtins.mapAttrs (_: input: { flake = input; }) inputs;
+          };
+          nixosModules = [
+            nixRegistry
+            ./modules
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                sharedModules = homeManagerModules;
+                extraSpecialArgs = { inherit inputs; };
+              };
+            }
+            nixos-wsl.nixosModules.wsl
+            nix-index-database.nixosModules.nix-index
+            nixvim.nixosModules.nixvim
+            catppuccin.nixosModules.catppuccin
+          ];
+          homeManagerModules = [
+            nixRegistry
+            ./modules/home.nix
+            nix-index-database.hmModules.nix-index
+            nixvim.homeManagerModules.nixvim
+            catppuccin.homeManagerModules.catppuccin
+          ];
+        in
+        {
+          homeConfigurations =
+            let
+              mkHome =
+                entrypoint:
+                home-manager.lib.homeManagerConfiguration {
+                  pkgs = nixpkgs.legacyPackages.${system};
+                  modules = homeManagerModules ++ [ entrypoint ];
+                  extraSpecialArgs = { inherit inputs; };
+                };
+            in
+            {
+              atlas = mkHome ./hosts/default/users/atlas.nix;
+            };
 
-      nixosConfigurations = {
-        wsl = mkSystem ./hosts/wsl;
-        cygnus = mkSystem ./hosts/cygnus;
-        pavo = mkSystem ./hosts/pavo;
-      };
+          nixosConfigurations =
+            let
+              mkSystem =
+                entrypoint:
+                nixpkgs.lib.nixosSystem {
+                  system = system;
+                  modules = nixosModules ++ [ entrypoint ];
+                  specialArgs = { inherit inputs; };
+                };
+            in
+            {
+              wsl = mkSystem ./hosts/wsl;
+              cygnus = mkSystem ./hosts/cygnus;
+              pavo = mkSystem ./hosts/pavo;
+            };
+        }
+      );
 
       templates = import ./templates;
     };
