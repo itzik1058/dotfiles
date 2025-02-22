@@ -69,13 +69,14 @@
         catppuccin.homeManagerModules.catppuccin
       ];
       mkSystem =
-        entrypoint:
+        system: entrypoint:
         nixpkgs.lib.nixosSystem {
+          system = system;
           modules = nixosModules ++ [ entrypoint ];
           specialArgs = { inherit inputs; };
         };
       mkHome =
-        entrypoint: system:
+        system: entrypoint:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = homeManagerModules ++ [ entrypoint ];
@@ -101,13 +102,14 @@
       formatter = eachSystem (system: with pkgsFor.${system}; pkgs.nixfmt-rfc-style);
 
       homeConfigurations = {
-        atlas = mkHome ./hosts/default/users/atlas "x86_64-linux";
+        atlas-x86_64-linux = mkHome "x86_64-linux" ./hosts/default/users/atlas.nix;
+        atlas-aarch64-linux = mkHome "aarch64-linux" ./hosts/default/users/atlas.nix;
       };
 
       nixosConfigurations = {
-        wsl = mkSystem ./hosts/wsl;
-        cygnus = mkSystem ./hosts/cygnus;
-        pavo = mkSystem ./hosts/pavo;
+        wsl = mkSystem "x86_64-linux" ./hosts/wsl;
+        cygnus = mkSystem "x86_64-linux" ./hosts/cygnus;
+        pavo = mkSystem "x86_64-linux" ./hosts/pavo;
       };
 
       templates = import ./templates;
