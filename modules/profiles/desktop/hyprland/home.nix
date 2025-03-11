@@ -179,6 +179,8 @@ in
             "float, class:\\.blueman.*"
             "float, class:org.pulseaudio.pavucontrol"
             "float, class:brasero"
+            "float, title:Open Folder"
+            "float, class:Extension: (Bitwarden - Free Password Manager).*"
 
             "noblur, class:com.mitchellh.ghostty"
           ];
