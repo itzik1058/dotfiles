@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
   };
   outputs =
     {
@@ -83,13 +84,23 @@
           extraSpecialArgs = { inherit inputs; };
         };
     in
-    {
+    rec {
+      checks = eachSystem (system: {
+        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            deadnix.enable = true;
+          };
+        };
+      });
+
       devShells = eachSystem (
         system: with pkgsFor.${system}; {
           default = mkShell {
+            inherit (checks.${system}.pre-commit-check) shellHook;
+            buildInputs = checks.${system}.pre-commit-check.enabledPackages;
+
             packages = [
-              pre-commit
-              deadnix
               (writeShellScriptBin "rebuild" ''
                 nixos-rebuild --flake . --log-format internal-json -v "$@" \
                 |& ${lib.getExe nix-output-monitor} --json \
