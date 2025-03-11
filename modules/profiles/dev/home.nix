@@ -30,12 +30,14 @@ in
       nixvim = import ../../nixvim;
       vscode = {
         enable = true;
-        enableUpdateCheck = true;
-        enableExtensionUpdateCheck = true;
         mutableExtensionsDir = true;
-        extensions = with pkgs.vscode-extensions; [ mkhl.direnv ];
-        keybindings = [ ];
-        userSettings = { };
+        profiles.default = {
+          enableUpdateCheck = true;
+          enableExtensionUpdateCheck = true;
+          extensions = with pkgs.vscode-extensions; [ mkhl.direnv ];
+          keybindings = [ ];
+          userSettings = { };
+        };
       };
     };
   };
