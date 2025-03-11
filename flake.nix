@@ -54,7 +54,9 @@
             useUserPackages = true;
             backupFileExtension = "backup";
             sharedModules = homeManagerModules;
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = {
+              inherit inputs;
+            };
           };
         }
         nixos-wsl.nixosModules.wsl
@@ -74,14 +76,18 @@
         nixpkgs.lib.nixosSystem {
           system = system;
           modules = nixosModules ++ [ entrypoint ];
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
         };
       mkHome =
         system: entrypoint:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = homeManagerModules ++ [ entrypoint ];
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+          };
         };
     in
     rec {
@@ -90,6 +96,7 @@
           src = ./.;
           hooks = {
             deadnix.enable = true;
+            nixfmt-rfc-style.enable = true;
           };
         };
       });
