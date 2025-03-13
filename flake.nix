@@ -71,6 +71,10 @@
         nixvim.homeManagerModules.nixvim
         catppuccin.homeManagerModules.catppuccin
       ];
+      nixvimModule = {
+        module = import ./modules/nixvim;
+        extraSpecialArgs = { };
+      };
       mkSystem =
         system: entrypoint:
         nixpkgs.lib.nixosSystem {
@@ -98,6 +102,10 @@
             deadnix.enable = true;
             nixfmt-rfc-style.enable = true;
           };
+        };
+        nvim = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule {
+          inherit system;
+          inherit (nixvimModule) module extraSpecialArgs;
         };
       });
 
@@ -129,6 +137,13 @@
         cygnus = mkSystem "x86_64-linux" ./hosts/cygnus;
         pavo = mkSystem "x86_64-linux" ./hosts/pavo;
       };
+
+      packages = eachSystem (system: {
+        nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+          inherit system;
+          inherit (nixvimModule) module extraSpecialArgs;
+        };
+      });
 
       templates = import ./templates;
     };

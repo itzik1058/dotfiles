@@ -4,9 +4,6 @@
     ./keymaps.nix
   ];
 
-  enable = true;
-  defaultEditor = true;
-  vimdiffAlias = true;
   performance.byteCompileLua = {
     enable = true;
     nvimRuntime = true;

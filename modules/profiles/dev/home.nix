@@ -27,7 +27,11 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
-      nixvim = import ../../nixvim;
+      nixvim = (import ../../nixvim) // {
+        enable = true;
+        defaultEditor = true;
+        vimdiffAlias = true;
+      };
       vscode = {
         enable = true;
         mutableExtensionsDir = true;
