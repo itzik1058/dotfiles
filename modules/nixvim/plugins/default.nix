@@ -1,5 +1,6 @@
 {
   imports = [
+    ./avante.nix
     ./bufferline.nix
     ./cmp.nix
     ./gitsigns.nix
