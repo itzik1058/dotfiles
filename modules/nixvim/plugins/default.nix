@@ -4,26 +4,24 @@
     ./cmp.nix
     ./gitsigns.nix
     ./lsp
+    ./mini.nix
     ./neotree.nix
-    ./oil.nix
+    ./snacks
     ./telescope.nix
-    ./undotree.nix
   ];
 
   plugins = {
     colorizer.enable = true;
     fugitive.enable = true;
     git-conflict.enable = true;
-    lsp-format.enable = true;
     lualine.enable = true;
-    nvim-autopairs.enable = true;
-    nvim-surround.enable = true;
-    project-nvim.enable = true;
     rainbow-delimiters.enable = true;
     sleuth.enable = true;
     tmux-navigator.enable = true;
-    treesitter.enable = true;
-    trouble.enable = true;
+    treesitter = {
+      enable = true;
+      settings.highlight.enable = true;
+    };
     ts-context-commentstring.enable = true;
     web-devicons.enable = true;
     which-key.enable = true;
