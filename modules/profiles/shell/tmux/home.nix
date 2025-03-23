@@ -19,6 +19,7 @@ in
       keyMode = "vi";
       mouse = true;
       baseIndex = 1;
+      escapeTime = 10;
       clock24 = true;
       terminal = "tmux-256color";
       plugins = with pkgs.tmuxPlugins; [
