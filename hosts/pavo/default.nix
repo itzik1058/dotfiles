@@ -49,6 +49,12 @@
     ];
   };
 
+  # https://github.com/NixOS/nixpkgs/issues/270809
+  systemd.services.ModemManager.wantedBy = [
+    "multi-user.target"
+    "network.target"
+  ];
+
   profiles = {
     audio.enable = true;
     desktop = {
