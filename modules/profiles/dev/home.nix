@@ -18,6 +18,7 @@ in
       lazygit
       nixfmt-rfc-style
       docker-compose
+      lazydocker
       sops
       uv
       neovide
