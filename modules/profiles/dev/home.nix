@@ -15,6 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       gh
+      lazygit
       nixfmt-rfc-style
       docker-compose
       sops
