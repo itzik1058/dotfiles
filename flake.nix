@@ -69,7 +69,7 @@
         ./modules/home.nix
         nix-index-database.hmModules.nix-index
         nixvim.homeManagerModules.nixvim
-        catppuccin.homeManagerModules.catppuccin
+        catppuccin.homeModules.catppuccin
       ];
       nixvimModule = {
         module = import ./modules/nixvim;
