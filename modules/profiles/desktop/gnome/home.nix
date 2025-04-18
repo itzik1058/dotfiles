@@ -154,7 +154,7 @@ in
               "org.gnome.Console.desktop"
               "com.mitchellh.ghostty.desktop"
               "Alacritty.desktop"
-              "vesktop.desktop"
+              "discord.desktop"
               "steam.desktop"
             ];
 

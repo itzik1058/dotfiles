@@ -23,6 +23,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
+      (discord.override { withVencord = true; })
       libreoffice
       notes
       nvtopPackages.full
@@ -31,7 +32,6 @@ in
       qbittorrent
       scrcpy
       telegram-desktop
-      vesktop
       wl-clipboard
     ];
 
