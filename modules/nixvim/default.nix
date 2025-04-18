@@ -4,6 +4,8 @@
     ./keymaps.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   performance.byteCompileLua = {
     enable = true;
     nvimRuntime = true;

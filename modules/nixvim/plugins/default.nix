@@ -1,7 +1,7 @@
 {
   imports = [
-    ./avante.nix
     ./bufferline.nix
+    ./codecompanion.nix
     ./cmp.nix
     ./gitsigns.nix
     ./lsp
@@ -13,11 +13,18 @@
 
   plugins = {
     colorizer.enable = true;
+    copilot-vim.enable = true;
     fugitive.enable = true;
     git-conflict.enable = true;
     lualine.enable = true;
     rainbow-delimiters.enable = true;
-    render-markdown.enable = true;
+    render-markdown = {
+      enable = true;
+      settings.file_types = [
+        "markdown"
+        "codecompanion"
+      ];
+    };
     sleuth.enable = true;
     tmux-navigator.enable = true;
     treesitter = {
