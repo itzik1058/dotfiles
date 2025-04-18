@@ -87,7 +87,7 @@
       mkHome =
         system: entrypoint:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs { system = system; };
           modules = homeManagerModules ++ [ entrypoint ];
           extraSpecialArgs = {
             inherit inputs;
