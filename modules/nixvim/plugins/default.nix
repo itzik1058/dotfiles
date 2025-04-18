@@ -17,6 +17,7 @@
     git-conflict.enable = true;
     lualine.enable = true;
     rainbow-delimiters.enable = true;
+    render-markdown.enable = true;
     sleuth.enable = true;
     tmux-navigator.enable = true;
     treesitter = {
