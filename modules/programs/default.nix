@@ -1,1 +1,1 @@
-{ imports = [ ./grim-dawn ]; }
+{ imports = [ ]; }

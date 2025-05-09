@@ -13,11 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      heroic
-      protonup-qt
-    ];
-
     programs = {
       steam = {
         enable = true;
@@ -34,8 +29,6 @@ in
 
       gamemode.enable = true;
     };
-
-    programs.grim-dawn.enable = true;
 
     # services.miniupnpd.enable = true; # Potential security risk
   };

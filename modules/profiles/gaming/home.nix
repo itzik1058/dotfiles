@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   cfg = config.profiles.gaming;
 in
@@ -8,6 +13,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      heroic
+    ];
+
     programs.mangohud = {
       enable = true;
       enableSessionWide = true;
