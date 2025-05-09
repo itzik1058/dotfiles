@@ -10,7 +10,6 @@
       splitjoin = { };
       surround = { };
       bracketed = { };
-      jump = { };
     };
   };
 }

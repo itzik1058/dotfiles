@@ -14,6 +14,7 @@
   plugins = {
     colorizer.enable = true;
     copilot-vim.enable = true;
+    flash.enable = true;
     fugitive.enable = true;
     git-conflict.enable = true;
     lualine.enable = true;
