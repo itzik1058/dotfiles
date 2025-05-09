@@ -47,7 +47,7 @@ in
         }
       ];
 
-      initExtra = ''
+      initContent = ''
         bindkey -a H vi-beginning-of-line
         bindkey -a L vi-end-of-line
         bindkey '^ ' autosuggest-accept
