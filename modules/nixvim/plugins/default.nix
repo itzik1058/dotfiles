@@ -4,6 +4,7 @@
     ./codecompanion.nix
     ./cmp.nix
     ./gitsigns.nix
+    ./lazygit.nix
     ./lsp
     ./mini.nix
     ./neotree.nix
@@ -15,7 +16,6 @@
     colorizer.enable = true;
     copilot-vim.enable = true;
     flash.enable = true;
-    fugitive.enable = true;
     git-conflict.enable = true;
     lualine.enable = true;
     rainbow-delimiters.enable = true;
