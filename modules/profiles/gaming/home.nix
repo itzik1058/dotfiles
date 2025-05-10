@@ -20,7 +20,7 @@ in
 
     programs.mangohud = {
       enable = true;
-      # enableSessionWide = true;
+      enableSessionWide = true;
       settings = {
         toggle_hud = "Shift_L+F11";
         no_display = true;
