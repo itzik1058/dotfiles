@@ -16,6 +16,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      sshfs
       gh
       lazygit
       nixfmt-rfc-style
