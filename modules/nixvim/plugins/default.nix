@@ -17,6 +17,7 @@
     copilot-vim.enable = true;
     flash.enable = true;
     git-conflict.enable = true;
+    hardtime.enable = true;
     lualine.enable = true;
     rainbow-delimiters.enable = true;
     render-markdown = {
