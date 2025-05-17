@@ -25,6 +25,7 @@
       "wheel"
       "docker"
       "dialout"
+      "gamemode"
     ];
     shell = pkgs.zsh;
   };
