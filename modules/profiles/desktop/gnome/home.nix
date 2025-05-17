@@ -136,6 +136,23 @@ in
             dynamic-workspaces = true;
           };
 
+          "org/gnome/desktop/break-reminders" = {
+            selected-breaks = [
+              "eyesight"
+              "movement"
+            ];
+          };
+
+          "org/gnome/desktop/break-reminders/eyesight" = {
+            play-sound = true;
+          };
+
+          "org/gnome/desktop/break-reminders/movement" = {
+            duration-seconds = mkUint32 300;
+            interval-seconds = mkUint32 1800;
+            play-sound = true;
+          };
+
           "org/gnome/mutter/keybindings" = {
             toggle-tiled-left = [
               "<Super>Left"
