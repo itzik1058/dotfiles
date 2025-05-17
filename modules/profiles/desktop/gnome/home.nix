@@ -172,6 +172,7 @@ in
               "com.mitchellh.ghostty.desktop"
               "Alacritty.desktop"
               "discord.desktop"
+              "obsidian.desktop"
               "steam.desktop"
             ];
 
