@@ -95,6 +95,7 @@
       };
       postConfig = builtins.readFile ./postConfig.lua;
       servers = {
+        astro.enable = true;
         clangd.enable = true;
         eslint.enable = true;
         jsonls.enable = true;
