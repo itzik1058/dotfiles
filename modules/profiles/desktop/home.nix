@@ -23,7 +23,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
-      discord
+      (discord.override { withVencord = true; })
       libreoffice
       notes
       nvtopPackages.full
