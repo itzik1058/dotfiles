@@ -34,6 +34,9 @@ in
         ];
       };
 
+      sessionVariables = {
+        ZVM_INIT_MODE = "sourcing";
+      };
       plugins = [
         {
           name = "fzf-tab";
