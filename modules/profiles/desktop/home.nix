@@ -26,6 +26,7 @@ in
       (discord.override { withVencord = true; })
       libreoffice
       notes
+      btop
       nvtopPackages.full
       obsidian
       onlyoffice-bin
