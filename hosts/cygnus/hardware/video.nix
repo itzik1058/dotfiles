@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  boot.kernelParams = [ "module_blacklist=i915" ];
+
   hardware = {
     nvidia = {
       open = false;
