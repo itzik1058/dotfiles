@@ -14,14 +14,12 @@ in
 
   config = lib.mkIf cfg.enable {
     services = {
-      xserver = {
+      displayManager.gdm = {
         enable = true;
-        displayManager.gdm = {
-          enable = true;
-          autoSuspend = false;
-        };
-        desktopManager.gnome.enable = true;
+        autoSuspend = false;
+        debug = true;
       };
+      desktopManager.gnome.enable = true;
       udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
 
