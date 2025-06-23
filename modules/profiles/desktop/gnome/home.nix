@@ -28,6 +28,7 @@ in
       ++ (with pkgs.gnomeExtensions; [
         appindicator
         dash-to-dock
+        tiling-shell
         blur-my-shell
         ddterm
       ]);
@@ -179,6 +180,7 @@ in
             enabled-extensions = [
               "appindicatorsupport@rgcjonas.gmail.com"
               "dash-to-dock@micxgx.gmail.com"
+              "tilingshell@ferrarodomenico.com"
               "blur-my-shell@aunetx"
               "ddterm@amezin.github.com"
             ];
