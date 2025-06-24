@@ -13,8 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    system.stateVersion = "23.11";
-
     nix = {
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
       gc = {

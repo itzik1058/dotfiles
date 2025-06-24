@@ -2,6 +2,8 @@
 {
   imports = [ ./hardware.nix ];
 
+  system.stateVersion = "23.11";
+
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
