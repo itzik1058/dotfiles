@@ -134,6 +134,7 @@
 
       nixosConfigurations = {
         wsl = mkSystem "x86_64-linux" ./hosts/wsl;
+        centaurus = mkSystem "x86_64-linux" ./hosts/centaurus;
         cygnus = mkSystem "x86_64-linux" ./hosts/cygnus;
         pavo = mkSystem "x86_64-linux" ./hosts/pavo;
       };
