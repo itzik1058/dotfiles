@@ -40,10 +40,17 @@
 
   networking.useDHCP = lib.mkDefault true;
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
   };
 }
