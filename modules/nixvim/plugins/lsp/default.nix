@@ -98,6 +98,14 @@
         astro.enable = true;
         clangd.enable = true;
         eslint.enable = true;
+        gdscript = {
+          enable = true;
+          package = null;
+        };
+        gdshader_lsp = {
+          enable = true;
+          package = null;
+        };
         jsonls.enable = true;
         lua_ls.enable = true;
         nixd = {
