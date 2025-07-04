@@ -31,6 +31,7 @@ in
         tiling-shell
         blur-my-shell
         ddterm
+        home-assistant-extension
       ]);
 
     dconf = {
