@@ -35,6 +35,7 @@
       settings.highlight.enable = true;
     };
     ts-context-commentstring.enable = true;
+    vim-dadbod-ui.enable = true;
     web-devicons.enable = true;
     which-key.enable = true;
   };
