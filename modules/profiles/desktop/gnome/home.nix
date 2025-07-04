@@ -96,6 +96,14 @@ in
               "<Shift><Super>Left"
               "<Shift><Super>h"
             ];
+            switch-to-workspace-left = [
+              "<Control><Alt>Left"
+              "<Control><Alt>h"
+            ];
+            switch-to-workspace-right = [
+              "<Control><Alt>Right"
+              "<Control><Alt>l"
+            ];
             switch-applications = [ ];
             switch-applications-backward = [ ];
             switch-input-source = [ "<Shift>Alt_L" ];
