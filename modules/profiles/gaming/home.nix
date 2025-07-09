@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
@@ -13,10 +12,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      heroic
-    ];
-
     programs.mangohud = {
       enable = true;
       enableSessionWide = true;
