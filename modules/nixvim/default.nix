@@ -25,6 +25,7 @@
     softtabstop = 0;
     shiftwidth = 2;
     expandtab = true;
+    scrolloff = 999;
   };
   colorschemes.catppuccin = {
     enable = true;
