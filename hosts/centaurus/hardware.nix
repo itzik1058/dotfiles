@@ -56,5 +56,6 @@
       enable = true;
       enableGraphical = true;
     };
+    openrazer.enable = true;
   };
 }

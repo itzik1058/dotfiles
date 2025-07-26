@@ -28,6 +28,7 @@
       "docker"
       "dialout"
       "gamemode"
+      "openrazer"
     ];
     shell = pkgs.zsh;
   };
@@ -43,6 +44,7 @@
     flatpak.enable = true;
     fwupd.enable = true;
     smartd.enable = true;
+    hardware.openrgb.enable = true;
     tailscale.enable = true;
     sunshine = {
       enable = lib.mkDefault true;
@@ -55,6 +57,10 @@
   environment = {
     shells = with pkgs; [ zsh ];
     pathsToLink = [ "/share/zsh" ];
+    systemPackages = with pkgs; [
+      openrazer-daemon
+      polychromatic
+    ];
   };
 
   security.rtkit.enable = true;
