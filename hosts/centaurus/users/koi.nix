@@ -1,4 +1,7 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [ prismlauncher ];
+
   profiles = {
     audio.enable = true;
     autostart.enable = true;
