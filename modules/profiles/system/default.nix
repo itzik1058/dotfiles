@@ -50,6 +50,8 @@ in
       '';
     };
 
+    security.sudo.package = pkgs.sudo.override { withInsults = true; };
+
     services = {
       fstrim.enable = true;
       keyd = {
