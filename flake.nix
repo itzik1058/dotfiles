@@ -67,7 +67,7 @@
       homeManagerModules = [
         nixRegistry
         ./modules/home.nix
-        nix-index-database.hmModules.nix-index
+        nix-index-database.homeModules.nix-index
         nixvim.homeManagerModules.nixvim
         catppuccin.homeModules.catppuccin
       ];
