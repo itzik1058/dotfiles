@@ -1,6 +1,7 @@
 { config, ... }:
 {
-  home.file."${config.home.homeDirectory}/.vscode-server/server-env-setup".text = "PATH=$PATH:/run/current-system/sw/bin/";
+  home.file."${config.home.homeDirectory}/.vscode-server/server-env-setup".text =
+    "PATH=$PATH:/run/current-system/sw/bin/";
 
   profiles = {
     dev.enable = true;
