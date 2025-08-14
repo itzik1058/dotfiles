@@ -1,9 +1,13 @@
 {
   description = "";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
@@ -25,6 +29,7 @@
     {
       nixpkgs,
       home-manager,
+      nix-darwin,
       nixos-wsl,
       nix-index-database,
       nixvim,
@@ -34,7 +39,6 @@
     let
       supportedSystems = [
         "x86_64-linux"
-        "x86_64-darwin"
         "aarch64-linux"
         "aarch64-darwin"
       ];
@@ -53,7 +57,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";
-            sharedModules = homeManagerModules;
+            sharedModules = homeModules;
             extraSpecialArgs = {
               inherit inputs;
             };
@@ -64,12 +68,28 @@
         nixvim.nixosModules.nixvim
         catppuccin.nixosModules.catppuccin
       ];
-      homeManagerModules = [
+      homeModules = [
         nixRegistry
         ./modules/home.nix
         nix-index-database.homeModules.nix-index
-        nixvim.homeManagerModules.nixvim
+        nixvim.homeModules.nixvim
         catppuccin.homeModules.catppuccin
+      ];
+      darwinModules = [
+        nixRegistry
+        ./modules/darwin.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
+            sharedModules = homeModules;
+            extraSpecialArgs = {
+              inherit inputs;
+            };
+          };
+        }
       ];
       nixvimModule = {
         module = import ./modules/nixvim;
@@ -88,8 +108,17 @@
         system: entrypoint:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = system; };
-          modules = homeManagerModules ++ [ entrypoint ];
+          modules = homeModules ++ [ entrypoint ];
           extraSpecialArgs = {
+            inherit inputs;
+          };
+        };
+      mkDarwin =
+        system: entrypoint:
+        nix-darwin.lib.darwinSystem {
+          system = system;
+          modules = darwinModules ++ [ entrypoint ];
+          specialArgs = {
             inherit inputs;
           };
         };
@@ -109,6 +138,10 @@
         };
       });
 
+      darwinConfigurations = {
+        lyra = mkDarwin "aarch64-darwin" ./hosts/lyra;
+      };
+
       devShells = eachSystem (
         system: with pkgsFor.${system}; {
           default = mkShell {
@@ -116,11 +149,18 @@
             buildInputs = checks.${system}.pre-commit-check.enabledPackages;
 
             packages = [
-              (writeShellScriptBin "rebuild" ''
-                nixos-rebuild --flake . --log-format internal-json -v "$@" \
-                |& ${lib.getExe nix-output-monitor} --json \
-                && nix store diff-closures /run/*-system
-              '')
+              (writeShellScriptBin "rebuild" (
+                if stdenv.isDarwin then
+                  ''
+                    darwin-rebuild --flake . "$@"
+                  ''
+                else
+                  ''
+                    nixos-rebuild --flake . --log-format internal-json -v "$@" \
+                    |& ${lib.getExe nix-output-monitor} --json \
+                    && nix store diff-closures /run/*-system
+                  ''
+              ))
             ];
           };
         }

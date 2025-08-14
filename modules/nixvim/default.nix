@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./plugins
@@ -9,11 +10,11 @@
   performance.byteCompileLua = {
     enable = true;
     nvimRuntime = true;
-    plugins = true;
+    plugins = pkgs.stdenv.isLinux;
   };
   clipboard = {
     register = "unnamedplus";
-    providers.wl-copy.enable = true;
+    providers.wl-copy.enable = pkgs.stdenv.isLinux;
   };
   globals.mapleader = " ";
   opts = {

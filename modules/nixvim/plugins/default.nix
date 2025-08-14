@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./bufferline.nix
@@ -17,7 +18,7 @@
     copilot-vim.enable = true;
     flash.enable = true;
     git-conflict.enable = true;
-    godot.enable = true;
+    godot.enable = pkgs.stdenv.isLinux;
     hardtime.enable = true;
     lualine.enable = true;
     rainbow-delimiters.enable = true;

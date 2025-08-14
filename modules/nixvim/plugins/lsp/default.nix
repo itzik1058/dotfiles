@@ -1,3 +1,4 @@
+{ lib, pkgs, ... }:
 {
   plugins = {
     conform-nvim = {
@@ -98,11 +99,11 @@
         astro.enable = true;
         clangd.enable = true;
         eslint.enable = true;
-        gdscript = {
+        gdscript = lib.mkIf pkgs.stdenv.isLinux {
           enable = true;
           package = null;
         };
-        gdshader_lsp = {
+        gdshader_lsp = lib.mkIf pkgs.stdenv.isLinux {
           enable = true;
           package = null;
         };
