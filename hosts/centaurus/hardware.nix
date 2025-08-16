@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -10,6 +11,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
@@ -18,13 +20,8 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [
-    "amdgpu.ppfeaturemask=0xfffd3fff"
-    "split_lock_detect=off"
-  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/ddb26d08-4077-4342-8bed-d87ba43c6234";
