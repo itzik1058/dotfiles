@@ -2,6 +2,8 @@
 {
   home.packages = with pkgs; [ prismlauncher ];
 
+  services.ollama.enable = true;
+
   profiles = {
     audio.enable = true;
     autostart.enable = true;
