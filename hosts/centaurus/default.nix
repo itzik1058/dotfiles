@@ -12,6 +12,8 @@
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
+  nixpkgs.config.rocmSupport = true;
+
   networking = {
     hostName = "centaurus";
     networkmanager.enable = true;
@@ -48,7 +50,6 @@
     tailscale.enable = true;
     sunshine = {
       enable = lib.mkDefault true;
-      package = pkgs.sunshine.override { cudaSupport = true; };
       openFirewall = true;
       capSysAdmin = true;
     };

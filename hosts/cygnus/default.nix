@@ -12,6 +12,8 @@
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
+  nixpkgs.config.cudaSupport = true;
+
   networking = {
     hostName = "cygnus";
     networkmanager.enable = true;
@@ -46,7 +48,6 @@
     tailscale.enable = true;
     sunshine = {
       enable = lib.mkDefault true;
-      package = pkgs.sunshine.override { cudaSupport = true; };
       openFirewall = true;
       capSysAdmin = true;
     };
