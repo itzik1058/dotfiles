@@ -16,7 +16,7 @@ in
       "bitwarden"
       "claude"
       "discord"
-      "ollama"
+      "ollama-app"
       "telegram"
       "whatsapp"
     ];
