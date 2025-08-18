@@ -8,5 +8,6 @@
       enable = true;
       starship.enable = true;
     };
+    system.enable = true;
   };
 }

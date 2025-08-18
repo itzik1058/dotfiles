@@ -8,6 +8,7 @@
     ./gaming/home.nix
     ./home-manager/home.nix
     ./shell/home.nix
+    ./system/home
     ./terminal/home.nix
     ./theme/home.nix
   ];

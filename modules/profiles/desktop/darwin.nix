@@ -16,6 +16,7 @@ in
       "bitwarden"
       "claude"
       "discord"
+      "karabiner-elements"
       "ollama-app"
       "telegram"
       "whatsapp"
