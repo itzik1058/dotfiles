@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   system.stateVersion = 6;
 
@@ -7,6 +8,7 @@
 
   users.users.koi = {
     home = "/Users/koi";
+    shell = pkgs.zsh;
   };
   home-manager.users.koi = import ./users/koi.nix;
 
