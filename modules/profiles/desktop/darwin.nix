@@ -21,5 +21,7 @@ in
       "telegram"
       "whatsapp"
     ];
+
+    system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
   };
 }
