@@ -19,6 +19,7 @@ in
       "karabiner-elements"
       "ollama-app"
       "telegram"
+      "vladdoster/formulae/vimari"
       "whatsapp"
     ];
 
