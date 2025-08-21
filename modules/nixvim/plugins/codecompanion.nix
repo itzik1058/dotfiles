@@ -6,10 +6,18 @@
   keymaps = [
     {
       mode = [ "n" ];
-      key = "<leader>cc";
-      action = "<cmd>CodeCompanion<cr>";
+      key = "<leader>cct";
+      action = "<cmd>CodeCompanionChat Toggle<cr>";
       options = {
-        desc = "Code Companion";
+        desc = "CodeCompanion Chat Toggle";
+      };
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>cca";
+      action = "<cmd>CodeCompanionActions<cr>";
+      options = {
+        desc = "CodeCompanion Actions";
       };
     }
   ];
