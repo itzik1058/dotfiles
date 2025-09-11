@@ -20,6 +20,7 @@ in
         debug = true;
       };
       desktopManager.gnome.enable = true;
+      gnome.gnome-keyring.enable = true;
       udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
 
