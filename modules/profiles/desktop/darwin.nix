@@ -13,6 +13,7 @@ in
 
   config = lib.mkIf cfg.enable {
     homebrew.casks = [
+      "anki"
       "bitwarden"
       "claude"
       "discord"
