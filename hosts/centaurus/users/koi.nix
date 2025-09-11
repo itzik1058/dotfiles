@@ -4,6 +4,8 @@
 
   services.ollama.enable = true;
 
+  dconf.settings."org/gnome/shell".enabled-extensions = [ "hass-gshell@geoph9-on-github" ];
+
   profiles = {
     audio.enable = true;
     autostart.enable = true;
