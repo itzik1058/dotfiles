@@ -21,7 +21,13 @@
 
   time.timeZone = "Asia/Jerusalem";
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "ja_JP.UTF-8";
+    extraLocales = [
+      "en_US.UTF-8/UTF-8"
+      "he_IL.UTF-8/UTF-8"
+    ];
+  };
 
   users.users.koi = {
     isNormalUser = true;
