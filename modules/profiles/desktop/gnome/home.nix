@@ -43,6 +43,7 @@ in
         {
           "org/gnome/desktop/interface".color-scheme = "prefer-dark";
           "org/gnome/desktop/input-sources" = {
+            show-all-sources = true;
             sources = [
               (mkTuple [
                 "xkb"
