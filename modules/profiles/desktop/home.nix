@@ -29,7 +29,7 @@ in
       btop
       nvtopPackages.full
       obsidian
-      onlyoffice-bin
+      onlyoffice-desktopeditors
       qbittorrent
       scrcpy
       telegram-desktop

@@ -1,48 +1,48 @@
 {
   plugins.neo-tree = {
     enable = true;
-    sources = [
-      "filesystem"
-      "buffers"
-      "git_status"
-      "document_symbols"
-    ];
-    addBlankLineAtTop = false;
 
-    eventHandlers = {
-      file_open_requested = ''
-        function()
-          require("neo-tree.command").execute({ action = "close" })
-        end
-      '';
-    };
-
-    filesystem = {
-      bindToCwd = false;
-      followCurrentFile = {
-        enabled = true;
+    settings = {
+      sources = [
+        "filesystem"
+        "buffers"
+        "git_status"
+        "document_symbols"
+      ];
+      add_blank_line_at_top = false;
+      event_handlers = {
+        file_open_requested.__raw = ''
+          function()
+            require("neo-tree.command").execute({ action = "close" })
+          end
+        '';
       };
-    };
-
-    defaultComponentConfigs = {
-      indent = {
-        withExpanders = true;
-        expanderCollapsed = "󰅂";
-        expanderExpanded = "󰅀";
-        expanderHighlight = "NeoTreeExpander";
+      filesystem = {
+        bind_to_cwd = false;
+        follow_current_file = {
+          enabled = true;
+        };
       };
+      default_component_configs = {
+        indent = {
+          with_expanders = true;
+          expander_collapsed = "󰅂";
+          expander_expanded = "󰅀";
+          expander_highlight = "NeoTreeExpander";
+        };
 
-      gitStatus = {
-        symbols = {
-          added = " ";
-          conflict = "󰩌 ";
-          deleted = "󱂥";
-          ignored = " ";
-          modified = " ";
-          renamed = "󰑕";
-          staged = "󰩍";
-          unstaged = "";
-          untracked = " ";
+        git_status = {
+          symbols = {
+            added = " ";
+            conflict = "󰩌 ";
+            deleted = "󱂥";
+            ignored = " ";
+            modified = " ";
+            renamed = "󰑕";
+            staged = "󰩍";
+            unstaged = "";
+            untracked = " ";
+          };
         };
       };
     };
