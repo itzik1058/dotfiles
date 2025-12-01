@@ -1,4 +1,4 @@
-{ helpers, ... }:
+{ lib, ... }:
 {
   plugins = {
     cmp = {
@@ -18,7 +18,7 @@
         sources = [
           {
             name = "buffer";
-            option.get_bufnrs = helpers.mkRaw "vim.api.nvim_list_bufs";
+            option.get_bufnrs = lib.nixvim.mkRaw "vim.api.nvim_list_bufs";
             keywordLength = 3;
           }
           { name = "emoji"; }
