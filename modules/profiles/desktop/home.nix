@@ -39,7 +39,16 @@ in
     ];
 
     programs = {
-      firefox.enable = true;
+      firefox = {
+        enable = true;
+        profiles = {
+          default = {
+            settings = {
+              "ui.key.menuAccessKeyFocuses" = false;
+            };
+          };
+        };
+      };
       java.enable = true;
       mpv = {
         enable = true;
