@@ -34,6 +34,7 @@ in
       scrcpy
       telegram-desktop
       wl-clipboard
+      pinta
     ];
 
     programs = {
