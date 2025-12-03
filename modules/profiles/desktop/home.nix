@@ -28,6 +28,7 @@ in
       notes
       btop
       nvtopPackages.full
+      thunderbird
       obsidian
       onlyoffice-desktopeditors
       qbittorrent
