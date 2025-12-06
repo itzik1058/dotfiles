@@ -15,7 +15,7 @@
     home-manager.enable = true;
     shell = {
       enable = true;
-      powerlevel10k.enable = true;
+      starship.enable = true;
     };
     theme.enable = true;
   };

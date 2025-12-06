@@ -9,7 +9,6 @@ let
 in
 {
   imports = [
-    ./powerlevel10k/home.nix
     ./starship/home.nix
     ./tmux/home.nix
     ./zellij/home.nix
