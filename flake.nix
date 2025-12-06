@@ -6,10 +6,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,17 +18,22 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    catppuccin.url = "github:catppuccin/nix";
   };
   outputs =
     {
       nixpkgs,
       home-manager,
-      nix-darwin,
       nixos-wsl,
       nix-index-database,
       nixvim,
+      nix-darwin,
+      pre-commit-hooks,
       catppuccin,
       ...
     }@inputs:
@@ -125,7 +126,7 @@
     in
     rec {
       checks = eachSystem (system: {
-        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        pre-commit-check = pre-commit-hooks.lib.${system}.run {
           src = ./.;
           hooks = {
             deadnix.enable = true;
