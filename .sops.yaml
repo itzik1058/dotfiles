@@ -1,0 +1,13 @@
+keys:
+  - &centaurus age1d29r4lnvsqjstg7w5nuzdg2xjrz4kqge0vsx0knnegvey7xn7ykqvkc2le
+  - &centaurus_koi age1mczp5k7nkaxccph69lfhmx5lyn2grgdd3zvgs2w7c9qp6lfwlslq4mp2p2
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *centaurus
+  - path_regex: secrets/centaurus/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *centaurus
+          - *centaurus_koi

@@ -50,6 +50,15 @@ in
       '';
     };
 
+    sops = {
+      defaultSopsFile = ../../../secrets/default.yaml;
+      age = {
+        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+        keyFile = "/var/lib/sops-nix/keys.txt";
+        generateKey = true;
+      };
+    };
+
     security.sudo.package = pkgs.sudo.override { withInsults = true; };
 
     services = {

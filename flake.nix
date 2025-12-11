@@ -23,6 +23,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
   };
   outputs =
@@ -34,6 +38,7 @@
       nixvim,
       nix-darwin,
       pre-commit-hooks,
+      sops-nix,
       catppuccin,
       ...
     }@inputs:
@@ -67,6 +72,7 @@
         nixos-wsl.nixosModules.wsl
         nix-index-database.nixosModules.nix-index
         nixvim.nixosModules.nixvim
+        sops-nix.nixosModules.sops
         catppuccin.nixosModules.catppuccin
       ];
       homeModules = [
@@ -74,6 +80,7 @@
         ./modules/home.nix
         nix-index-database.homeModules.nix-index
         nixvim.homeModules.nixvim
+        sops-nix.homeManagerModules.sops
         catppuccin.homeModules.catppuccin
       ];
       darwinModules = [
@@ -91,6 +98,7 @@
             };
           };
         }
+        sops-nix.darwinModules.sops
       ];
       nixvimModule = {
         module = import ./modules/nixvim;
