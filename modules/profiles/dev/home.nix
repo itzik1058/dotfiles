@@ -8,8 +8,6 @@ let
   cfg = config.profiles.dev;
 in
 {
-  imports = [ ./nixvim.nix ];
-
   options.profiles.dev = {
     enable = lib.mkEnableOption "dev profile";
   };
