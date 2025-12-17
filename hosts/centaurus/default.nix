@@ -12,7 +12,7 @@
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
-  nixpkgs.config.rocmSupport = true;
+  # nixpkgs.config.rocmSupport = true;
 
   networking = {
     hostName = "centaurus";
@@ -35,7 +35,6 @@
     shell = pkgs.zsh;
   };
   home-manager.users.koi = import ./users/koi.nix;
-
 
   services = {
     displayManager.autoLogin.user = "koi";
