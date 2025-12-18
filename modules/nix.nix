@@ -46,7 +46,10 @@
             enable = false;
             registry = nixRegistry;
             nixPath = nixPath config.nix.registry;
-            settings.experimental-features = "nix-command flakes";
+            settings = {
+              experimental-features = "nix-command flakes";
+              auto-optimise-store = true;
+            };
           };
         };
     };
