@@ -2,29 +2,9 @@
 {
   flake = {
     modules.nixos.system =
-      {
-        config,
-        lib,
-        pkgs,
-        ...
-      }:
+      { pkgs, ... }:
       {
         config = {
-          nix = {
-            nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-            gc = {
-              automatic = true;
-              dates = "weekly";
-              options = "--delete-older-than 30d";
-              persistent = true;
-            };
-            optimise.automatic = true;
-            settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
-          };
-
           nixpkgs.config.allowUnfree = true;
 
           boot.kernel.sysctl."kernel.sysrq" = 438; # debian default
@@ -81,11 +61,6 @@
       { pkgs, ... }:
       {
         config = {
-          nix = {
-            enable = false;
-            settings.experimental-features = "nix-command flakes";
-          };
-
           nixpkgs.config.allowUnfree = true;
 
           system = {
