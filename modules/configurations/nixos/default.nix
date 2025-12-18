@@ -5,7 +5,6 @@
       nixosModules = [
         config.flake.modules.nixos.nix
         inputs.home-manager.nixosModules.home-manager
-        config.flake.modules.nixos.home-manager
         inputs.nixos-wsl.nixosModules.wsl
         inputs.nix-index-database.nixosModules.nix-index
         inputs.sops-nix.nixosModules.sops

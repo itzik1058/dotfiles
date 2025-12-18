@@ -2,6 +2,7 @@
 let
   nixosModules = [
     config.flake.modules.nixos.dev
+    config.flake.modules.nixos.home-manager
     config.flake.modules.nixos.system
   ];
   homeManagerModules = [

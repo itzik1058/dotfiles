@@ -6,6 +6,7 @@ let
     config.flake.modules.nixos.dev
     config.flake.modules.nixos.gaming
     config.flake.modules.nixos.gnome
+    config.flake.modules.nixos.home-manager
     config.flake.modules.nixos.ssh
     config.flake.modules.nixos.system
   ];

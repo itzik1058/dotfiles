@@ -6,7 +6,6 @@
         config.flake.modules.darwin.nix
         ../modules/darwin.nix
         inputs.home-manager.darwinModules.home-manager
-        config.flake.modules.darwin.home-manager
         inputs.sops-nix.darwinModules.sops
       ];
       mkDarwin =

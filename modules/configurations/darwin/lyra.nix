@@ -3,6 +3,7 @@ let
   darwinModules = [
     config.flake.modules.darwin.desktop
     config.flake.modules.darwin.dev
+    config.flake.modules.darwin.home-manager
     config.flake.modules.darwin.system
   ];
   homeManagerModules = [
