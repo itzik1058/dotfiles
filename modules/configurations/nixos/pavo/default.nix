@@ -10,6 +10,7 @@ let
     config.flake.modules.nixos.hyprland
     config.flake.modules.nixos.ssh
     config.flake.modules.nixos.system
+    config.flake.modules.nixos.wireguard
   ];
   homeManagerModules = [
     config.flake.modules.homeManager.audio
