@@ -8,6 +8,12 @@
     let
       nixRegistry = builtins.mapAttrs (_: flake: { inherit flake; }) inputs;
       nixPath = registry: lib.mapAttrsToList (key: value: "${key}=${value.to.path}") registry;
+      nixGarbageCollector = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+        persistent = true;
+      };
     in
     {
       modules.nixos.nix =
@@ -16,12 +22,7 @@
           nix = {
             registry = nixRegistry;
             nixPath = nixPath config.nix.registry;
-            gc = {
-              automatic = true;
-              dates = "weekly";
-              options = "--delete-older-than 30d";
-              persistent = true;
-            };
+            gc = nixGarbageCollector;
             optimise.automatic = true;
             settings.experimental-features = [
               "nix-command"
@@ -36,6 +37,7 @@
           nix = {
             registry = nixRegistry;
             nixPath = nixPath config.nix.registry;
+            gc = nixGarbageCollector;
           };
         };
 
@@ -46,10 +48,12 @@
             enable = false;
             registry = nixRegistry;
             nixPath = nixPath config.nix.registry;
-            settings = {
-              experimental-features = "nix-command flakes";
-              auto-optimise-store = true;
-            };
+            gc = nixGarbageCollector;
+            optimise.automatic = true;
+            settings.experimental-features = [
+              "nix-command"
+              "flakes"
+            ];
           };
         };
     };
