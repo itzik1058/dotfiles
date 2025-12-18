@@ -1,19 +1,19 @@
 { config, ... }:
 let
-  darwinModules = [
-    config.flake.modules.darwin.desktop
-    config.flake.modules.darwin.dev
-    config.flake.modules.darwin.home-manager
-    config.flake.modules.darwin.system
+  darwinModules = with config.flake.modules.darwin; [
+    desktop
+    dev
+    home-manager
+    system
   ];
-  homeManagerModules = [
-    config.flake.modules.homeManager.dev
-    config.flake.modules.homeManager.home-manager
-    config.flake.modules.homeManager.shell
-    config.flake.modules.homeManager.starship
-    config.flake.modules.homeManager.system
-    config.flake.modules.homeManager.tmux
-    config.flake.modules.homeManager.zsh
+  homeManagerModules = with config.flake.modules.homeManager; [
+    dev
+    home-manager
+    shell
+    starship
+    system
+    tmux
+    zsh
   ];
 in
 {

@@ -1,17 +1,17 @@
 { config, ... }:
 let
-  nixosModules = [
-    config.flake.modules.nixos.dev
-    config.flake.modules.nixos.home-manager
-    config.flake.modules.nixos.system
+  nixosModules = with config.flake.modules.nixos; [
+    dev
+    home-manager
+    system
   ];
-  homeManagerModules = [
-    config.flake.modules.homeManager.dev
-    config.flake.modules.homeManager.home-manager
-    config.flake.modules.homeManager.shell
-    config.flake.modules.homeManager.starship
-    config.flake.modules.homeManager.tmux
-    config.flake.modules.homeManager.zsh
+  homeManagerModules = with config.flake.modules.homeManager; [
+    dev
+    home-manager
+    shell
+    starship
+    tmux
+    zsh
   ];
 in
 {

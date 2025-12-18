@@ -1,7 +1,7 @@
 { config, ... }:
 let
-  homeManagerModules = [
-    config.flake.modules.homeManager.home-manager
+  homeManagerModules = with config.flake.modules.homeManager; [
+    home-manager
   ];
 in
 {

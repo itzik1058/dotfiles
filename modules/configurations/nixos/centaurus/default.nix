@@ -1,33 +1,33 @@
 { config, ... }:
 let
-  nixosModules = [
-    config.flake.modules.nixos.audio
-    config.flake.modules.nixos.desktop
-    config.flake.modules.nixos.dev
-    config.flake.modules.nixos.gaming
-    config.flake.modules.nixos.gnome
-    config.flake.modules.nixos.home-manager
-    config.flake.modules.nixos.sops
-    config.flake.modules.nixos.ssh
-    config.flake.modules.nixos.system
-    config.flake.modules.nixos.wireguard
+  nixosModules = with config.flake.modules.nixos; [
+    audio
+    desktop
+    dev
+    gaming
+    gnome
+    home-manager
+    sops
+    ssh
+    system
+    wireguard
   ];
-  homeManagerModules = [
-    config.flake.modules.homeManager.audio
-    config.flake.modules.homeManager.autostart
-    config.flake.modules.homeManager.desktop
-    config.flake.modules.homeManager.dev
-    config.flake.modules.homeManager.gaming
-    config.flake.modules.homeManager.ghostty
-    config.flake.modules.homeManager.gnome
-    config.flake.modules.homeManager.home-manager
-    config.flake.modules.homeManager.shell
-    config.flake.modules.homeManager.sops
-    config.flake.modules.homeManager.starship
-    config.flake.modules.homeManager.system
-    config.flake.modules.homeManager.theme
-    config.flake.modules.homeManager.tmux
-    config.flake.modules.homeManager.zsh
+  homeManagerModules = with config.flake.modules.homeManager; [
+    audio
+    autostart
+    desktop
+    dev
+    gaming
+    ghostty
+    gnome
+    home-manager
+    shell
+    sops
+    starship
+    system
+    theme
+    tmux
+    zsh
   ];
 in
 {
