@@ -1,0 +1,52 @@
+{ config, ... }:
+let
+  nixosModules = [
+    config.flake.modules.nixos.dev
+    config.flake.modules.nixos.system
+  ];
+  homeManagerModules = [
+    config.flake.modules.homeManager.dev
+    config.flake.modules.homeManager.home-manager
+    config.flake.modules.homeManager.shell
+    config.flake.modules.homeManager.starship
+    config.flake.modules.homeManager.tmux
+    config.flake.modules.homeManager.zsh
+  ];
+in
+{
+  flake.modules.nixos."hosts/wsl" =
+    { pkgs, ... }:
+    {
+      imports = nixosModules;
+
+      wsl = {
+        enable = true;
+        defaultUser = "nixos";
+      };
+
+      networking = {
+        hostName = "wsl";
+      };
+
+      users.users.nixos = {
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
+          "docker"
+        ];
+        shell = pkgs.zsh;
+      };
+      home-manager.users.nixos =
+        { config, ... }:
+        {
+          imports = homeManagerModules;
+          home.file."${config.home.homeDirectory}/.vscode-server/server-env-setup".text =
+            "PATH=$PATH:/run/current-system/sw/bin/";
+        };
+
+      environment = {
+        shells = with pkgs; [ zsh ];
+        pathsToLink = [ "/share/zsh" ];
+      };
+    };
+}
