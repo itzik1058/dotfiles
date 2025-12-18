@@ -47,15 +47,6 @@
             '';
           };
 
-          sops = {
-            defaultSopsFile = ../../../secrets/default.yaml;
-            age = {
-              sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-              keyFile = "/var/lib/sops-nix/keys.txt";
-              generateKey = true;
-            };
-          };
-
           security.sudo.package = pkgs.sudo.override { withInsults = true; };
 
           services = {
@@ -92,23 +83,9 @@
         };
       };
     modules.homeManager.system =
-      {
-        config,
-        lib,
-        pkgs,
-        ...
-      }:
+      { lib, pkgs, ... }:
       {
         config = {
-          sops = {
-            defaultSopsFile = ../../../secrets/default.yaml;
-            age = {
-              sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
-              keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
-              generateKey = true;
-            };
-          };
-
           xdg.configFile = lib.mkIf pkgs.stdenv.isDarwin {
             "karabiner/karabiner.json".source = ./karabiner.json;
           };

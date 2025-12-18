@@ -6,6 +6,7 @@ let
     config.flake.modules.nixos.dev
     config.flake.modules.nixos.gaming
     config.flake.modules.nixos.gnome
+    config.flake.modules.nixos.sops
     config.flake.modules.nixos.ssh
     config.flake.modules.nixos.system
   ];
@@ -19,6 +20,7 @@ let
     config.flake.modules.homeManager.gnome
     config.flake.modules.homeManager.home-manager
     config.flake.modules.homeManager.shell
+    config.flake.modules.homeManager.sops
     config.flake.modules.homeManager.starship
     config.flake.modules.homeManager.system
     config.flake.modules.homeManager.theme
