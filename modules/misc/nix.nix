@@ -6,54 +6,46 @@
 {
   flake =
     let
-      nixRegistry = builtins.mapAttrs (_: flake: { inherit flake; }) inputs;
-      nixPath = registry: lib.mapAttrsToList (key: value: "${key}=${value.to.path}") registry;
-      nixGarbageCollector = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 30d";
-        persistent = true;
+      nixConfig = registry: {
+        registry = builtins.mapAttrs (_: flake: { inherit flake; }) inputs;
+        nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") registry;
+        gc = {
+          automatic = true;
+          dates = "weekly";
+          options = "--delete-older-than 30d";
+          persistent = true;
+        };
+        settings = {
+          flake-registry = "";
+          auto-optimise-store = true;
+          experimental-features = [
+            "nix-command"
+            "flakes"
+          ];
+        };
       };
     in
     {
       modules.nixos.nix =
         { config, ... }:
         {
-          nix = {
-            registry = nixRegistry;
-            nixPath = nixPath config.nix.registry;
-            gc = nixGarbageCollector;
-            optimise.automatic = true;
-            settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
+          nix = nixConfig config.nix.registry // {
+            channel.enable = false;
           };
         };
 
       modules.homeManager.nix =
         { config, ... }:
         {
-          nix = {
-            registry = nixRegistry;
-            nixPath = nixPath config.nix.registry;
-            gc = nixGarbageCollector;
-          };
+          nix = nixConfig config.nix.registry;
         };
 
       modules.darwin.nix =
         { config, ... }:
         {
-          nix = {
+          nix = (nixConfig config.nix.registry) // {
             enable = false;
-            registry = nixRegistry;
-            nixPath = nixPath config.nix.registry;
-            gc = nixGarbageCollector;
-            optimise.automatic = true;
-            settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
+            nix.channel.enable = false;
           };
         };
     };
