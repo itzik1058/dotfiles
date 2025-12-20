@@ -1,9 +1,14 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
+let
+  modules = config.flake.modules;
+in
 {
   flake = {
-    modules.nixos.system =
+    modules.nixos.base =
       { pkgs, ... }:
       {
+        imports = [ modules.nixos.nix ];
+
         config = {
           nixpkgs.config.allowUnfree = true;
 
@@ -48,18 +53,14 @@
           fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
         };
       };
-    modules.homeManager.system =
-      { lib, pkgs, ... }:
-      {
-        config = {
-          xdg.configFile = lib.mkIf pkgs.stdenv.isDarwin {
-            "karabiner/karabiner.json".source = ./karabiner.json;
-          };
-        };
-      };
-    modules.darwin.system =
+    modules.homeManager.base = {
+      imports = [ modules.homeManager.nix ];
+    };
+    modules.darwin.base =
       { pkgs, ... }:
       {
+        imports = [ modules.darwin.nix ];
+
         config = {
           nixpkgs.config.allowUnfree = true;
 

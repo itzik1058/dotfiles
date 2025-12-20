@@ -9,7 +9,6 @@ let
     home-manager
     hyprland
     ssh
-    system
     wireguard
   ];
   homeManagerModules = with config.flake.modules.homeManager; [
@@ -25,7 +24,6 @@ let
     hyprland
     shell
     starship
-    system
     theme
     tmux
     zsh

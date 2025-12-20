@@ -3,7 +3,6 @@ let
   nixosModules = with config.flake.modules.nixos; [
     dev
     home-manager
-    system
   ];
   homeManagerModules = with config.flake.modules.homeManager; [
     dev

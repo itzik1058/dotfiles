@@ -3,7 +3,7 @@
   flake = {
     modules.nixos.imports = {
       imports = [
-        config.flake.modules.nixos.nix
+        config.flake.modules.nixos.base
         inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
@@ -14,7 +14,7 @@
     };
     modules.homeManager.imports = {
       imports = [
-        config.flake.modules.homeManager.nix
+        config.flake.modules.homeManager.base
         inputs.catppuccin.homeModules.catppuccin
         inputs.nix-index-database.homeModules.nix-index
         inputs.nixvim.homeModules.nixvim
@@ -23,7 +23,7 @@
     };
     modules.darwin.imports = {
       imports = [
-        config.flake.modules.darwin.nix
+        config.flake.modules.darwin.base
         inputs.home-manager.darwinModules.home-manager
         inputs.sops-nix.darwinModules.sops
       ];

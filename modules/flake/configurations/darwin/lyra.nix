@@ -4,15 +4,14 @@ let
     desktop
     dev
     home-manager
-    system
   ];
   homeManagerModules = with config.flake.modules.homeManager; [
     dev
     home-manager
+    karabiner
     nixvim
     shell
     starship
-    system
     tmux
     zsh
   ];

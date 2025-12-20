@@ -8,7 +8,6 @@ let
     gnome
     home-manager
     ssh
-    system
     wireguard
   ];
   homeManagerModules = with config.flake.modules.homeManager; [
@@ -23,7 +22,6 @@ let
     nixvim
     shell
     starship
-    system
     theme
     tmux
     zsh

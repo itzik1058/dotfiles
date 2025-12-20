@@ -9,7 +9,6 @@ let
     home-manager
     sops
     ssh
-    system
     wireguard
   ];
   homeManagerModules = with config.flake.modules.homeManager; [
@@ -25,7 +24,6 @@ let
     shell
     sops
     starship
-    system
     theme
     tmux
     zsh
