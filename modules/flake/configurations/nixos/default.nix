@@ -23,4 +23,8 @@
         pavo = mkSystem "x86_64-linux" config.flake.modules.nixos."hosts/pavo";
       };
     };
+
+  perSystem = {
+    topology.modules = [ { nixosConfigurations = config.flake.nixosConfigurations; } ];
+  };
 }

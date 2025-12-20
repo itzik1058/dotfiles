@@ -7,6 +7,7 @@
         inputs.catppuccin.nixosModules.catppuccin
         inputs.home-manager.nixosModules.home-manager
         inputs.nix-index-database.nixosModules.nix-index
+        inputs.nix-topology.nixosModules.default
         inputs.nixos-wsl.nixosModules.wsl
         inputs.nixvim.nixosModules.nixvim
         inputs.sops-nix.nixosModules.sops
