@@ -1,13 +1,6 @@
-{
-  config,
-  lib,
-  modulesPath,
-  ...
-}:
+{ lib, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "ehci_pci"
@@ -43,5 +36,8 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
   # networking.interfaces.wwp0s20u3i7.useDHCP = lib.mkDefault true;
 
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu.intel.updateMicrocode = true;
+  };
 }

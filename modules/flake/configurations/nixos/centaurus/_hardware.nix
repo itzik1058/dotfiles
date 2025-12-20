@@ -1,15 +1,5 @@
+{ lib, pkgs, ... }:
 {
-  config,
-  lib,
-  modulesPath,
-  pkgs,
-  ...
-}:
-{
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [
     "nvme"
@@ -41,7 +31,8 @@
   networking.useDHCP = lib.mkDefault true;
 
   hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    enableRedistributableFirmware = true;
+    cpu.amd.updateMicrocode = true;
 
     graphics = {
       enable = true;

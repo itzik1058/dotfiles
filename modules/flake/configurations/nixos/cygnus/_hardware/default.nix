@@ -1,13 +1,7 @@
-{
-  config,
-  lib,
-  modulesPath,
-  ...
-}:
+{ lib, ... }:
 
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     ./video.nix
     ./mount.nix
   ];
@@ -37,7 +31,10 @@
 
   networking.useDHCP = lib.mkDefault true;
 
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu.intel.updateMicrocode = true;
+  };
 
   specialisation = {
     vfio.configuration = {
