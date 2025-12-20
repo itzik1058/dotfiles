@@ -2,17 +2,14 @@
 {
   flake =
     let
-      darwinModules = [
-        config.flake.modules.darwin.nix
-        ../modules/darwin.nix
-        inputs.home-manager.darwinModules.home-manager
-        inputs.sops-nix.darwinModules.sops
-      ];
       mkDarwin =
         system: entrypoint:
         inputs.nix-darwin.lib.darwinSystem {
           system = system;
-          modules = darwinModules ++ [ entrypoint ];
+          modules = [
+            config.flake.modules.darwin.imports
+            entrypoint
+          ];
           specialArgs = {
             inherit inputs;
           };

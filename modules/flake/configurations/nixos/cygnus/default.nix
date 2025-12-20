@@ -20,6 +20,7 @@ let
     ghostty
     gnome
     home-manager
+    nixvim
     shell
     starship
     system

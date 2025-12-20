@@ -12,13 +12,7 @@
       };
     };
     modules.homeManager.home-manager = {
-      imports = [
-        config.flake.modules.homeManager.nix
-        inputs.nix-index-database.homeModules.nix-index
-        inputs.sops-nix.homeManagerModules.sops
-        inputs.catppuccin.homeModules.catppuccin
-        config.flake.modules.homeManager.nixvim
-      ];
+      imports = [ config.flake.modules.homeManager.imports ];
       config = {
         home.stateVersion = "23.11";
         programs.home-manager.enable = true;

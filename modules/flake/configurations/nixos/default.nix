@@ -2,19 +2,14 @@
 {
   flake =
     let
-      nixosModules = [
-        config.flake.modules.nixos.nix
-        inputs.home-manager.nixosModules.home-manager
-        inputs.nixos-wsl.nixosModules.wsl
-        inputs.nix-index-database.nixosModules.nix-index
-        inputs.sops-nix.nixosModules.sops
-        inputs.catppuccin.nixosModules.catppuccin
-      ];
       mkSystem =
         system: entrypoint:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
-          modules = nixosModules ++ [ entrypoint ];
+          modules = [
+            config.flake.modules.nixos.imports
+            entrypoint
+          ];
           specialArgs = {
             inherit inputs;
           };

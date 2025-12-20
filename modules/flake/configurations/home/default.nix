@@ -6,7 +6,10 @@
         system: entrypoint:
         inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = import inputs.nixpkgs { system = system; };
-          modules = [ entrypoint ];
+          modules = [
+            config.flake.modules.homeManager.home-manager
+            entrypoint
+          ];
           extraSpecialArgs = {
             inherit inputs;
           };

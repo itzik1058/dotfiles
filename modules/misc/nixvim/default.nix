@@ -7,11 +7,7 @@ let
 in
 {
   flake = {
-    modules.nixos.nixvim = {
-      imports = [ inputs.nixvim.nixosModules.nixvim ];
-    };
     modules.homeManager.nixvim = {
-      imports = [ inputs.nixvim.homeModules.nixvim ];
       config = {
         programs.nixvim = nixvimModule;
       };

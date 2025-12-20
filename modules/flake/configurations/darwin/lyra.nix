@@ -9,6 +9,7 @@ let
   homeManagerModules = with config.flake.modules.homeManager; [
     dev
     home-manager
+    nixvim
     shell
     starship
     system
