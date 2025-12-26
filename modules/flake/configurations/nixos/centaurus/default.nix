@@ -7,7 +7,6 @@ let
     gaming
     gnome
     home-manager
-    installer
     sops
     ssh
     wireguard
