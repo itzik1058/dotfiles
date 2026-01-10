@@ -11,7 +11,6 @@
             enable = true;
             openFirewall = true;
           };
-          adb.enable = true;
         };
       };
     };
@@ -25,6 +24,7 @@
       {
         config = {
           home.packages = with pkgs; [
+            android-tools
             bitwarden-desktop
             (discord.override { withVencord = true; })
             libreoffice

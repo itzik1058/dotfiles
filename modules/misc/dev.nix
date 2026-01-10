@@ -48,7 +48,7 @@
             sshfs
             gh
             lazygit
-            nixfmt-rfc-style
+            nixfmt
             docker-compose
             lazydocker
             sops
