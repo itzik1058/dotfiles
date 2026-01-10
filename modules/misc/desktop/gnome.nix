@@ -168,7 +168,7 @@
 
                 "org/gnome/desktop/break-reminders/movement" = {
                   duration-seconds = mkUint32 300;
-                  interval-seconds = mkUint32 1800;
+                  interval-seconds = mkUint32 7200;
                   play-sound = true;
                 };
 
