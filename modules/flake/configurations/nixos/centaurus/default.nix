@@ -74,7 +74,12 @@ in
 
           home.packages = with pkgs; [ prismlauncher ];
 
-          services.ollama.enable = true;
+          services.ollama = {
+            enable = true;
+            environmentVariables = {
+              OLLAMA_CONTEXT_LENGTH = "16384";
+            };
+          };
 
           dconf.settings."org/gnome/shell".enabled-extensions = [ "hass-gshell@geoph9-on-github" ];
         };
