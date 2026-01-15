@@ -47,6 +47,18 @@
               profiles = {
                 default = {
                   settings = {
+                    "browser.urlbar.showSearchSuggestionsFirst" = false;
+
+                    # https://bugzilla.mozilla.org/show_bug.cgi?id=1732114
+                    "privacy.resistFingerprinting" = false;
+                    "privacy.fingerprintingProtection" = true;
+                    "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
+
+                    "sidebar.revamp" = true;
+                    "sidebar.revamp.round-content-area" = true;
+                    "sidebar.verticalTabs" = true;
+                    "sidebar.visibility" = "expand-on-hover";
+                    "signon.rememberSignons" = false;
                     "ui.key.menuAccessKeyFocuses" = false;
                   };
                 };
