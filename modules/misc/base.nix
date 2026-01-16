@@ -54,7 +54,10 @@ in
         };
       };
     modules.homeManager.base = {
-      imports = [ modules.homeManager.nix ];
+      imports = [
+        modules.homeManager.nix
+        modules.homeManager.file-templates
+      ];
     };
     modules.darwin.base =
       { pkgs, ... }:
