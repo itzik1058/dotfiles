@@ -41,22 +41,26 @@
         };
       };
     modules.homeManager.dev =
-      { pkgs, ... }:
+      { pkgs, lib, ... }:
       {
         config = {
-          home.packages = with pkgs; [
-            sshfs
-            gh
-            lazygit
-            nixfmt
-            docker-compose
-            lazydocker
-            sops
-            uv
-            neovide
-            aseprite
-            godot_4
-          ];
+          home.packages =
+            with pkgs;
+            [
+              sshfs
+              gh
+              lazygit
+              nixfmt
+              docker-compose
+              lazydocker
+              sops
+              uv
+              neovide
+            ]
+            ++ lib.optionals pkgs.stdenv.isLinux [
+              aseprite
+              godot_4
+            ];
 
           programs = {
             direnv = {

@@ -35,18 +35,23 @@
         };
 
       modules.homeManager.nix =
-        { config, ... }:
         {
-          nix = nixConfig config.nix.registry;
-        };
-
-      modules.darwin.nix =
-        { config, ... }:
+          config,
+          pkgs,
+          lib,
+          ...
+        }:
         {
-          nix = (nixConfig config.nix.registry) // {
-            enable = false;
-            nix.channel.enable = false;
+          nix = nixConfig config.nix.registry // {
+            package = lib.mkDefault pkgs.nix;
           };
         };
+
+      modules.darwin.nix = {
+        nix = {
+          enable = false;
+          channel.enable = false;
+        };
+      };
     };
 }

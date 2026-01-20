@@ -1,6 +1,6 @@
 {
   flake = {
-    modules.homeManager.system =
+    modules.homeManager.karabiner =
       { lib, pkgs, ... }:
       {
         config = {
