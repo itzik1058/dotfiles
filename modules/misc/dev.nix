@@ -54,7 +54,6 @@
               docker-compose
               lazydocker
               sops
-              uv
               neovide
             ]
             ++ lib.optionals pkgs.stdenv.isLinux [
@@ -72,6 +71,7 @@
               defaultEditor = true;
               vimdiffAlias = true;
             };
+            uv.enable = true;
             vscode = {
               enable = true;
               mutableExtensionsDir = true;
