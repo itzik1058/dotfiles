@@ -47,6 +47,7 @@
           home.packages =
             with pkgs;
             [
+              commitizen
               sshfs
               gh
               lazygit
