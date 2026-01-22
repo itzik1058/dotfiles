@@ -9,7 +9,6 @@
         inputs.nix-index-database.nixosModules.nix-index
         inputs.nix-topology.nixosModules.default
         inputs.nixos-wsl.nixosModules.wsl
-        inputs.nixvim.nixosModules.nixvim
         inputs.sops-nix.nixosModules.sops
       ];
     };
@@ -18,7 +17,6 @@
         config.flake.modules.homeManager.base
         inputs.catppuccin.homeModules.catppuccin
         inputs.nix-index-database.homeModules.nix-index
-        inputs.nixvim.homeModules.nixvim
         inputs.sops-nix.homeManagerModules.sops
       ];
     };

@@ -20,7 +20,6 @@ let
     ghostty
     gnome
     home-manager
-    nixvim
     shell
     sops
     starship

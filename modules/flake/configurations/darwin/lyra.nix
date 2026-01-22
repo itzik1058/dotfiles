@@ -9,7 +9,6 @@ let
     dev
     home-manager
     karabiner
-    nixvim
     shell
     starship
     tmux

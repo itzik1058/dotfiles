@@ -1,4 +1,4 @@
-{
+top: {
   flake = {
     modules.nixos.dev =
       { pkgs, ... }:
@@ -43,6 +43,8 @@
     modules.homeManager.dev =
       { pkgs, lib, ... }:
       {
+        imports = [ top.config.flake.modules.homeManager.neovim ];
+
         config = {
           home.packages =
             with pkgs;
@@ -66,11 +68,6 @@
             direnv = {
               enable = true;
               nix-direnv.enable = true;
-            };
-            nixvim = {
-              enable = true;
-              defaultEditor = true;
-              vimdiffAlias = true;
             };
             uv.enable = true;
             vscode = {
