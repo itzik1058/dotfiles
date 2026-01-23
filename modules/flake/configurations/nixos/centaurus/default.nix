@@ -45,7 +45,7 @@ in
         binfmt.emulatedSystems = [ "aarch64-linux" ];
       };
 
-      nixpkgs.config.rocmSupport = true;
+      # nixpkgs.config.rocmSupport = true;
 
       networking = {
         hostName = "centaurus";
