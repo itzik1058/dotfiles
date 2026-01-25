@@ -93,7 +93,16 @@
           "whatsapp"
         ];
 
-        system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
+        system = {
+          defaults = {
+            controlcenter = {
+              BatteryShowPercentage = true;
+            };
+            NSGlobalDomain = {
+              NSWindowShouldDragOnGesture = true;
+            };
+          };
+        };
       };
     };
   };
