@@ -56,6 +56,7 @@
               lazydocker
               sops
               neovide
+              bun
             ]
             ++ lib.optionals pkgs.stdenv.isLinux [
               aseprite
