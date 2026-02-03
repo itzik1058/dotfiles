@@ -41,6 +41,14 @@
             pinta
           ];
 
+          xdg.mimeApps = {
+            enable = true;
+            defaultApplicationPackages = with pkgs; [
+              firefox
+              thunderbird
+            ];
+          };
+
           programs = {
             firefox = {
               enable = true;

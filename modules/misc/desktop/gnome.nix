@@ -266,11 +266,8 @@
               };
           };
 
-          xdg.mimeApps = {
-            enable = true;
-            defaultApplications = {
-              "text/plain" = [ "org.gnome.TextEditor.desktop" ];
-            };
+          xdg.mimeApps.defaultApplications = {
+            "text/plain" = [ "org.gnome.TextEditor.desktop" ];
           };
         };
       };
