@@ -223,6 +223,14 @@
                   transparency-mode = "FIXED";
                 };
 
+                "org/gnome/shell/extensions/blur-my-shell/applications" = {
+                  blur = true;
+                  blur-on-overview = true;
+                  enable-all = true;
+                  opacity = 225;
+                  sigma = 10;
+                };
+
                 "org/gnome/Geary" = {
                   run-in-background = true;
                 };
