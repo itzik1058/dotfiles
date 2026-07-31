@@ -75,7 +75,6 @@
               entries = [
                 "${config.programs.discord.package}/share/applications/discord.desktop"
                 "${config.programs.firefox.package}/share/applications/firefox.desktop"
-                "${config.programs.obsidian.package}/share/applications/obsidian.desktop"
               ];
             };
             mimeApps = lib.mkIf pkgs.stdenv.isLinux {
