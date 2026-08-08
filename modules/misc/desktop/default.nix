@@ -44,6 +44,9 @@
         config = {
           home = {
             preferXdgDirectories = true;
+            sessionVariables = {
+              "_JAVA_AWT_WM_NONREPARENTING" = "1";
+            };
 
             packages =
               with pkgs;
