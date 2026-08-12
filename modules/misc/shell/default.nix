@@ -39,8 +39,8 @@
               {
                 enable = true;
                 defaultCommand = fd;
-                fileWidgetCommand = "${fd} --type f";
-                changeDirWidgetCommand = "${fd} --type d";
+                fileWidget.command = "${fd} --type f";
+                changeDirWidget.command = "${fd} --type d";
               };
             jq.enable = true;
             ripgrep.enable = true;

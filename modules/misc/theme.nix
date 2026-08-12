@@ -4,9 +4,14 @@
       { pkgs, ... }:
       {
         config = {
-          catppuccin.flavor = "mocha";
+          catppuccin = {
+            enable = true;
+            autoEnable = false;
+            flavor = "mocha";
+          };
 
           home.pointerCursor = {
+            enable = true;
             package = pkgs.bibata-cursors;
             name = "Bibata-Modern-Ice";
             size = 24;
@@ -35,7 +40,7 @@
 
           qt = {
             enable = true;
-            platformTheme.name = "gtk";
+            platformTheme.name = "gtk3";
             style = {
               package = pkgs.adwaita-qt;
               name = "adwaita-dark";
