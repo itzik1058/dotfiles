@@ -119,7 +119,6 @@ in
         };
 
       services = {
-        displayManager.autoLogin.user = "koi";
         printing.enable = true;
         flatpak.enable = true;
         fwupd.enable = true;
