@@ -123,7 +123,6 @@ top: {
               enableXdgAutostart = true;
             };
 
-            plugins = with pkgs.hyprlandPlugins; [ hyprexpo ];
             settings =
               let
                 cliphist = lib.getExe config.services.cliphist.package;
