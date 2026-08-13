@@ -53,6 +53,30 @@
                 reserve_space = false;
                 show_dots = true;
               };
+              idle = {
+                behavior_order = [
+                  "lock"
+                  "screen-off"
+                  "lock-and-suspend"
+                ];
+                behavior = {
+                  lock = {
+                    action = "lock";
+                    enabled = true;
+                    timeout = 600.0;
+                  };
+                  lock-and-suspend = {
+                    action = "lock_and_suspend";
+                    enabled = true;
+                    timeout = 3600.0;
+                  };
+                  screen-off = {
+                    action = "screen_off";
+                    enabled = true;
+                    timeout = 1200.0;
+                  };
+                };
+              };
               lockscreen = {
                 blur_intensity = 0.0;
                 tint_intensity = 0.0;
