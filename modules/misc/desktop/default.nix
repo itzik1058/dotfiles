@@ -130,6 +130,28 @@
             yazi = {
               enable = true;
               shellWrapperName = "y";
+              keymap.mgr.prepend_keymap = [
+                {
+                  on = [
+                    "M"
+                    "m"
+                  ];
+                  run = "plugin mount";
+                }
+                {
+                  on = [
+                    "M"
+                    "s"
+                  ];
+                  run = "plugin sshfs -- menu";
+                  desc = "Open SSHFS options";
+                }
+              ];
+              plugins = with pkgs.yaziPlugins; {
+                mount.package = mount;
+                smart-enter.package = smart-enter;
+                sshfs.package = sshfs;
+              };
             };
             yt-dlp.enable = true;
           };
