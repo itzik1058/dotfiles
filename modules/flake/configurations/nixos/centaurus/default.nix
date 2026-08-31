@@ -132,6 +132,11 @@ in
         };
       };
 
+      programs.solaar = {
+        enable = true;
+        userService.enable = true;
+      };
+
       environment = {
         shells = with pkgs; [ zsh ];
         pathsToLink = [ "/share/zsh" ];

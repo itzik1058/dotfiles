@@ -60,13 +60,13 @@
                 telegram-desktop
                 thunderbird
               ]
-              ++ lib.optionals pkgs.stdenv.isLinux [
+              ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
                 libreoffice
                 onlyoffice-desktopeditors
                 pinta
                 wl-clipboard
               ]
-              ++ lib.optionals pkgs.stdenv.isDarwin [
+              ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
                 whatsapp-for-mac
               ];
           };
@@ -80,7 +80,7 @@
                 "${config.programs.firefox.package}/share/applications/firefox.desktop"
               ];
             };
-            mimeApps = lib.mkIf pkgs.stdenv.isLinux {
+            mimeApps = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
               enable = true;
               defaultApplicationPackages = with pkgs; [
                 firefox

@@ -7,9 +7,9 @@
           programs.ghostty = {
             enable = true;
             package =
-              if pkgs.stdenv.isLinux then
+              if pkgs.stdenv.hostPlatform.isLinux then
                 pkgs.ghostty
-              else if pkgs.stdenv.isDarwin then
+              else if pkgs.stdenv.hostPlatform.isDarwin then
                 pkgs.ghostty-bin
               else
                 null;

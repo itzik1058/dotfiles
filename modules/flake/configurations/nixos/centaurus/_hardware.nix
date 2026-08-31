@@ -45,10 +45,6 @@
       enable32Bit = true;
     };
 
-    logitech.wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
     openrazer.enable = true;
   };
 }

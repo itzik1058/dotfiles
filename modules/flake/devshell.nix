@@ -14,7 +14,7 @@
 
           packages = [
             (pkgs.writeShellScriptBin "rebuild" (
-              if pkgs.stdenv.isDarwin then
+              if pkgs.stdenv.hostPlatform.isDarwin then
                 ''
                   darwin-rebuild --flake . "$@"
                 ''

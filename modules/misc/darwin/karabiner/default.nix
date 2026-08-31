@@ -4,7 +4,7 @@
       { lib, pkgs, ... }:
       {
         config = {
-          xdg.configFile = lib.mkIf pkgs.stdenv.isDarwin {
+          xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
             "karabiner/karabiner.json".source = ./karabiner.json;
           };
         };

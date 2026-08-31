@@ -65,7 +65,7 @@ top: {
               sops
               sshfs
             ]
-            ++ lib.optionals pkgs.stdenv.isLinux [
+            ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
               godot_4
             ];
 
